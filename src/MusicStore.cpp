@@ -6,7 +6,7 @@ MusicStore::MusicStore(Database* db) : _db(db) {}
 
 
 void MusicStore::addItem(const MusicItem& item) {
-    std::string query = "INSERT INTO musicinfo_tb (m_category, m_type, m_name, m_artist, m_price, m_quantity) VALUES ('" +
+    std::string query = "INSERT INTO music_items (category, type, name, artist, price, quantity) VALUES ('" +
         item.getCategory() + "', '" + item.getType() + "', '" + item.getName() + "', '" +
         item.getArtist() + "', " + std::to_string(item.getPrice()) + ", " + std::to_string(item.getQuantity()) + ")";
     if (_db->execute(query)) {
@@ -18,7 +18,7 @@ void MusicStore::addItem(const MusicItem& item) {
 }
 
 bool MusicStore::removeItem(int id) {
-    std::string query = "DELETE FROM musicinfo_tb WHERE m_id = " + std::to_string(id);
+    std::string query = "DELETE FROM music_items WHERE id = " + std::to_string(id);
     if (_db->execute(query)) {
         std::cout << "Item removed successfully from the database.\n";
         return true;
@@ -30,13 +30,13 @@ bool MusicStore::removeItem(int id) {
 }
 
 bool MusicStore::updateItem(const MusicItem& item) {
-    std::string query = "UPDATE musicinfo_tb SET m_category = '" + item.getCategory() +
-        "', m_type = '" + item.getType() +
-        "', m_name = '" + item.getName() +
-        "', m_artist = '" + item.getArtist() +
-        "', m_price = " + std::to_string(item.getPrice()) +
-        ", m_quantity = " + std::to_string(item.getQuantity()) +
-        " WHERE m_id = " + std::to_string(item.getId());
+    std::string query = "UPDATE music_items SET category = '" + item.getCategory() +
+        "', type = '" + item.getType() +
+        "', name = '" + item.getName() +
+        "', artist = '" + item.getArtist() +
+        "', price = " + std::to_string(item.getPrice()) +
+        ", quantity = " + std::to_string(item.getQuantity()) +
+        " WHERE id = " + std::to_string(item.getId());
     if (_db->execute(query)) {
         std::cout << "Item updated successfully in the database.\n";
         return true;
@@ -48,7 +48,7 @@ bool MusicStore::updateItem(const MusicItem& item) {
 }
 
 std::optional<MusicItem> MusicStore::findItemById(int id) {
-    std::string query = "select * from musicinfo_tb where m_id = " + std::to_string(id);
+    std::string query = "select * from music_items where id = " + std::to_string(id);
     MYSQL_RES* res = _db->query(query);
     if (!res || mysql_num_rows(res) == 0) {
         if (res) {
@@ -65,7 +65,7 @@ std::optional<MusicItem> MusicStore::findItemById(int id) {
 
 std::vector<MusicItem> MusicStore::findItemsByName(const std::string& name) const {
     std::vector<MusicItem> results;
-    std::string query = "SELECT * FROM musicinfo_tb WHERE m_name LIKE '%" + name + "%'";
+    std::string query = "SELECT * FROM music_items WHERE name LIKE '%" + name + "%'";
     MYSQL_RES* res = _db->query(query);
     if (res) {
         MYSQL_ROW row;
@@ -80,7 +80,7 @@ std::vector<MusicItem> MusicStore::findItemsByName(const std::string& name) cons
 
 std::vector<MusicItem> MusicStore::findItemsByArtist(const std::string& artist) const {
     std::vector<MusicItem> results;
-    std::string query = "SELECT * FROM musicinfo_tb WHERE m_artist LIKE '%" + artist + "%'";
+    std::string query = "SELECT * FROM music_items WHERE artist LIKE '%" + artist + "%'";
     MYSQL_RES* res = _db->query(query);
     if (res) {
         MYSQL_ROW row;
@@ -94,7 +94,7 @@ std::vector<MusicItem> MusicStore::findItemsByArtist(const std::string& artist) 
 
 std::vector<MusicItem> MusicStore::getAllItems() const {
     std::vector<MusicItem> items;
-    std::string query = "SELECT * FROM musicinfo_tb";
+    std::string query = "SELECT * FROM music_items";
     MYSQL_RES* res = _db->query(query);
     if (res) {
         MYSQL_ROW row;

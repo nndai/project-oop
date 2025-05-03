@@ -29,7 +29,7 @@ void printMenu() {
 int main() {
 
     Database db;
-    if (!db.connect("localhost", "root", "1234", "cpp_musicstore_db")) {
+    if (!db.connect("localhost", "root", "1234", "music_store_db")) {
         std::cout << "Database connection failed. Exiting...\n";
         return 1;
     }
