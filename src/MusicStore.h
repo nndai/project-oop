@@ -24,13 +24,8 @@ public:
     std::vector<MusicItem> findItemsByArtist(const std::string& artist) const;
     
     std::vector<MusicItem> getAllItems() const;
-    static void printTableHeader();
-    static void printTableFooter();
-    void displayAllItems() const;
+    std::vector<MusicItem> getItemsInStock() const;
 
-    void displaySoldItems() const;
-    // void displayItemsInStock() const;
-    // void addSoldItem(const MusicItem& item);
 };
 
 #endif

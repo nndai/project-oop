@@ -106,21 +106,16 @@ std::vector<MusicItem> MusicStore::getAllItems() const {
     return items;
 }
 
-void MusicStore::displayAllItems() const {
-    auto items = getAllItems();
-    if (items.empty()) {
-        std::cout << "No music items available.\n";
-        return;
+std::vector<MusicItem> MusicStore::getItemsInStock() const {
+    std::vector<MusicItem> items;
+    std::string query = "SELECT * FROM music_items WHERE quantity > 0";
+    MYSQL_RES* res = _db->query(query);
+    if (res) {
+        MYSQL_ROW row;
+        while ((row = mysql_fetch_row(res))) {
+            items.emplace_back(std::stoi(row[0]), row[1], row[2], row[3], row[4], std::stof(row[5]), std::stoi(row[6]));
+        }
+        mysql_free_result(res);
     }
-
-    std::vector<std::vector<std::string>> tuples;
-    tuples.push_back(MusicItem::attributes_name);
-    for (auto item : items) {
-        tuples.push_back(item.getTuple());
-    }
-    TableUI::print(tuples);
-}
-
-void MusicStore::displaySoldItems() const {
-
+    return items;
 }
