@@ -1,9 +1,6 @@
 #include "User.h"
 #include <stdexcept>
 
-
-//TODO
-
 User::User(const std::string& username, const std::string& password, const std::string& role)
     : _username(username), _password(password) {
     if (role == "Admin") {
