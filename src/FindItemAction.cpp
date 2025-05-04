@@ -42,7 +42,7 @@ void FindItemAction::execute() {
     }
 
     if (results.empty()) {
-        std::cout << "No items found with artist containing '" << keyword << "'.\n";
+        std::cout << "No items found containing '" << keyword << "'.\n";
     }
     else {
         std::vector<std::vector<std::string>> tuples;
