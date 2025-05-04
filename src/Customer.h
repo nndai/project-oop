@@ -4,16 +4,16 @@
 #include <string>
 
 class Customer {
-private:
-    enum class CustommerType{
-        REGULER = 1,
-        VIP,
+public:
+    enum class CustomerType {
+        REGULAR = 1,
+        VIP
     };
 
 private:
     int _id;
     std::string _name;
-    CustommerType _type; // "Regular" or "VIP"
+    CustomerType _type;
     int _points;
 
 public:
