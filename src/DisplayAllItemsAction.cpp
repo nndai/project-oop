@@ -12,5 +12,16 @@ void DisplayAllItemsAction::execute() {
         return;
     }
 
-    _store->displayAllItems();
+    auto items = _store->getAllItems();
+    if (items.empty()) {
+        std::cout << "No music items available.\n";
+        return;
+    }
+
+    std::vector<std::vector<std::string>> tuples;
+    tuples.push_back(MusicItem::attributes_name);
+    for (auto item : items) {
+        tuples.push_back(item.getTuple());
+    }
+    TableUI::print(tuples);
 }
