@@ -19,13 +19,13 @@ MYSQL_RES* Database::query(const std::string& query) const {
     if (mysql_query(conn, query.c_str()) == 0) {
         return mysql_store_result(conn);
     }
+    std::cout << "Query Error: " << mysql_errno(conn) << '\n';
     return nullptr;
 }
 
 bool Database::execute(const std::string& query) const {
-    return mysql_query(conn, query.c_str()) == 0;
-}
-
-MYSQL* Database::getConnection() {
-    return conn;
+    int query_state =  mysql_query(conn, query.c_str());
+    if(!query_state) return true;
+    std::cout << "Execution error: !" << mysql_errno(conn) << std::endl;
+    return false;
 }

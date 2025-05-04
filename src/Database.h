@@ -15,7 +15,6 @@ public:
     bool connect(const std::string& host, const std::string& user, const std::string& password, const std::string& dbname);
     MYSQL_RES* query(const std::string& query) const;
     bool execute(const std::string& query) const;
-    MYSQL* getConnection();
 };
 
 #endif
