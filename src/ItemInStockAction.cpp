@@ -12,14 +12,7 @@ void ItemInStockAction::execute() {
         return;
     }
 
-    std::vector<MusicItem> allItems = _store->getAllItems();
-    std::vector<MusicItem> inStockItems;
-
-    for (const auto& item : allItems) {
-        if (item.getQuantity() > 0) {
-            inStockItems.push_back(item);
-        }
-    }
+    std::vector<MusicItem> inStockItems = _store->getItemsInStock();
 
     if (inStockItems.empty()) {
         std::cout << "No items in stock.\n";
