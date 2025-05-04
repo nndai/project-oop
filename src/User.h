@@ -4,12 +4,12 @@
 #include <string>
 
 class User {
-    private:
-    enum class UserType{
+private:
+    enum class UserType {
         ADMIN = 1,
         USER,
     };
-    
+
 private:
     std::string _username;
     std::string _password;
