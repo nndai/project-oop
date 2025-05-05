@@ -98,7 +98,7 @@
 ### Bước 2: Tạo CSDL và bảng
 
 1. Mở MySQL Workbench, kết nối với server (`localhost`, user `root`)
-2. Tạo database bằng cách chạy file bd.sql trên MySQL Workbench
+2. Tạo database bằng cách chạy file music_store_db.sql trên MySQL Workbench
 
 ### 3. Build & Chạy Chương Trình
 
@@ -109,4 +109,4 @@
 
 **Chạy file output**
 
-- program.exe
+- chạy file program.exe
