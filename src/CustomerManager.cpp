@@ -61,6 +61,20 @@ std::optional<Customer> CustomerManager::findCustomerById(int id) {
     return customer;
 }
 
+std::optional<Customer> CustomerManager::findCustomerByUserName(std::string username) {
+    std::string query = "SELECT * FROM customers WHERE username = " + username + "\"";
+    MYSQL_RES* res = _db->query(query);
+    if (!res || mysql_num_rows(res) == 0) {
+        if (res) mysql_free_result(res);
+        return std::nullopt;
+    }
+
+    MYSQL_ROW row = mysql_fetch_row(res);
+    Customer customer(std::stoi(row[0]), row[1], row[2], std::stoi(row[3]));
+    mysql_free_result(res);
+    return customer;
+}
+
 std::vector<Customer> CustomerManager::getAllCustomers() const {
     std::vector<Customer> customers;
     std::string query = "SELECT * FROM customers";
