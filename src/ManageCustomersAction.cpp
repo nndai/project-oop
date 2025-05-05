@@ -17,14 +17,17 @@ void ManageCustomersAction::execute() {
     std::cout << "3. Update Customer\n";
     std::cout << "4. View All Customers\n";
     std::cout << "Enter your choice: ";
-    std::cin >> choice;
 
-    if (std::cin.fail()) {
-        std::cin.clear();
-        std::cin.ignore(100, '\n');
-        std::cout << "Invalid input.\n";
+    std::string str;
+    getline(std::cin, str);
+    try {
+        choice = std::stoi(str);
+    }
+    catch (const std::invalid_argument&) {
+        std::cout << "Invalid input. Please enter a number.\n";
         return;
     }
+
 
     switch (choice) {
     case 1: {
