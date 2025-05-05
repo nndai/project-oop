@@ -38,7 +38,7 @@ bool MusicStore::updateItem(const MusicItem& item) {
         ", quantity = " + std::to_string(item.getQuantity()) +
         " WHERE id = " + std::to_string(item.getId());
     if (_db->execute(query)) {
-        std::cout << "Item updated successfully in the database.\n";
+        //std::cout << "Item updated successfully in the database.\n";
         return true;
     }
     else {
