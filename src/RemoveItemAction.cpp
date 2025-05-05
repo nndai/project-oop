@@ -16,13 +16,18 @@ void RemoveItemAction::execute() {
 
     int id;
     std::cout << "Enter ID of item to remove: ";
-    std::cin >> id;
+    std::string str;
+    getline(std::cin, str);
+    try {
+        id = std::stoi(str);
+    }
+    catch (const std::invalid_argument&) {
+        std::cout << "Invalid input. Please enter a number.\n";
+        return;
+    }
 
-
-    if (std::cin.fail()) {
-        std::cin.clear();
-        std::cin.ignore(100, '\n');
-        std::cout << "Invalid input.\n";
+    if (id < 0) {
+        std::cout << "Invalid ID. Please enter a positive number.\n";
         return;
     }
 
