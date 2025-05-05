@@ -3,16 +3,21 @@
 
 CustomerManager::CustomerManager(Database* db) : _db(db) {}
 
-void CustomerManager::addCustomer(const Customer& customer) {
+int CustomerManager::addCustomer(const Customer& customer) {
     std::string query = "INSERT INTO customers (name, type, points) VALUES ('" +
         customer.getName() + "', '" + customer.getType() + "', " +
         std::to_string(customer.getPoints()) + ")";
     if (_db->execute(query)) {
         std::cout << "Customer added successfully.\n";
+        MYSQL_RES* res = _db->query("SELECT LAST_INSERT_ID()");
+        int new_customer_id = std::stoi(mysql_fetch_row(res)[0]);
+        mysql_free_result(res);
+        return new_customer_id;
     }
     else {
         std::cout << "Failed to add customer.\n";
     }
+    return -1;
 }
 
 bool CustomerManager::removeCustomer(int id) {

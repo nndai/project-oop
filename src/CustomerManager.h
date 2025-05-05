@@ -13,7 +13,7 @@ private:
 
 public:
     explicit CustomerManager(Database* db);
-    void addCustomer(const Customer& customer);
+    int addCustomer(const Customer& customer); // return new customer_id
     bool removeCustomer(int id);
     bool updateCustomer(const Customer& customer);
     std::optional<Customer> findCustomerById(int id);
