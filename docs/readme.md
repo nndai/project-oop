@@ -2,8 +2,8 @@
 
 ## Thành viên nhóm
 
-Nguyễn Ngọc Đại - 23120226 - trưởng nhóm
-Nguyễn Hà Đạt - 23120229
+- Nguyễn Ngọc Đại - 23120226 - trưởng nhóm
+- Nguyễn Hà Đạt - 23120229
 
 ## Phân Công & Mô Tả Công Việc
 
@@ -90,4 +90,19 @@ Nguyễn Hà Đạt - 23120229
 - **CSDL**: MySQL
 - **Công cụ**: VSCode, Git
 
----
+## Hướng Dẫn Cài Đặt & Chạy Dự Án
+
+### Bước 1. Yêu Cầu Hệ Thống
+
+- **Cần cài đặt:**
+  - [MySQL Community Server](https://dev.mysql.com/downloads/mysql/)
+  - [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)
+
+### Bước 2: Tạo CSDL và bảng
+
+1. Mở MySQL Workbench, kết nối với server (`localhost`, user `root`)
+2. Tạo database bằng cách chạy file bd.sql trên MySQL Workbench
+
+### 3. 💻 Build & Chạy Chương Trình
+
+#### Build bằng ctrl shift B và chạy file program.exe
