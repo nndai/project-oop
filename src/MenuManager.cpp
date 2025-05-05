@@ -7,7 +7,7 @@ MenuManager::MenuManager(AuthManager* authManager, MusicStore* musicStore, Custo
 MenuActionFactory::MenuChoice MenuManager::mapAdminMenuChoiceToMenuAction(AdminMenuChoice choice) {
     switch (choice) {
     case AdminMenuChoice::CREATE_ORDER:
-        return MenuActionFactory::MenuChoice::CREATE_ORDER;
+        return MenuActionFactory::MenuChoice::ADMIN_CREATE_ORDER;
     case AdminMenuChoice::MANAGE_CUSTOMERS:
         return MenuActionFactory::MenuChoice::MANAGE_CUSTOMERS;
     case AdminMenuChoice::VIEW_ORDERS:
@@ -18,6 +18,10 @@ MenuActionFactory::MenuChoice MenuManager::mapAdminMenuChoiceToMenuAction(AdminM
         return MenuActionFactory::MenuChoice::EDIT_ITEM;
     case AdminMenuChoice::REMOVE_ITEM:
         return MenuActionFactory::MenuChoice::REMOVE_ITEM;
+    case AdminMenuChoice::SHOW_ALL_ITEMS:
+        return MenuActionFactory::MenuChoice::SHOW_ALL_ITEMS;
+    case AdminMenuChoice::ITEM_IN_STOCK:
+        return MenuActionFactory::MenuChoice::ITEM_IN_STOCK;
     default:
         throw std::invalid_argument("Invalid AdminMenuChoice value");
     }
@@ -46,10 +50,19 @@ void MenuManager::handleLoginMenu() {
         std::cout << "=============================\n";
         std::cout << "Enter your choice: ";
 
-        int choice;
-        std::cin >> choice;
+        std::string str;
 
-        if (choice == 1) {
+        int choice;
+        getline(std::cin, str);
+        try {
+            choice = std::stoi(str);
+        }
+        catch (const std::invalid_argument&) {
+            std::cout << "Invalid input. Please enter a number.\n";
+            continue;
+        }
+
+        if (1 == choice) {
             std::string username, password;
             std::cout << "Username: ";
             std::cin >> username;
@@ -70,7 +83,7 @@ void MenuManager::handleLoginMenu() {
                 system("pause");
             }
         }
-        else if (choice == 2) {
+        else if (2 == choice) {
             std::string username, password;
             std::cout << "Enter new username: ";
             std::cin >> username;
@@ -85,7 +98,7 @@ void MenuManager::handleLoginMenu() {
             }
             system("pause");
         }
-        else if (choice == 3) {
+        else if (3 == choice) {
             std::cout << "Exiting...\n";
             break;
         }
@@ -101,20 +114,30 @@ void MenuManager::handleAdminMenu(const User& user) {
         system("cls");
         std::cout << "=============================\n";
         std::cout << "Admin Menu:\n";
-        std::cout << static_cast<int>(AdminMenuChoice::CREATE_ORDER) << ". Create Order\n";
-        std::cout << static_cast<int>(AdminMenuChoice::MANAGE_CUSTOMERS) << ". Manage Customers\n";
-        std::cout << static_cast<int>(AdminMenuChoice::VIEW_ORDERS) << ". View Orders\n";
-        std::cout << static_cast<int>(AdminMenuChoice::ADD_NEW_ITEM) << ". Add New Item\n";
-        std::cout << static_cast<int>(AdminMenuChoice::EDIT_ITEM) << ". Edit Item\n";
-        std::cout << static_cast<int>(AdminMenuChoice::REMOVE_ITEM) << ". Remove Item\n";
-        std::cout << static_cast<int>(AdminMenuChoice::LOGOUT) << ". Logout\n";
+        std::cout << (int)AdminMenuChoice::CREATE_ORDER << ". Create Order\n";
+        std::cout << (int)AdminMenuChoice::MANAGE_CUSTOMERS << ". Manage Customers\n";
+        std::cout << (int)AdminMenuChoice::VIEW_ORDERS << ". View Orders\n";
+        std::cout << (int)AdminMenuChoice::SHOW_ALL_ITEMS << ". Show All Items\n";
+        std::cout << (int)AdminMenuChoice::ITEM_IN_STOCK << ". Items In Stock\n";
+        std::cout << (int)AdminMenuChoice::ADD_NEW_ITEM << ". Add New Item\n";
+        std::cout << (int)AdminMenuChoice::EDIT_ITEM << ". Edit Item\n";
+        std::cout << (int)AdminMenuChoice::REMOVE_ITEM << ". Remove Item\n";
+        std::cout << (int)AdminMenuChoice::LOGOUT << ". Logout\n";
         std::cout << "=============================\n";
         std::cout << "Enter your choice: ";
 
         int choice;
-        std::cin >> choice;
+        std::string str;
+        getline(std::cin, str);
+        try {
+            choice = std::stoi(str);
+        }
+        catch (const std::invalid_argument&) {
+            std::cout << "Invalid input. Please enter a number.\n";
+            continue;
+        }
 
-        if (choice == static_cast<int>(AdminMenuChoice::LOGOUT)) {
+        if ((int)AdminMenuChoice::LOGOUT == choice) {
             break;
         }
 
@@ -125,6 +148,7 @@ void MenuManager::handleAdminMenu(const User& user) {
             );
             if (action) {
                 action->execute();
+                delete action;
             }
             else {
                 std::cout << "Invalid choice. Try again.\n";
@@ -142,27 +166,38 @@ void MenuManager::handleUserMenu(const User& user) {
         system("cls");
         std::cout << "=============================\n";
         std::cout << "User Menu:\n";
-        std::cout << static_cast<int>(UserMenuChoice::CREATE_ORDER) << ". Create Order\n";
-        std::cout << static_cast<int>(UserMenuChoice::FIND_MUSIC) << ". Find Music\n";
-        std::cout << static_cast<int>(UserMenuChoice::VIEW_ITEMS_IN_STOCK) << ". View Items In Stock\n";
-        std::cout << static_cast<int>(UserMenuChoice::LOGOUT) << ". Logout\n";
+        std::cout << (int)UserMenuChoice::CREATE_ORDER << ". Create Order\n";
+        std::cout << (int)UserMenuChoice::FIND_MUSIC << ". Find Music\n";
+        std::cout << (int)UserMenuChoice::VIEW_ITEMS_IN_STOCK << ". View Items In Stock\n";
+        std::cout << (int)UserMenuChoice::LOGOUT << ". Logout\n";
         std::cout << "=============================\n";
         std::cout << "Enter your choice: ";
 
-        int choice;
-        std::cin >> choice;
+        std::string str;
 
-        if (choice == static_cast<int>(UserMenuChoice::LOGOUT)) {
+        getline(std::cin, str);
+        int choice;
+        try {
+            choice = std::stoi(str);
+        }
+        catch (const std::invalid_argument&) {
+            std::cout << "Invalid input. Please enter a number.\n";
+            continue;
+        }
+        
+        
+        if ((int)UserMenuChoice::LOGOUT == choice) {
             break;
         }
 
         try {
             auto action = MenuActionFactory::createAction(
-                mapUserMenuChoiceToMenuAction(static_cast<UserMenuChoice>(choice)),
+                mapUserMenuChoiceToMenuAction((UserMenuChoice)choice),
                 _musicStore, _customerManager, _orderManager
             );
             if (action) {
                 action->execute();
+                delete action;
             }
             else {
                 std::cout << "Invalid choice. Try again.\n";
