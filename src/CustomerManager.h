@@ -5,6 +5,7 @@
 #include "Database.h"
 #include <vector>
 #include <optional>
+#include <iostream>
 
 class CustomerManager {
 private:
