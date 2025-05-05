@@ -5,7 +5,7 @@ Order::Order(int id, int customerId, const std::string& orderDate, double totalP
 }
 
 void Order::addOrderDetail(int musicItemId, int quantity, double price) {
-    _orderDetails.emplace_back(musicItemId, quantity);
+    _orderDetails.emplace_back(musicItemId, quantity, price);
     _totalPrice += quantity * price;
 }
 
@@ -25,7 +25,7 @@ double Order::getTotalPrice() const {
     return _totalPrice;
 }
 
-const std::vector<std::pair<int, int>>& Order::getOrderDetails() const {
+const std::vector<Order::OrderDetail>& Order::getOrderDetails() const {
     return _orderDetails;
 }
 
