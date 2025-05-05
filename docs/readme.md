@@ -79,16 +79,13 @@
 ### 6. **Chủ đề nâng cao (15%)**
 
 - Xây dựng hệ thống phân quyền người dùng (`AuthManager`).
-- Triển khai hệ thống menu động (Command + Factory pattern).
 - dùng MySQL quản lí database
-
----
 
 ## Công nghệ sử dụng
 
-- **Ngôn ngữ**: C++
-- **CSDL**: MySQL
-- **Công cụ**: VSCode, Git
+- Ngôn ngữ: C++
+- CSDL: MySQL
+- Công cụ: VSCode, Git
 
 ## Hướng Dẫn Cài Đặt & Chạy Dự Án
 
@@ -103,6 +100,13 @@
 1. Mở MySQL Workbench, kết nối với server (`localhost`, user `root`)
 2. Tạo database bằng cách chạy file bd.sql trên MySQL Workbench
 
-### 3. 💻 Build & Chạy Chương Trình
+### 3. Build & Chạy Chương Trình
 
-#### Build bằng ctrl shift B và chạy file program.exe
+**Build Solution**:
+
+- Menu Build → Build Solution
+- Phím tắt: `Ctrl + Shift + B`
+
+**Chạy file output**
+
+- program.exe
