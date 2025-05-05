@@ -18,12 +18,13 @@ void ItemInStockAction::execute() {
         std::cout << "No items in stock.\n";
     }
     else {
-        std::cout << "\nItems In Stock:\n";
         std::vector<std::vector<std::string>> tuples;
         tuples.push_back(MusicItem::attributes_name);
         for (const auto& item : inStockItems) {
             tuples.push_back(item.getTuple());
         }
+
+        std::cout << "\nItems In Stock:\n";
         TableUI::print(tuples);
     }
 }

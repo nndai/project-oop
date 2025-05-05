@@ -23,5 +23,7 @@ void DisplayAllItemsAction::execute() {
     for (auto item : items) {
         tuples.push_back(item.getTuple());
     }
+
+    std::cout << "\nAll Music Items:\n";
     TableUI::print(tuples);
 }

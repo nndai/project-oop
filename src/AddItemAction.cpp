@@ -19,8 +19,7 @@ void AddItemAction::execute() {
     float price;
     int quantity;
 
-    std::cin.ignore(100, '\n');
-
+    
     std::cout << "Enter Category: ";
     std::getline(std::cin, category);
 
@@ -33,11 +32,39 @@ void AddItemAction::execute() {
     std::cout << "Enter Artist: ";
     std::getline(std::cin, artist);
 
-    std::cout << "Enter Price: ";
-    std::cin >> price;
+    while(true){
+        std::cout << "Enter Price: ";
+        std::string str;
+        std::getline(std::cin, str);
+        try {
+            price = std::stof(str);
+            if (price < 0) {
+                std::cout << "Price cannot be negative. Please enter a valid price.\n";
+                continue;
+            }
+            break;
+        }
+        catch (const std::invalid_argument&) {
+            std::cout << "Invalid input for price. Please enter a valid number.\n";
+        }
+    }
 
-    std::cout << "Enter Quantity: ";
-    std::cin >> quantity;
+    while(true){
+        std::cout << "Enter Quantity: ";
+        std::string str;
+        std::getline(std::cin, str);
+        try {
+            quantity = std::stoi(str);
+            if (quantity < 0) {
+                std::cout << "Quantity cannot be negative. Please enter a valid quantity.\n";
+                continue;
+            }
+            break;
+        }
+        catch (const std::invalid_argument&) {
+            std::cout << "Invalid input for quantity. Please enter a valid number.\n";
+        }
+    }
 
     MusicItem newItem(-1, category, type, name, artist, price, quantity);
     _store->addItem(newItem);

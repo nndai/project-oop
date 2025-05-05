@@ -21,6 +21,8 @@ public:
         CREATE_ORDER = 1,
         MANAGE_CUSTOMERS,
         VIEW_ORDERS,
+        SHOW_ALL_ITEMS,
+        ITEM_IN_STOCK,
         ADD_NEW_ITEM,
         EDIT_ITEM,
         REMOVE_ITEM,
@@ -38,6 +40,7 @@ public:
 
     MenuActionFactory::MenuChoice mapAdminMenuChoiceToMenuAction(AdminMenuChoice choice);
     MenuActionFactory::MenuChoice mapUserMenuChoiceToMenuAction(UserMenuChoice choice);
+
     void handleLoginMenu();
     void handleAdminMenu(const User& user);
     void handleUserMenu(const User& user);

@@ -38,12 +38,13 @@ void CreateOrderAction::execute() {
     while (true) {
         int id;
         std::cout << "Enter item ID to purchase (0 to finish): ";
-        std::cin >> id;
-
-        if (std::cin.fail()) {
-            std::cin.clear();
-            std::cin.ignore(100, '\n');
-            std::cout << "Invalid input.\n";
+        std::string str;
+        std::getline(std::cin, str);
+        try {
+            id = std::stoi(str);
+        }
+        catch (const std::invalid_argument&) {
+            std::cout << "Invalid input. Please enter a number.\n";
             continue;
         }
 
@@ -71,3 +72,7 @@ void CreateOrderAction::execute() {
         std::cout << "\nNo items purchased.\n";
     }
 }
+
+
+
+

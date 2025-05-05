@@ -19,16 +19,21 @@ void FindItemAction::execute() {
     std::cout << "1. Name\n";
     std::cout << "2. Artist\n";
     std::cout << "Enter choice: ";
-    std::cin >> choice;
-
-    if (std::cin.fail() || (1 != choice && 2 != choice)) {
-        std::cin.clear();
-        std::cin.ignore(100, '\n');
-        std::cout << "Invalid choice.\n";
+    
+    std::string str;
+    std::getline(std::cin, str);
+    try {
+        choice = std::stoi(str);
+    }
+    catch (const std::invalid_argument&) {
+        std::cout << "Invalid input. Please enter a number.\n";
+        return;
+    }
+    if (choice < 1 || choice > 2) {
+        std::cout << "Invalid choice. Please enter 1 or 2.\n";
         return;
     }
 
-    std::cin.ignore(100, '\n');
     std::string keyword;
     std::cout << "Enter search keyword: ";
     std::getline(std::cin, keyword);

@@ -10,7 +10,6 @@ private:
 
 public:
     explicit AddItemAction(MusicStore* store);
-
     void execute() override;
 };
 

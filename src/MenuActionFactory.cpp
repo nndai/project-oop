@@ -1,7 +1,7 @@
 #include "MenuActionFactory.h"
 
-IMenuAction* MenuActionFactory::createAction(MenuChoice menu_choice, MusicStore* store, CustomerManager* customerManager, OrderManager* orderManager) {
-    if (!store || !customerManager || !orderManager) {
+IMenuAction* MenuActionFactory::createAction(MenuChoice menu_choice, MusicStore* store, CustomerManager* customer_manager, OrderManager* order_manager) {
+    if (!store || !customer_manager || !order_manager) {
         return nullptr;
     }
 
@@ -23,9 +23,11 @@ IMenuAction* MenuActionFactory::createAction(MenuChoice menu_choice, MusicStore*
     case MenuChoice::REMOVE_ITEM:
         return new RemoveItemAction(store);
     case MenuChoice::VIEW_ORDERS:
-        return new ViewOrdersAction(orderManager);
+        return new ViewOrdersAction(order_manager);
     case MenuChoice::MANAGE_CUSTOMERS:
-        return new ManageCustomersAction(customerManager);
+        return new ManageCustomersAction(customer_manager);
+    case MenuChoice::ADMIN_CREATE_ORDER:
+        return new AdminCreateOrderAction(store, customer_manager, order_manager);
     default:
         return nullptr;
     }
