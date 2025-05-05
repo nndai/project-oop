@@ -13,6 +13,7 @@
 #include "MusicStore.h"
 #include "ViewOrdersAction.h"
 #include "ManageCustomersAction.h"
+#include "AdminCreateOrderAction.h"
 
 class MenuActionFactory {
 public:
@@ -27,12 +28,12 @@ public:
         REMOVE_ITEM,
         VIEW_ORDERS, 
         MANAGE_CUSTOMERS,
+        ADMIN_CREATE_ORDER,
         EXIT
     };
 
-    
-    static IMenuAction* createAction(MenuChoice menu_choice, MusicStore* store, CustomerManager* customerManager, OrderManager* orderManager);
 
+    static IMenuAction* createAction(MenuChoice menu_choice, MusicStore* store, CustomerManager* customerManager, OrderManager* orderManager);
 };
 
 #endif
