@@ -28,6 +28,9 @@
 
 ## Tỉ lệ đóng góp (100%)
 
+- Nguyễn Ngọc Đại : 60%
+- Nguyễn Hà Đạt : 40%
+
 ## D. Cách Thức Đánh Giá - Mô Tả Cụ Thể
 
 ### 1. **Teamwork (15%)**
