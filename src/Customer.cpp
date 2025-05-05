@@ -26,6 +26,10 @@ int Customer::getPoints() const {
     return _points;
 }
 
+std::vector<std::string> Customer::getTuple() {
+    return {std::to_string(_id), _name, getType(), std::to_string(_points)};
+}
+
 void Customer::setName(const std::string& name) {
     _name = name;
 }
