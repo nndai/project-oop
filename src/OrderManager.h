@@ -14,6 +14,7 @@ public:
     explicit OrderManager(Database* db);
     void createOrder(const Order& order);
     std::vector<Order> getAllOrders() const;
+    //std::vector<Order> getOrdersByCustomerId(int customer_id) const;
 };
 
 #endif
