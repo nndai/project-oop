@@ -109,4 +109,4 @@
 
 **Chạy file output**
 
-- chạy file program.exe
+- thực thi file program.exe
