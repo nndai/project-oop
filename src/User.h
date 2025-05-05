@@ -13,7 +13,7 @@ private:
 private:
     std::string _username;
     std::string _password;
-    UserType _role; // "Admin" or "User"
+    UserType _role;
 
 public:
     User(const std::string& username, const std::string& password, const std::string& role);
