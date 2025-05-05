@@ -97,6 +97,7 @@
 - **Cần cài đặt:**
   - [MySQL Community Server](https://dev.mysql.com/downloads/mysql/)
   - [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)
+  - [MySQL Connector/C++](https://dev.mysql.com/downloads/connector/cpp/)
 
 ### Bước 2: Tạo CSDL và bảng
 
