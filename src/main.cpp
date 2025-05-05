@@ -7,24 +7,26 @@
 #include "MusicStore.h"
 #include "IMenuAction.h"
 #include "MenuActionFactory.h"
+#include "AuthManager.h"
+#include "MenuManager.h"
 
 
 
-void printMenu() {
-    std::cout << "=============================\n";
-    std::cout << "Music Store Management Menu:\n";
-    std::cout << (int)MenuActionFactory::MenuChoice::CREATE_ORDER       << ". Create Order\n";
-    std::cout << (int)MenuActionFactory::MenuChoice::FIND_MUSIC << ". Find Music\n";
-    std::cout << (int)MenuActionFactory::MenuChoice::SOLD_ITEMS << ". Sold Items\n";
-    std::cout << (int)MenuActionFactory::MenuChoice::ITEM_IN_STOCK << ". Items In Stock\n";
-    std::cout << (int)MenuActionFactory::MenuChoice::SHOW_ALL_ITEMS << ". Show All Items\n";
-    std::cout << (int)MenuActionFactory::MenuChoice::ADD_NEW_ITEM << ". Add New Item\n";
-    std::cout << (int)MenuActionFactory::MenuChoice::EDIT_ITEM << ". Edit Item\n";
-    std::cout << (int)MenuActionFactory::MenuChoice::REMOVE_ITEM << ". Remove Item\n";
-    std::cout << (int)MenuActionFactory::MenuChoice::EXIT << ". Exit\n";
-    std::cout << "=============================\n";
-    std::cout << "Enter your choice: ";
-}
+// void printMenu() {
+//     std::cout << "=============================\n";
+//     std::cout << "Music Store Management Menu:\n";
+//     std::cout << (int)MenuActionFactory::MenuChoice::CREATE_ORDER       << ". Create Order\n";
+//     std::cout << (int)MenuActionFactory::MenuChoice::FIND_MUSIC << ". Find Music\n";
+//     std::cout << (int)MenuActionFactory::MenuChoice::SOLD_ITEMS << ". Sold Items\n";
+//     std::cout << (int)MenuActionFactory::MenuChoice::ITEM_IN_STOCK << ". Items In Stock\n";
+//     std::cout << (int)MenuActionFactory::MenuChoice::SHOW_ALL_ITEMS << ". Show All Items\n";
+//     std::cout << (int)MenuActionFactory::MenuChoice::ADD_NEW_ITEM << ". Add New Item\n";
+//     std::cout << (int)MenuActionFactory::MenuChoice::EDIT_ITEM << ". Edit Item\n";
+//     std::cout << (int)MenuActionFactory::MenuChoice::REMOVE_ITEM << ". Remove Item\n";
+//     std::cout << (int)MenuActionFactory::MenuChoice::EXIT << ". Exit\n";
+//     std::cout << "=============================\n";
+//     std::cout << "Enter your choice: ";
+// }
 
 int main() {
 
@@ -35,36 +37,42 @@ int main() {
     }
     
     MusicStore store(&db);
+    CustomerManager customerManager(&db);
+    OrderManager orderManager(&db);
+    AuthManager authManager(&db);
+    MenuManager menuManager(&authManager, &store, &customerManager, &orderManager);
 
-    int choice = 0;
-    while (true) {
-        system("cls");
-        printMenu();
-        std::cin >> choice;
+    menuManager.handleLoginMenu();
 
-        if (std::cin.fail()) {
-            std::cin.clear(); // clear error
-            std::cin.ignore(100, '\n'); // ignore until newline
-            std::cout << "Invalid input. Please enter a number.\n";
-            system("pause");
-            continue;
-        }
+    // int choice = 0;
+    // while (true) {
+    //     system("cls");
+    //     printMenu();
+    //     std::cin >> choice;
 
-        if ((int)MenuActionFactory::MenuChoice::EXIT == choice) {
-            std::cout << "Exiting program...\n";
-            break;
-        }
+    //     if (std::cin.fail()) {
+    //         std::cin.clear(); // clear error
+    //         std::cin.ignore(100, '\n'); // ignore until newline
+    //         std::cout << "Invalid input. Please enter a number.\n";
+    //         system("pause");
+    //         continue;
+    //     }
 
-        std::unique_ptr<IMenuAction> action(MenuActionFactory::createAction((MenuActionFactory::MenuChoice)choice, &store));
+    //     if ((int)MenuActionFactory::MenuChoice::EXIT == choice) {
+    //         std::cout << "Exiting program...\n";
+    //         break;
+    //     }
 
-        if (action) {
-            action->execute();
-        } else {
-            std::cout << "Invalid menu choice. Please try again.\n";
-        }
+    //     std::unique_ptr<IMenuAction> action(MenuActionFactory::createAction((MenuActionFactory::MenuChoice)choice, &store));
 
-        system("pause");
-    }
+    //     if (action) {
+    //         action->execute();
+    //     } else {
+    //         std::cout << "Invalid menu choice. Please try again.\n";
+    //     }
+
+    //     system("pause");
+    // }
 
     return 0;
 }
