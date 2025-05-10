@@ -1,0 +1,35 @@
+# Menu Chính
+
+- Đăng nhập
+    - Admin
+        - Tạo đơn hàng:
+            - Chọn khác KH bằng ID trong CSDL, nếu chưa có KH thì tạo mới
+            - Chọn sản phẩm theo ID và số lượng
+            - Thanh toán và in hóa đơn
+        - Quản lí KH:
+            - Thêm
+            - Xóa
+            - Sửa
+            - Hiển thị
+        - Xem các hóa đơn
+        - Xem tất cả sản phẩm
+        - Xem các sản phẩm còn hàng
+        - Thêm sản phẩm
+        - Sửa sản phẩm
+        - Xóa sản phẩm
+        - Đăng xuất
+    - User
+        - Tạo đơn hàng:
+            - Chọn sản phẩm theo ID và số lượng
+            - Thanh toán và in hóa đơn
+        - Tìm kiếm sản phẩm:
+            - Tìm theo tên
+            - Tìm theo ca sĩ
+        - Xem tất cả sản phẩm
+        - Xem các sản phẩm còn hàng
+        - Đăng xuất
+- Tạo tài khoản
+    - Nhập username
+    - Nhập tên KH
+    - Nhập mật khẩu
+- Thoát
