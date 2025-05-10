@@ -1,6 +1,4 @@
-
 #include "MenuManager.h"
-#include <limits>
 
 MenuManager::MenuManager(AuthManager* authManager, MusicStore* musicStore, CustomerManager* customerManager, OrderManager* orderManager)
     : _authManager(authManager), _musicStore(musicStore), _customerManager(customerManager), _orderManager(orderManager) {
@@ -45,9 +43,11 @@ MenuActionFactory::MenuChoice MenuManager::mapUserMenuChoiceToMenuAction(UserMen
 void MenuManager::handleLoginMenu() {
     while (true) {
         system("cls");
-        std::cout << "=============================" << std::endl;
-        std::cout << "1. Login\n2. Register\n3. Exit" << std::endl;
-        std::cout << "=============================" << std::endl;
+        std::cout << "=============================\n";
+        std::cout << "1. Login\n";
+        std::cout << "2. Register\n";
+        std::cout << "3. Exit\n";
+        std::cout << "=============================\n";
         std::cout << "Enter your choice: ";
 
         std::string str;
@@ -64,8 +64,10 @@ void MenuManager::handleLoginMenu() {
 
         if (1 == choice) {
             std::string username, password;
-            std::cout << "Username: "; std::cin >> username;
-            std::cout << "Password: "; std::cin >> password;
+            std::cout << "Username: ";
+            std::cin >> username;
+            std::cout << "Password: ";
+            std::cin >> password;
 
             auto user = _authManager->login(username, password);
             if (user.has_value()) {
@@ -83,8 +85,10 @@ void MenuManager::handleLoginMenu() {
         }
         else if (2 == choice) {
             std::string username, password;
-            std::cout << "Enter new username: "; std::cin >> username;
-            std::cout << "Enter new password: "; std::cin >> password;
+            std::cout << "Enter new username: ";
+            std::cin >> username;
+            std::cout << "Enter new password: ";
+            std::cin >> password;
 
             if (_authManager->registerUser(username, password)) {
                 std::cout << "User registered successfully. Please login.\n";
@@ -122,8 +126,6 @@ void MenuManager::handleAdminMenu(const User& user) {
         std::cout << "=============================\n";
         std::cout << "Enter your choice: ";
 
-        std::string input;
-        std::cin >> input;
         int choice;
         std::string str;
         getline(std::cin, str);
@@ -182,8 +184,8 @@ void MenuManager::handleUserMenu(const User& user) {
             std::cout << "Invalid input. Please enter a number.\n";
             continue;
         }
-
-
+        
+        
         if ((int)UserMenuChoice::LOGOUT == choice) {
             break;
         }
