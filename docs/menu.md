@@ -22,6 +22,7 @@
         - Tạo đơn hàng:
             - Chọn sản phẩm theo ID và số lượng
             - Thanh toán và in hóa đơn
+        - Xem các đơn hàng đã mua
         - Tìm kiếm sản phẩm:
             - Tìm theo tên
             - Tìm theo ca sĩ
