@@ -1,8 +1,22 @@
 #include "User.h"
+#include "Hasher.h"
 #include <stdexcept>
+#include <regex>
 
 User::User(const std::string& username, const std::string& password, const std::string& role)
-    : _username(username), _password(password) {
+    : _username(username) {
+
+    if (username.length() < 4 || username.length() > 16) {
+        throw std::invalid_argument("Username must be 4-16 characters long.");
+    }
+
+    if (password.length() < 4 || password.length() > 16) {
+        throw std::invalid_argument("Password must be 4-16 characters long.");
+    }
+
+    _salt = Hasher::generateSalt();
+    _hashedPassword = Hasher::hashWithSalt(password, _salt);
+
     if (role == "Admin") {
         _role = UserType::ADMIN;
     }
@@ -23,5 +37,5 @@ std::string User::getRole() const {
 }
 
 bool User::checkPassword(const std::string& password) const {
-    return _password == password;
+    return _hashedPassword == Hasher::hashWithSalt(password, _salt);
 }

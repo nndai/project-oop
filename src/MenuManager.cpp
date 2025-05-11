@@ -50,62 +50,63 @@ void MenuManager::handleLoginMenu() {
         std::cout << "=============================\n";
         std::cout << "Enter your choice: ";
 
-        std::string str;
+        std::string input;
+        getline(std::cin, input);
 
-        int choice;
-        getline(std::cin, str);
         try {
-            choice = std::stoi(str);
-        }
-        catch (const std::invalid_argument&) {
-            std::cout << "Invalid input. Please enter a number.\n";
-            continue;
-        }
+            int choice = std::stoi(input);
 
-        if (1 == choice) {
-            std::string username, password;
-            std::cout << "Username: ";
-            std::cin >> username;
-            std::cout << "Password: ";
-            std::cin >> password;
+            if (choice == 1) {
+                // Xử lý đăng nhập
+                std::string username, password;
+                std::cout << "Username: ";
+                getline(std::cin, username);
+                std::cout << "Password: ";
+                getline(std::cin, password);
 
-            auto user = _authManager->login(username, password);
-            if (user.has_value()) {
-                if (user->getRole() == "Admin") {
-                    handleAdminMenu(*user);
+                auto user = _authManager->login(username, password);
+                if (user) {
+                    if (user->getRole() == "Admin") {
+                        handleAdminMenu(*user);
+                    }
+                    else {
+                        handleUserMenu(*user);
+                    }
                 }
                 else {
-                    handleUserMenu(*user);
+                    std::cout << "Invalid credentials. Try again.\n";
                 }
             }
-            else {
-                std::cout << "Invalid credentials. Try again.\n";
-                system("pause");
-            }
-        }
-        else if (2 == choice) {
-            std::string username, password;
-            std::cout << "Enter new username: ";
-            std::cin >> username;
-            std::cout << "Enter new password: ";
-            std::cin >> password;
+            else if (choice == 2) {
+                // Xử lý đăng ký
+                std::string username, password;
+                std::cout << "Enter new username (4-16 characters): ";
+                getline(std::cin, username);
+                std::cout << "Enter new password (4-16 characters): ";
+                getline(std::cin, password);
 
-            if (_authManager->registerUser(username, password)) {
-                std::cout << "User registered successfully. Please login.\n";
+                try {
+                    if (_authManager->registerUser(username, password)) {
+                        std::cout << "User registered successfully. Please login.\n";
+                    }
+                }
+                catch (const std::exception& e) {
+                    std::cout << "Error: " << e.what() << "\n";
+                }
+            }
+            else if (choice == 3) {
+                break;
             }
             else {
-                std::cout << "Failed to register user. Try again.\n";
+                std::cout << "Invalid choice. Try again.\n";
             }
-            system("pause");
         }
-        else if (3 == choice) {
-            std::cout << "Exiting...\n";
-            break;
+        catch (const std::invalid_argument&) {
+            std::cout << "Please enter a valid number.\n";
         }
-        else {
-            std::cout << "Invalid choice. Try again.\n";
-            system("pause");
-        }
+
+        std::cout << "Press any key to continue...";
+        std::cin.ignore();
     }
 }
 
@@ -184,8 +185,8 @@ void MenuManager::handleUserMenu(const User& user) {
             std::cout << "Invalid input. Please enter a number.\n";
             continue;
         }
-        
-        
+
+
         if ((int)UserMenuChoice::LOGOUT == choice) {
             break;
         }
