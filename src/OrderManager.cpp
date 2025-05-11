@@ -7,7 +7,7 @@ void OrderManager::createOrder(const Order& order) {
     std::string query = "INSERT INTO orders (customer_id) VALUES (" +
         std::to_string(order.getCustomerId()) + ")";
     if (_db->execute(query)) {
-        std::cout << "Order created successfully.\n";
+        //std::cout << "Order created successfully.\n";
 
         MYSQL_RES* res = _db->query("SELECT LAST_INSERT_ID()");
         if (res) {
