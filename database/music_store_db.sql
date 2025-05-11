@@ -16,6 +16,7 @@ CREATE TABLE music_items (
 CREATE TABLE users (
     username VARCHAR(50) PRIMARY KEY,
     password VARCHAR(255) NOT NULL,
+    salt VARCHAR(32) NOT NULL,
     role ENUM('Admin', 'User') DEFAULT 'User'
 );
 
@@ -55,10 +56,10 @@ INSERT INTO music_items (id, category, type, name, artist, price, quantity) VALU
 (4, 'Digital', 'EDM', 'Levels', 'Avicii', 1.29, 0),
 (5, 'Digital', 'Pop', 'Shape of You', 'Ed Sheeran', 1.29, 5);
 
-INSERT INTO users (username, password, role) VALUES
-('admin', 'admin', 'Admin'),
-('user1', 'userpass', 'User'),
-('user2', 'userpass', 'User');
+INSERT INTO users (username, password, salt, role) VALUES
+('admin', 'admin',' ', 'Admin'),
+('user1', 'userpass',' ', 'User'),
+('user2', 'userpass', ' ', 'User');
 
 -- Khách có tài khoản
 INSERT INTO customers (id, name, type, points, username) VALUES

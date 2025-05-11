@@ -3,6 +3,7 @@
 
 #include "Database.h"
 #include "User.h"
+#include "Hasher.h"
 #include <optional>
 #include <string>
 #include <iostream>
@@ -18,28 +19,36 @@
   */
 class AuthManager {
 private:
-    Database* _db; ///< Con trỏ đến đối tượng cơ sở dữ liệu để thực hiện truy vấn người dùng.
+    Database* _db; ///< Con trỏ đến đối tượng Database để thao tác với CSDL
+
+    /**
+     * @brief Kiểm tra username đã tồn tại trong hệ thống chưa
+     * @param username Tên đăng nhập cần kiểm tra
+     * @return true nếu username đã tồn tại, false nếu chưa
+     */
+    bool usernameExists(const std::string& username);
 
 public:
     /**
-     * @brief Constructor khởi tạo AuthManager với cơ sở dữ liệu.
-     * @param db Con trỏ đến đối tượng Database chứa thông tin người dùng.
+     * @brief Constructor khởi tạo AuthManager
+     * @param db Con trỏ đến đối tượng Database
      */
     explicit AuthManager(Database* db);
 
     /**
-     * @brief Thực hiện đăng nhập người dùng với tên đăng nhập và mật khẩu.
-     * @param username Tên đăng nhập.
-     * @param password Mật khẩu.
-     * @return std::optional<User>: Trả về đối tượng User nếu đăng nhập thành công, ngược lại trả về std::nullopt.
+     * @brief Đăng nhập người dùng
+     * @param username Tên đăng nhập
+     * @param password Mật khẩu
+     * @return std::optional<User> chứa thông tin user nếu đăng nhập thành công
      */
     std::optional<User> login(const std::string& username, const std::string& password);
 
     /**
-     * @brief Đăng ký người dùng mới.
-     * @param username Tên đăng nhập mong muốn.
-     * @param password Mật khẩu cho tài khoản mới.
-     * @return true nếu đăng ký thành công, false nếu tên đăng nhập đã tồn tại hoặc lỗi khác.
+     * @brief Đăng ký người dùng mới
+     * @param username Tên đăng nhập (4-16 ký tự)
+     * @param password Mật khẩu (4-16 ký tự)
+     * @return true nếu đăng ký thành công
+     * @throw std::invalid_argument nếu username/password không hợp lệ
      */
     bool registerUser(const std::string& username, const std::string& password);
 };
