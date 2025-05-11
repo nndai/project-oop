@@ -19,7 +19,7 @@ void AddItemAction::execute() {
     float price;
     int quantity;
 
-    
+
     std::cout << "Enter Category: ";
     std::getline(std::cin, category);
 
@@ -32,7 +32,7 @@ void AddItemAction::execute() {
     std::cout << "Enter Artist: ";
     std::getline(std::cin, artist);
 
-    while(true){
+    while (true) {
         std::cout << "Enter Price: ";
         std::string str;
         std::getline(std::cin, str);
@@ -49,7 +49,7 @@ void AddItemAction::execute() {
         }
     }
 
-    while(true){
+    while (true) {
         std::cout << "Enter Quantity: ";
         std::string str;
         std::getline(std::cin, str);
