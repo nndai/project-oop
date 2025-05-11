@@ -1,0 +1,45 @@
+digraph "src/SoldItemsAction.cpp"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [id="Node000001",label="src/SoldItemsAction.cpp",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="SoldItemsAction.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_sold_items_action_8h.html",tooltip="Định nghĩa lớp SoldItemsAction để xử lý hành động hiển thị các mặt hàng đã bán."];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="IMenuAction.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_i_menu_action_8h.html",tooltip="Định nghĩa giao diện IMenuAction cho các hành động trong menu của ứng dụng cửa hàng âm nhạc."];
+  Node2 -> Node4 [id="edge3_Node000002_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="MusicStore.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_music_store_8h.html",tooltip="Định nghĩa lớp MusicStore để quản lý các mặt hàng âm nhạc trong cửa hàng."];
+  Node4 -> Node5 [id="edge4_Node000004_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="MusicItem.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_music_item_8h.html",tooltip="Định nghĩa lớp MusicItem để đại diện cho một mặt hàng âm nhạc trong cửa hàng."];
+  Node5 -> Node6 [id="edge5_Node000005_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="string",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node5 -> Node7 [id="edge6_Node000005_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="iostream",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node5 -> Node8 [id="edge7_Node000005_Node000008",color="steelblue1",style="solid",tooltip=" "];
+  Node8 [id="Node000008",label="iomanip",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node5 -> Node9 [id="edge8_Node000005_Node000009",color="steelblue1",style="solid",tooltip=" "];
+  Node9 [id="Node000009",label="vector",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node5 -> Node10 [id="edge9_Node000005_Node000010",color="steelblue1",style="solid",tooltip=" "];
+  Node10 [id="Node000010",label="TableUI.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_table_u_i_8h.html",tooltip="Định nghĩa lớp TableUI để hiển thị dữ liệu dạng bảng trong giao diện dòng lệnh."];
+  Node10 -> Node7 [id="edge10_Node000010_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node10 -> Node9 [id="edge11_Node000010_Node000009",color="steelblue1",style="solid",tooltip=" "];
+  Node10 -> Node6 [id="edge12_Node000010_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node10 -> Node11 [id="edge13_Node000010_Node000011",color="steelblue1",style="solid",tooltip=" "];
+  Node11 [id="Node000011",label="format",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node10 -> Node12 [id="edge14_Node000010_Node000012",color="steelblue1",style="solid",tooltip=" "];
+  Node12 [id="Node000012",label="algorithm",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node4 -> Node13 [id="edge15_Node000004_Node000013",color="steelblue1",style="solid",tooltip=" "];
+  Node13 [id="Node000013",label="Database.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$_database_8h.html",tooltip="Định nghĩa lớp Database để quản lý kết nối và truy vấn MySQL trong ứng dụng."];
+  Node13 -> Node14 [id="edge16_Node000013_Node000014",color="steelblue1",style="solid",tooltip=" "];
+  Node14 [id="Node000014",label="mysql.h",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node13 -> Node7 [id="edge17_Node000013_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node13 -> Node6 [id="edge18_Node000013_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node4 -> Node10 [id="edge19_Node000004_Node000010",color="steelblue1",style="solid",tooltip=" "];
+  Node4 -> Node9 [id="edge20_Node000004_Node000009",color="steelblue1",style="solid",tooltip=" "];
+  Node4 -> Node6 [id="edge21_Node000004_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node4 -> Node15 [id="edge22_Node000004_Node000015",color="steelblue1",style="solid",tooltip=" "];
+  Node15 [id="Node000015",label="optional",height=0.2,width=0.4,color="grey60", fillcolor="#E0E0E0", style="filled",tooltip=" "];
+  Node1 -> Node7 [id="edge23_Node000001_Node000007",color="steelblue1",style="solid",tooltip=" "];
+}
