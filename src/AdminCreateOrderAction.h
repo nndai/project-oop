@@ -1,31 +1,38 @@
-#ifndef ADD_ITEM_ACTION_H_
-#define ADD_ITEM_ACTION_H_
+#ifndef ADMIN_CREATE_ORDER_ACTION_H_
+#define ADMIN_CREATE_ORDER_ACTION_H_
 
 #include "IMenuAction.h"
 #include "MusicStore.h"
+#include "TableUI.h"
+#include "CustomerManager.h"
+#include "OrderManager.h"
+#include "ItemInStockAction.h"
+#include <iostream>
+#include <vector>
+#include <limits>
 
 /**
- * @file AddItemAction.h
- * @brief Định nghĩa lớp AddItemAction thực hiện hành động thêm mặt hàng âm nhạc vào cửa hàng.
+ * @file AdminCreateOrderAction.h
+ * @brief Định nghĩa lớp AdminCreateOrderAction cho phép quản trị viên tạo đơn hàng mới.
  */
 
- /**
-  * @class AddItemAction
-  * @brief Lớp thực thi hành động thêm một mục âm nhạc vào cửa hàng, tuân theo giao diện IMenuAction.
-  */
-class AddItemAction : public IMenuAction {
+class AdminCreateOrderAction : public IMenuAction {
 private:
-    MusicStore* _store;  ///< Con trỏ đến đối tượng MusicStore, nơi sẽ thêm mặt hàng mới.
+    MusicStore* _store; ///< Con trỏ đến cửa hàng âm nhạc, dùng để truy cập dữ liệu mặt hàng.
+    CustomerManager* _customer_manager; ///< Con trỏ đến trình quản lý khách hàng, dùng để truy cập dữ liệu khách hàng.
+    OrderManager* _order_manager; ///< Con trỏ đến trình quản lý đơn hàng, dùng để truy cập dữ liệu đơn hàng.
 
 public:
     /**
-     * @brief Constructor khởi tạo với tham chiếu đến đối tượng MusicStore.
-     * @param store Con trỏ đến cửa hàng âm nhạc để thao tác.
+     * @brief Constructor khởi tạo hành động tạo đơn hàng với cửa hàng âm nhạc và các trình quản lý.
+     * @param store Con trỏ đến đối tượng MusicStore.
+     * @param customer_manager Con trỏ đến đối tượng CustomerManager.
+     * @param order_manager Con trỏ đến đối tượng OrderManager.
      */
-    explicit AddItemAction(MusicStore* store);
-
+    explicit AdminCreateOrderAction(MusicStore* store, CustomerManager* customer_manager, OrderManager* order_manager);
+    
     /**
-     * @brief Ghi đè phương thức execute từ IMenuAction để thực hiện hành động thêm mặt hàng.
+     * @brief Ghi đè phương thức execute để thực hiện quy trình tạo đơn hàng.
      */
     void execute() override;
 };
