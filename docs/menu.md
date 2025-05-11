@@ -10,7 +10,8 @@
             - Thêm
             - Xóa
             - Sửa
-            - Hiển thị
+            - Xem tất cả các đơn hàng
+            - Xem các đơn hàng của một khách hàng mua
         - Xem các hóa đơn
         - Xem tất cả sản phẩm
         - Xem các sản phẩm còn hàng
