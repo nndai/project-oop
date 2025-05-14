@@ -50,11 +50,7 @@ void FindItemAction::execute() {
         std::cout << "No items found containing '" << keyword << "'.\n";
     }
     else {
-        std::vector<std::vector<std::string>> tuples;
-        tuples.push_back(MusicItem::attributes_name);
-        for (const auto& item : results) {
-            tuples.push_back(item.getTuple());
-        }
-        TableUI::print(tuples);
+        std::cout << "Found items:\n";
+        TableUI::print(results);
     }
 }

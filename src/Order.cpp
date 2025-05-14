@@ -29,6 +29,6 @@ const std::vector<Order::OrderDetail>& Order::getOrderDetails() const {
     return _orderDetails;
 }
 
-std::vector<std::string> Order::getTuple(){
+std::vector<std::string> Order::getTuple() const {
     return {std::to_string(_id), std::to_string(_customerId), std::to_string(_totalPrice), _orderDate};
 }

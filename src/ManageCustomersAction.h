@@ -4,6 +4,7 @@
 #include "IMenuAction.h"
 #include "CustomerManager.h"
 #include "TableUI.h"
+#include <iostream>
 
 /**
  * @file ManageCustomersAction.h

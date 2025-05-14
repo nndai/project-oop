@@ -73,7 +73,7 @@ public:
      * @brief Trả về thông tin khách hàng dưới dạng danh sách chuỗi, dùng cho hiển thị hoặc xuất dữ liệu.
      * @return Vector chứa các chuỗi thông tin: ID, Name, Type, Points
      */
-    std::vector<std::string> getTuple();
+    std::vector<std::string> getTuple() const;
 
     /**
      * @brief Thiết lập tên mới cho khách hàng.

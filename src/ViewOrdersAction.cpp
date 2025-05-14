@@ -15,12 +15,6 @@ void ViewOrdersAction::execute() {
         std::cout << "No orders available.\n";
         return;
     }
-    std::vector<std::vector<std::string>> tuples;
-    tuples.push_back(Order::attributes_name);
-    
-    for (Order& order : orders) {
-        tuples.push_back(order.getTuple());
-    }
-    std::cout << "\nOrders:\n";
-    TableUI::print(tuples);
+    std::cout << "Orders:\n";
+    TableUI::print(orders);
 }

@@ -89,8 +89,5 @@ void MusicItem::setQuantity(int quantity) {
 }
 
 void MusicItem::display() const {
-    std::vector<std::vector<std::string>> tuples;
-    tuples.push_back(attributes_name);
-    tuples.push_back(getTuple());
-    TableUI::print(tuples);
+    TableUI::print(*this);
 }

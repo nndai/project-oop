@@ -89,7 +89,7 @@ public:
      * @brief Trả về thông tin đơn hàng dưới dạng danh sách chuỗi (dùng cho xuất dữ liệu).
      * @return Vector chứa chuỗi thông tin: Order ID, customer ID, total price, date
      */
-    std::vector<std::string> getTuple();
+    std::vector<std::string> getTuple() const;
 };
 
 #endif

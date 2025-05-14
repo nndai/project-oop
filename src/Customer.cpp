@@ -26,7 +26,7 @@ int Customer::getPoints() const {
     return _points;
 }
 
-std::vector<std::string> Customer::getTuple() {
+std::vector<std::string> Customer::getTuple() const {
     return {std::to_string(_id), _name, getType(), std::to_string(_points)};
 }
 

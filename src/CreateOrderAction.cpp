@@ -27,12 +27,7 @@ void CreateOrderAction::execute() {
     }
 
     std::cout << "\nAvailable Items:\n";
-    std::vector<std::vector<std::string>> tuples;
-    tuples.push_back(MusicItem::attributes_name);
-    for (const auto& item : availableItems) {
-        tuples.push_back(item.getTuple());
-    }
-    TableUI::print(tuples);
+    TableUI::print(availableItems);
 
     float total_price = 0;
     while (true) {

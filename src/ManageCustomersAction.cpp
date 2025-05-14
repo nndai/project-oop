@@ -1,5 +1,4 @@
 #include "ManageCustomersAction.h"
-#include <iostream>
 
 ManageCustomersAction::ManageCustomersAction(CustomerManager* customerManager)
     : _customerManager(customerManager) {
@@ -76,12 +75,13 @@ void ManageCustomersAction::execute() {
     }
     case 4: {
         std::vector<Customer> customers = _customerManager->getAllCustomers();
-        std::vector<std::vector<std::string>> tuples;
-        tuples.push_back(Customer::attributes_name);
-        for (Customer& customer : customers) {
-            tuples.push_back(customer.getTuple());
+        if (customers.empty()) {
+            std::cout << "No customers found.\n";
         }
-        TableUI::print(tuples);
+        else {
+            std::cout << "Customers:\n";
+            TableUI::print(customers);
+        }
         break;
     }
     default:

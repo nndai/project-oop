@@ -32,8 +32,8 @@ public:
      * @brief Các lựa chọn menu dành cho admin.
      */
     enum class AdminMenuChoice {
-        CREATE_ORDER = 1,     ///< Tạo đơn hàng mới
-        MANAGE_CUSTOMERS,     ///< Quản lý khách hàng
+        CREATE_ORDER = 1,    ///< Tạo đơn hàng mới
+        MANAGE_CUSTOMERS,    ///< Quản lý khách hàng
         VIEW_ORDERS,         ///< Xem danh sách đơn hàng
         SHOW_ALL_ITEMS,      ///< Hiển thị tất cả mặt hàng
         ITEM_IN_STOCK,       ///< Hiển thị mặt hàng có sẵn trong kho
@@ -48,10 +48,10 @@ public:
      * @brief Các lựa chọn menu dành cho người dùng.
      */
     enum class UserMenuChoice {
-        CREATE_ORDER = 1,     ///< Tạo đơn hàng mới
-        FIND_MUSIC,          ///< Tìm kiếm mặt hàng âm nhạc
-        VIEW_ITEMS_IN_STOCK, ///< Xem mặt hàng có sẵn trong kho
-        LOGOUT               ///< Đăng xuất
+        CREATE_ORDER = 1,       ///< Tạo đơn hàng mới
+        FIND_MUSIC,             ///< Tìm kiếm mặt hàng âm nhạc
+        VIEW_ITEMS_IN_STOCK,    ///< Xem mặt hàng có sẵn trong kho
+        LOGOUT                  ///< Đăng xuất
     };
 
     /**

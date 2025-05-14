@@ -18,12 +18,6 @@ void DisplayAllItemsAction::execute() {
         return;
     }
 
-    std::vector<std::vector<std::string>> tuples;
-    tuples.push_back(MusicItem::attributes_name);
-    for (auto item : items) {
-        tuples.push_back(item.getTuple());
-    }
-
     std::cout << "\nAll Music Items:\n";
-    TableUI::print(tuples);
+    TableUI::print(items);
 }
