@@ -3,12 +3,10 @@
 
 OrderManager::OrderManager(Database* db) : _db(db) {}
 
-void OrderManager::createOrder(const Order& order) {
+bool OrderManager::createOrder(Order& order) {
     std::string query = "INSERT INTO orders (customer_id) VALUES (" +
         std::to_string(order.getCustomerId()) + ")";
     if (_db->execute(query)) {
-        //std::cout << "Order created successfully.\n";
-
         MYSQL_RES* res = _db->query("SELECT LAST_INSERT_ID()");
         if (res) {
             MYSQL_ROW row = mysql_fetch_row(res);
@@ -23,14 +21,19 @@ void OrderManager::createOrder(const Order& order) {
                     std::to_string(detail.price) + ")";
                 _db->execute(detail_query);
             }
+            res = _db->query("SELECT order_date FROM orders WHERE id = " + std::to_string(order_id));
+            row = mysql_fetch_row(res);
+            order.setOrderDate(row[0]);
+            mysql_free_result(res);
+            order.setId(order_id);
+            return true;
         }
-        else{
-            std::cout << "Failed to retrieve order ID.\n";
-        }
+        std::cout << "Failed to retrieve order ID.\n";
+        return false;
     }
-    else {
-        std::cout << "Failed to create order.\n";
-    }
+    std::cout << "Failed to create order.\n";
+    return false;
+    
 }
 
 std::vector<Order> OrderManager::getAllOrders() const {
@@ -41,7 +44,13 @@ std::vector<Order> OrderManager::getAllOrders() const {
     if (order_res) {
         MYSQL_ROW row;
         while ((row = mysql_fetch_row(order_res))) {
-            orders.emplace_back(std::stoi(row[0]), std::stoi(row[1]), row[2], 0);
+            int order_id = std::stoi(row[0]);
+            int customer_id = std::stoi(row[1]);
+            std::string order_date = (char*)row[2];
+            double total_price = 0.0;
+
+            Order order(order_id, customer_id, order_date, total_price);
+            orders.push_back(order);
         }
         mysql_free_result(order_res);
     }
@@ -61,7 +70,14 @@ std::vector<Order> OrderManager::getAllOrders() const {
                 });
 
             if (it != orders.end()) {
-                it->addOrderDetail(music_item_id, quantity, price);
+                MusicStore music_store(_db);
+                auto music_item = music_store.findItemById(music_item_id);
+                if (music_item.has_value()) {
+                    it->addOrderDetail(music_item_id, music_item->getName(), quantity, price);
+                }
+                else {
+                    it->addOrderDetail(music_item_id, "", quantity, price);
+                }
             }
         }
         mysql_free_result(detail_res);

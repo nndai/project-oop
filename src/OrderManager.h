@@ -2,6 +2,7 @@
 #define ORDER_MANAGER_H_
 
 #include "Order.h"
+#include "MusicStore.h"
 #include "Database.h"
 #include <vector>
 #include <iostream>
@@ -28,9 +29,11 @@ public:
 
     /**
      * @brief Tạo một đơn hàng mới và lưu vào cơ sở dữ liệu.
-     * @param order Đối tượng đơn hàng cần thêm.
+     * @param order Đối tượng Order chứa thông tin đơn hàng cần tạo.
+     * @note order sẽ được cập nhật với ID mới sau khi tạo thành công.
+     * @return true nếu tạo đơn hàng thành công, false nếu không thành công.
      */
-    void createOrder(const Order& order);
+    bool createOrder(Order& order);
 
     /**
      * @brief Lấy danh sách tất cả các đơn hàng trong hệ thống.
