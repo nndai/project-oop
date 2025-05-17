@@ -59,6 +59,55 @@ void TableUI::print(const std::vector<std::vector<std::string>>& tuples) {
     printSeparator();
 }
 
+void TableUI::print(std::ofstream& fout,const std::vector<std::vector<std::string>>& tuples) {
+    if (tuples.empty()) return;
+
+    const auto& headers = tuples[0];
+    int cols = headers.size();
+    std::vector<int> colWidths(cols);
+
+
+    for (int i = 0; i < cols; ++i) {
+        colWidths[i] = lengthWithoutAccent(headers[i]);
+    }
+
+
+    for (int r = 1; r < tuples.size(); ++r) {
+        const auto& row = tuples[r];
+        for (int i = 0; i < cols && i < row.size(); ++i) {
+            colWidths[i] = std::max(colWidths[i], lengthWithoutAccent(row[i]));
+        }
+    }
+
+    auto printSeparator = [&]() {
+        fout << "+";
+        for (int i = 0; i < cols; ++i) {
+            fout << std::string(colWidths[i] + 2, '-') << "+";
+        }
+        fout << "\n";
+        };
+
+    auto printRow = [&](const std::vector<std::string>& row, bool center = false) {
+        fout << "|";
+        for (int i = 0; i < cols; ++i) {
+            std::string cell = (i < row.size()) ? row[i] : "";
+            int padding = colWidths[i] - lengthWithoutAccent(cell);
+            int left = center ? padding / 2 : 0;
+            int right = center ? (padding - left) : padding;
+            fout << " " << std::string(left, ' ') << cell << std::string(right, ' ') << " |";
+        }
+        fout << "\n";
+        };
+
+    printSeparator();
+    printRow(headers, true);
+    printSeparator();
+    for (int i = 1; i < tuples.size(); ++i) {
+        printRow(tuples[i]);
+    }
+    printSeparator();
+}
+
 void TableUI::print(const std::vector<Order>& orders) {
     if (orders.empty()) return;
 
