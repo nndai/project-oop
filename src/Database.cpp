@@ -24,7 +24,7 @@ bool Database::connect(const std::string& host, const std::string& user,
 
 MYSQL_RES* Database::query(const std::string& query) const {
     if (mysql_query(conn, query.c_str()) != 0) {
-        std::cerr << "Query error: " << mysql_error(conn) << std::endl;
+        std::cerr << "Query error(" << query << "): " << mysql_error(conn) << std::endl;
         return nullptr;
     }
     return mysql_store_result(conn);
@@ -32,7 +32,7 @@ MYSQL_RES* Database::query(const std::string& query) const {
 
 bool Database::execute(const std::string& query) const {
     if (mysql_query(conn, query.c_str()) != 0) {
-        std::cerr << "Execute error: " << mysql_error(conn) << std::endl;
+        std::cerr << "Execute error (" << query << "): " << mysql_error(conn) << std::endl;
         return false;
     }
     return true;
