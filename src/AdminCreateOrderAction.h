@@ -7,6 +7,7 @@
 #include "CustomerManager.h"
 #include "OrderManager.h"
 #include "ItemInStockAction.h"
+#include "ExportInvoice.h"
 #include <iostream>
 #include <vector>
 #include <limits>

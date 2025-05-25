@@ -35,7 +35,6 @@ void AdminCreateOrderAction::execute() {
         std::string customer_name, customer_type;
         int customer_points = 0;
         std::cout << "Enter Customer Name: ";
-        std::cin.ignore();
         std::getline(std::cin, customer_name);
         do {
             std::cout << "Enter Customer Type (Regular/VIP): ";
@@ -121,7 +120,7 @@ void AdminCreateOrderAction::execute() {
         _store->updateItem(*item);
 
         double item_total = quantity * item->getPrice();
-        order_details.push_back({ item_id, quantity, item->getPrice() });
+        order_details.push_back({ item_id, item->getName(), quantity, item->getPrice() });
         total_price += item_total;
 
         std::cout << "Added " << quantity << " x " << item->getName() << " to the order. Subtotal: $" << item_total << "\n";
@@ -134,9 +133,16 @@ void AdminCreateOrderAction::execute() {
 
     Order new_order(-1, customer_id, "", total_price);
     for (const auto& detail : order_details) {
-        new_order.addOrderDetail(detail.music_id, detail.quantity, detail.price);
+        new_order.addOrderDetail(detail.music_id, detail.music_name, detail.quantity, detail.price);
     }
 
     _order_manager->createOrder(new_order);
     std::cout << "Order created successfully! Total Price: $" << total_price << "\n";
+    std::string invoice_filename = "invoice_" + std::to_string(new_order.getId()) + ".txt";
+    if (ExportInvoice::exportInvoiceToFile(new_order, _customer_manager->findCustomerById(customer_id).value(), invoice_filename)) {
+        std::cout << "Invoice exported to " << invoice_filename << "\n";
+    }
+    else {
+        std::cout << "Failed to export invoice.\n";
+    }
 }

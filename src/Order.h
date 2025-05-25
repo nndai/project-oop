@@ -20,35 +20,49 @@ public:
      */
     struct OrderDetail {
         int music_id;   ///< ID của mặt hàng âm nhạc
+        std::string music_name; ///< Tên mặt hàng âm nhạc
         int quantity;   ///< Số lượng đặt mua
         float price;    ///< Giá mỗi đơn vị
     };
 
 private:
     int _id;                           ///< ID của đơn hàng
-    int _customerId;                  ///< ID của khách hàng
-    double _totalPrice;               ///< Tổng giá trị đơn hàng
-    std::string _orderDate;           ///< Ngày đặt hàng
-    std::vector<OrderDetail> _orderDetails; ///< Danh sách chi tiết đơn hàng
+    int _customer_id;                  ///< ID của khách hàng
+    double _total_price;               ///< Tổng giá trị đơn hàng
+    std::string _order_date;           ///< Ngày đặt hàng
+    std::vector<OrderDetail> _order_details; ///< Danh sách chi tiết đơn hàng
 
 public:
 
     /**
      * @brief Constructor để tạo một đơn hàng mới.
      * @param id Mã đơn hàng
-     * @param customerId Mã khách hàng
-     * @param orderDate Ngày đặt hàng (định dạng chuỗi)
-     * @param totalPrice Tổng giá trị đơn hàng
+     * @param customer_id Mã khách hàng
+     * @param order_date Ngày đặt hàng (định dạng chuỗi)
+     * @param total_price Tổng giá trị đơn hàng
      */
-    Order(int id, int customerId, const std::string& orderDate, double totalPrice);
+    Order(int id, int customer_id, const std::string& order_date, double total_price);
 
     /**
      * @brief Thêm chi tiết mặt hàng vào đơn hàng.
-     * @param musicItemId Mã mặt hàng âm nhạc
+     * @param music_id Mã mặt hàng âm nhạc
+     * @param music_name Tên mặt hàng âm nhạc
      * @param quantity Số lượng mua
      * @param price Giá mỗi đơn vị
      */
-    void addOrderDetail(int musicItemId, int quantity, double price);
+    void addOrderDetail(int music_id, std::string music_name, int quantity, double price);
+
+    /**
+     * @brief Cập nhật mã đơn hàng.
+     * @param id Mã đơn hàng mới
+     */
+    void setId(int id);
+
+    /**
+     * @brief Cập nhật ngày đặt hàng.
+     * @param order_date Ngày đặt hàng mới (định dạng chuỗi)
+     */
+    void setOrderDate(const std::string& order_date);
 
     /**
      * @brief Lấy mã đơn hàng.
