@@ -49,6 +49,7 @@ public:
      */
     enum class UserMenuChoice {
         CREATE_ORDER = 1,       ///< Tạo đơn hàng mới
+        VIEW_USER_ORDERS,       ///< Xem các đơn hàng đã mua
         FIND_MUSIC,             ///< Tìm kiếm mặt hàng âm nhạc
         VIEW_ITEMS_IN_STOCK,    ///< Xem mặt hàng có sẵn trong kho
         LOGOUT                  ///< Đăng xuất
@@ -86,13 +87,13 @@ public:
      * @brief Phương thức xử lý menu của admin, hiển thị các lựa chọn và thực hiện hành động tương ứng.
      * @param user Thông tin người dùng đã đăng nhập.
      */
-    void handleAdminMenu(const User& user);
+    void handleAdminMenu(User user);
 
     /**
      * @brief Phương thức xử lý menu của người dùng, hiển thị các lựa chọn và thực hiện hành động tương ứng.
      * @param user Thông tin người dùng đã đăng nhập.
      */
-    void handleUserMenu(const User& user);
+    void handleUserMenu(User user);
 };
 
 #endif
