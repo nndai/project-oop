@@ -85,8 +85,14 @@ void MenuManager::handleLoginMenu() {
                 std::cout << "Enter new password (4-16 characters): ";
                 getline(std::cin, password);
 
-                try {
-                    if (_authManager->registerUser(username, password)) {
+                std::string customer_name;
+                std::cout << "Enter your name: ";
+                getline(std::cin, customer_name);
+                \
+
+
+                    try {
+                    if (_authManager->registerUser(username, password) && Customer(-1, customer_name, "Regular", 0).getId() != -1) {
                         std::cout << "User registered successfully. Please login.\n";
                     }
                 }

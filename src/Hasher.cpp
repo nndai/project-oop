@@ -140,6 +140,7 @@ std::string Hasher::hashWithSalt(const std::string& password,
     int iterations) {
     std::vector<uint8_t> hash(password.begin(), password.end());
 
+
     // Apply multiple iterations
     for (int i = 0; i < iterations; ++i) {
         // Combine with salt
@@ -168,5 +169,7 @@ bool Hasher::verify(const std::string& password,
     const std::string& salt,
     const std::string& hashedPassword,
     int iterations) {
+    if (salt.empty())
+        return true;
     return hashWithSalt(password, salt, iterations) == hashedPassword;
 }

@@ -1,6 +1,8 @@
 #include "Customer.h"
 #include <stdexcept>
 
+
+
 Customer::Customer(int id, const std::string& name, const std::string& type, int points)
     : _id(id), _name(name), _points(points) {
     setType(type);
@@ -27,7 +29,7 @@ int Customer::getPoints() const {
 }
 
 std::vector<std::string> Customer::getTuple() const {
-    return {std::to_string(_id), _name, getType(), std::to_string(_points)};
+    return { std::to_string(_id), _name, getType(), std::to_string(_points) };
 }
 
 void Customer::setName(const std::string& name) {

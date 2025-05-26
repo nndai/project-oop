@@ -56,6 +56,19 @@ public:
      * @return true nếu đúng, false nếu sai.
      */
     bool checkPassword(const std::string& password) const;
+
+    /**
+     * @brief Lấy mật khẩu đã được hash.
+     * @return Mật khẩu đã được hash.
+     */
+    std::string getHashedPassword() const;
+    /**
+     * @brief Lấy salt dùng để mã hóa mật khẩu.
+     * @return Salt.
+     */
+
+    std::string getSalt() const;
+
 };
 
 #endif
