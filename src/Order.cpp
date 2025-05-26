@@ -1,12 +1,20 @@
 #include "Order.h"
 
-Order::Order(int id, int customerId, const std::string& orderDate, double totalPrice)
-    : _id(id), _customerId(customerId), _orderDate(orderDate), _totalPrice(totalPrice) {
+Order::Order(int id, int customer_id, const std::string& order_date, double total_price)
+    : _id(id), _customer_id(customer_id), _order_date(order_date), _total_price(total_price) {
 }
 
-void Order::addOrderDetail(int musicItemId, int quantity, double price) {
-    _orderDetails.emplace_back(musicItemId, quantity, price);
-    _totalPrice += quantity * price;
+void Order::addOrderDetail(int music_id, std::string music_name, int quantity, double price) {
+    _order_details.emplace_back(music_id, music_name, quantity, price);
+    _total_price += quantity * price;
+}
+
+void Order::setId(int id) {
+    _id = id;
+}
+
+void Order::setOrderDate(const std::string& order_date) {
+    _order_date = order_date;
 }
 
 int Order::getId() const {
@@ -14,21 +22,21 @@ int Order::getId() const {
 }
 
 int Order::getCustomerId() const {
-    return _customerId;
+    return _customer_id;
 }
 
 std::string Order::getOrderDate() const {
-    return _orderDate;
+    return _order_date;
 }
 
 double Order::getTotalPrice() const {
-    return _totalPrice;
+    return _total_price;
 }
 
 const std::vector<Order::OrderDetail>& Order::getOrderDetails() const {
-    return _orderDetails;
+    return _order_details;
 }
 
 std::vector<std::string> Order::getTuple() const {
-    return {std::to_string(_id), std::to_string(_customerId), std::to_string(_totalPrice), _orderDate};
+    return {std::to_string(_id), std::to_string(_customer_id), std::to_string(_total_price), _order_date};
 }

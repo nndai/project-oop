@@ -33,9 +33,9 @@ void ManageCustomersAction::execute() {
         std::string name, type;
         int points;
         std::cout << "Enter name: ";
-        std::cin >> name;
+        std::getline(std::cin, name);
         std::cout << "Enter type (Regular/VIP): ";
-        std::cin >> type;
+        std::getline(std::cin, type);
         std::cout << "Enter points: ";
         std::cin >> points;
         Customer customer(-1, name, type, points);
@@ -58,9 +58,9 @@ void ManageCustomersAction::execute() {
             std::string name, type;
             int points;
             std::cout << "Enter new name: ";
-            std::cin >> name;
+            std::getline(std::cin, name);
             std::cout << "Enter new type (Regular/VIP): ";
-            std::cin >> type;
+            std::getline(std::cin, type);
             std::cout << "Enter new points: ";
             std::cin >> points;
             customer->setName(name);

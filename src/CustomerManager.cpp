@@ -8,28 +8,23 @@ int CustomerManager::addCustomer(const Customer& customer) {
         customer.getName() + "', '" + customer.getType() + "', " +
         std::to_string(customer.getPoints()) + ")";
     if (_db->execute(query)) {
-        std::cout << "Customer added successfully.\n";
         MYSQL_RES* res = _db->query("SELECT LAST_INSERT_ID()");
         int new_customer_id = std::stoi(mysql_fetch_row(res)[0]);
         mysql_free_result(res);
         return new_customer_id;
     }
-    else {
-        std::cout << "Failed to add customer.\n";
-    }
+
+    std::cout << "Failed to add customer.\n";
     return -1;
 }
 
 bool CustomerManager::removeCustomer(int id) {
     std::string query = "DELETE FROM customers WHERE id = " + std::to_string(id);
     if (_db->execute(query)) {
-        std::cout << "Customer removed successfully.\n";
         return true;
     }
-    else {
-        std::cout << "Failed to remove customer.\n";
-        return false;
-    }
+     return false;
+    
 }
 
 bool CustomerManager::updateCustomer(const Customer& customer) {
@@ -38,13 +33,10 @@ bool CustomerManager::updateCustomer(const Customer& customer) {
         "', points = " + std::to_string(customer.getPoints()) +
         " WHERE id = " + std::to_string(customer.getId());
     if (_db->execute(query)) {
-        std::cout << "Customer updated successfully.\n";
         return true;
     }
-    else {
-        std::cout << "Failed to update customer.\n";
-        return false;
-    }
+    return false;
+    
 }
 
 std::optional<Customer> CustomerManager::findCustomerById(int id) {

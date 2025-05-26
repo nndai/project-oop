@@ -6,6 +6,7 @@
 #include <string>
 #include <format>
 #include <algorithm>
+#include <fstream>
 #include "Order.h"
 #include "MusicItem.h"
 #include "Customer.h"
@@ -39,6 +40,13 @@ public:
 	 * @param tuples Danh sách các hàng, mỗi hàng là một vector chứa các cột dạng chuỗi.
 	 */
 	static void print(const std::vector<std::vector<std::string>>& tuples);
+
+	/**
+	 * @brief In ra bảng từ một danh sách các hàng (tuples), mỗi hàng là một vector chuỗi.
+	 * @param fout Đối tượng ofstream để ghi vào tệp.
+	 * @param tuples Danh sách các hàng, mỗi hàng là một vector chứa các cột dạng chuỗi.
+	 */
+	static void print(std::ofstream& fout, const std::vector<std::vector<std::string>>& tuples);
 
 	/**
 	 * @brief In ra bảng từ một danh sách các đơn hàng.
