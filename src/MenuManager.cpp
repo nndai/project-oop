@@ -31,6 +31,8 @@ MenuActionFactory::MenuChoice MenuManager::mapUserMenuChoiceToMenuAction(UserMen
     switch (choice) {
     case UserMenuChoice::CREATE_ORDER:
         return MenuActionFactory::MenuChoice::CREATE_ORDER;
+    case UserMenuChoice::VIEW_USER_ORDERS:
+        return MenuActionFactory::MenuChoice::VIEW_USER_ORDERS;
     case UserMenuChoice::FIND_MUSIC:
         return MenuActionFactory::MenuChoice::FIND_MUSIC;
     case UserMenuChoice::VIEW_ITEMS_IN_STOCK:
@@ -116,7 +118,7 @@ void MenuManager::handleLoginMenu() {
     }
 }
 
-void MenuManager::handleAdminMenu(const User& user) {
+void MenuManager::handleAdminMenu(User user) {
     while (true) {
         system("cls");
         std::cout << "=============================\n";
@@ -151,7 +153,7 @@ void MenuManager::handleAdminMenu(const User& user) {
         try {
             auto action = MenuActionFactory::createAction(
                 mapAdminMenuChoiceToMenuAction(static_cast<AdminMenuChoice>(choice)),
-                _musicStore, _customerManager, _orderManager
+                _musicStore, _customerManager, _orderManager, &user
             );
             if (action) {
                 action->execute();
@@ -168,12 +170,13 @@ void MenuManager::handleAdminMenu(const User& user) {
     }
 }
 
-void MenuManager::handleUserMenu(const User& user) {
+void MenuManager::handleUserMenu(User user) {
     while (true) {
         system("cls");
         std::cout << "=============================\n";
         std::cout << "User Menu:\n";
         std::cout << (int)UserMenuChoice::CREATE_ORDER << ". Create Order\n";
+        std::cout << (int)UserMenuChoice::VIEW_USER_ORDERS << ". View My Orders\n";
         std::cout << (int)UserMenuChoice::FIND_MUSIC << ". Find Music\n";
         std::cout << (int)UserMenuChoice::VIEW_ITEMS_IN_STOCK << ". View Items In Stock\n";
         std::cout << (int)UserMenuChoice::LOGOUT << ". Logout\n";
@@ -200,7 +203,7 @@ void MenuManager::handleUserMenu(const User& user) {
         try {
             auto action = MenuActionFactory::createAction(
                 mapUserMenuChoiceToMenuAction((UserMenuChoice)choice),
-                _musicStore, _customerManager, _orderManager
+                _musicStore, _customerManager, _orderManager, &user
             );
             if (action) {
                 action->execute();

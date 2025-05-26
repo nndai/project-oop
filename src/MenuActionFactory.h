@@ -14,6 +14,7 @@
 #include "ViewOrdersAction.h"
 #include "ManageCustomersAction.h"
 #include "AdminCreateOrderAction.h"
+#include "ViewUserOrdersAction.h"
 
 /**
  * @file MenuActionFactory.h
@@ -42,6 +43,7 @@ public:
         VIEW_ORDERS,         ///< Xem danh sách đơn hàng
         MANAGE_CUSTOMERS,    ///< Quản lý khách hàng
         ADMIN_CREATE_ORDER,  ///< Quản lý đơn hàng của admin
+        VIEW_USER_ORDERS,    ///< Xem các đơn hàng của các khách hàng đã mua
         EXIT                 ///< Thoát ứng dụng
     };
 
@@ -53,7 +55,8 @@ public:
      * @param orderManager Con trỏ đến đối tượng OrderManager.
      * @return Con trỏ đến đối tượng IMenuAction tương ứng với lựa chọn menu.
      */
-    static IMenuAction* createAction(MenuChoice menu_choice, MusicStore* store, CustomerManager* customerManager, OrderManager* orderManager);
+    static IMenuAction* createAction(MenuChoice menu_choice, MusicStore* store, CustomerManager* customerManager, OrderManager* orderManager, User* user);
+
 };
 
 #endif

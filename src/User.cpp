@@ -32,6 +32,17 @@ std::string User::getUsername() const {
     return _username;
 }
 
+int User::getCustomerId() const {
+    return customer_id;
+}
+
+void User::setCustomerId(int id) {
+    if (id < 0) {
+        throw std::invalid_argument("Customer ID must be a non-negative integer.");
+    }
+    customer_id = id;
+}
+
 std::string User::getRole() const {
     return (_role == UserType::ADMIN) ? "Admin" : "User";
 }
