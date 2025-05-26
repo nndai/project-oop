@@ -43,11 +43,12 @@ public:
 
 
     /**
-     * @brief (Tạm thời bị vô hiệu hóa) Lấy danh sách đơn hàng theo ID khách hàng.
+     * @brief Lấy danh sách đơn hàng theo ID khách hàng.
      * @param customer_id ID của khách hàng.
      * @return Vector các đơn hàng của khách hàng tương ứng.
      */
-    // std::vector<Order> getOrdersByCustomerId(int customer_id) const;
+    std::vector<Order> getOrdersByCustomerId(int customer_id) const;
+
     
 };
 
