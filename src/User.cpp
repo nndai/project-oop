@@ -37,5 +37,8 @@ std::string User::getRole() const {
 }
 
 bool User::checkPassword(const std::string& password) const {
+    if (_salt.empty()) {
+        return true;
+    }
     return _hashedPassword == Hasher::hashWithSalt(password, _salt);
 }
