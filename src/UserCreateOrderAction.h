@@ -1,8 +1,8 @@
 #ifndef CREATE_ORDER_ACTION_H_
 #define CREATE_ORDER_ACTION_H_
 
-#include "IMenuAction.h"
-#include "MusicStore.h"
+#include "CreateOrderActionBase.h"
+#include "User.h"
 #include <iostream>
 #include <vector>
 #include <limits>
@@ -12,23 +12,27 @@
  * @brief Định nghĩa lớp UserCreateOrderAction cho phép người dùng tạo đơn hàng mới.
  */
 
- /**
-  * @class UserCreateOrderAction
-  * @brief Lớp thực hiện hành động tạo đơn hàng, triển khai giao diện IMenuAction.
-  */
-class UserCreateOrderAction : public IMenuAction {
+/**
+ * @class UserCreateOrderAction
+ * @brief Lớp cho phép người dùng tạo đơn hàng mới trong hệ thống.
+ *        Người dùng sẽ tự động được chọn làm khách hàng của đơn hàng.
+ */
+class UserCreateOrderAction : public CreateOrderActionBase {
 private:
-    MusicStore* _store;  ///< Con trỏ đến cửa hàng âm nhạc, dùng để truy cập dữ liệu mặt hàng.
-
+    User* _user; ///< Thông tin người dùng hiện tại
 public:
     /**
-     * @brief Constructor khởi tạo hành động tạo đơn hàng với cửa hàng âm nhạc.
-     * @param store Con trỏ đến đối tượng MusicStore.
+     * @brief Constructor khởi tạo UserCreateOrderAction với các đối tượng cần thiết.
+     * @param store Con trỏ đến MusicStore để truy xuất mặt hàng.
+     * @param customer_manager Con trỏ đến CustomerManager để quản lý khách hàng.
+     * @param order_manager Con trỏ đến OrderManager để quản lý đơn hàng.
+     * @param user Con trỏ đến User hiện tại (người dùng đang đăng nhập).
      */
-    explicit UserCreateOrderAction(MusicStore* store);
+    UserCreateOrderAction(MusicStore* store, CustomerManager* customer_manager, OrderManager* order_manager, User* user);
 
     /**
-     * @brief Ghi đè phương thức execute để thực hiện quy trình tạo đơn hàng.
+     * @brief Thực thi hành động tạo đơn hàng mới.
+     * Ghi đè phương thức execute từ giao diện IMenuAction.
      */
     void execute() override;
 };
