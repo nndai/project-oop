@@ -12,22 +12,23 @@ CREATE TABLE music_items (
     quantity INT NOT NULL
 );
 
--- Bảng: users (người dùng hệ thống: Admin hoặc User)
-CREATE TABLE users (
-    username VARCHAR(50) PRIMARY KEY,
-    password VARCHAR(255) NOT NULL,
-    salt VARCHAR(32) NOT NULL,
-    role ENUM('Admin', 'User') DEFAULT 'User'
-);
 
 -- Bảng: customers (khách hàng mua hàng – có thể có tài khoản hoặc không)
 CREATE TABLE customers (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     type ENUM('Regular', 'VIP') DEFAULT 'Regular',
-    points INT DEFAULT 0,
-    username VARCHAR(50) DEFAULT NULL, -- nếu khách có tài khoản
-    FOREIGN KEY (username) REFERENCES users(username)
+    points INT DEFAULT 0
+);
+
+-- Bảng: users (người dùng hệ thống: Admin hoặc User)
+CREATE TABLE users (
+    username VARCHAR(50) PRIMARY KEY,
+    password VARCHAR(255) NOT NULL,
+    salt VARCHAR(32) NOT NULL,
+    role ENUM('Admin', 'User') DEFAULT 'User',
+    customer_id INT NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES customers(id)
 );
 
 -- Bảng: orders (đơn hàng – gắn người đặt hàng và khách mua hàng)
@@ -56,21 +57,15 @@ INSERT INTO music_items (id, category, type, name, artist, price, quantity) VALU
 (4, 'Digital', 'EDM', 'Levels', 'Avicii', 1.29, 0),
 (5, 'Digital', 'Pop', 'Shape of You', 'Ed Sheeran', 1.29, 5);
 
-INSERT INTO users (username, password, salt, role) VALUES
-('admin', 'admin',' ', 'Admin'),
-('user1', 'userpass',' ', 'User'),
-('user2', 'userpass', ' ', 'User');
-
--- Khách có tài khoản
-INSERT INTO customers (id, name, type, points, username) VALUES
-(1, 'Nguyen Văn A', 'VIP', 120, 'user1'),
-(2, 'Tran Thi B', 'Regular', 30, 'user2');
-
--- Khách vãng lai (không có username)
 INSERT INTO customers (id, name, type, points) VALUES
-(3, 'Nguyen Ngoc Dai', 'Regular', 0),
-(4, 'Nguyen Ha Dat', 'Regular', 0);
+(1, 'Nguyễn Văn Tuấn', 'VIP', 120),
+(2, 'Trần Thị Xuân', 'Regular', 30),
+(3, 'Bùi Thanh Tú', 'Regular', 30);
 
+INSERT INTO users (username, password, salt, role, customer_id) VALUES
+('admin', 'admin','', 'Admin', 1),
+('user1', 'userpass','', 'User', 2),
+('user2', 'userpass', '', 'User', 3);
 
 INSERT INTO orders (id, customer_id, order_date) VALUES 
 (1, 1, '2025-05-05 14:30:00'),
@@ -82,3 +77,44 @@ INSERT INTO order_details (order_id, music_item_id, quantity, price) VALUES
 (1, 4, 1, 12.50),
 (2, 3, 2, 10.50),
 (3, 2, 4, 15.10);
+
+
+DELIMITER $$
+
+CREATE PROCEDURE CreateUserAccount(
+    IN p_username VARCHAR(50),
+    IN p_password VARCHAR(255),
+    IN p_salt VARCHAR(32),
+    IN p_customer_name VARCHAR(255)
+)
+BEGIN
+    DECLARE new_customer_id INT;
+
+    -- Xử lý lỗi SQL: rollback khi có lỗi
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION 
+    BEGIN
+        ROLLBACK;
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error occurred. Operation aborted.';
+    END;
+
+    -- Bắt đầu transaction
+    START TRANSACTION;
+
+    -- 1. Kiểm tra username đã tồn tại chưa
+    IF EXISTS (SELECT 1 FROM users WHERE username = p_username) THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Username already exists.';
+    END IF;
+
+    -- 2. Tạo khách hàng mới
+    INSERT INTO customers(name) VALUES(p_customer_name);
+    SET new_customer_id = LAST_INSERT_ID();
+
+    -- 3. Tạo user với customer_id vừa tạo
+    INSERT INTO users(username, password, salt, customer_id)
+    VALUES(p_username, p_password, p_salt, new_customer_id);
+
+    -- Hoàn tất
+    COMMIT;
+END$$
+
+DELIMITER ;
