@@ -4,37 +4,83 @@
 OrderManager::OrderManager(Database* db) : _db(db) {}
 
 bool OrderManager::createOrder(Order& order) {
-    std::string query = "INSERT INTO orders (customer_id) VALUES (" +
-        std::to_string(order.getCustomerId()) + ")";
-    if (_db->execute(query)) {
-        MYSQL_RES* res = _db->query("SELECT LAST_INSERT_ID()");
-        if (res) {
-            MYSQL_ROW row = mysql_fetch_row(res);
-            int order_id = std::stoi(row[0]);
-            mysql_free_result(res);
-
-            for (const auto& detail : order.getOrderDetails()) {
-                std::string detail_query = "INSERT INTO order_details (order_id, music_item_id, quantity, price) VALUES (" +
-                    std::to_string(order_id) + ", " +
-                    std::to_string(detail.music_id) + ", " +
-                    std::to_string(detail.quantity) + ", " +
-                    std::to_string(detail.price) + ")";
-                _db->execute(detail_query);
-            }
-            res = _db->query("SELECT order_date FROM orders WHERE id = " + std::to_string(order_id));
-            row = mysql_fetch_row(res);
-            order.setOrderDate(row[0]);
-            mysql_free_result(res);
-            order.setId(order_id);
-            return true;
-        }
-        std::cout << "Failed to retrieve order ID.\n";
+    if (!_db->execute("START TRANSACTION")) {
+        std::cout << "Failed to start transaction.\n";
         return false;
     }
-    std::cout << "Failed to create order.\n";
-    return false;
-    
+
+    std::string query = "INSERT INTO orders (customer_id) VALUES (" +
+        std::to_string(order.getCustomerId()) + ")";
+    if (!_db->execute(query)) {
+        std::cout << "Failed to insert order.\n";
+        _db->execute("ROLLBACK");
+        return false;
+    }
+
+    MYSQL_RES* res = _db->query("SELECT LAST_INSERT_ID()");
+    if (!res) {
+        std::cout << "Failed to retrieve last insert ID.\n";
+        _db->execute("ROLLBACK");
+        return false;
+    }
+
+    MYSQL_ROW row = mysql_fetch_row(res);
+    int order_id = std::stoi(row[0]);
+    mysql_free_result(res);
+
+    for (const auto& detail : order.getOrderDetails()) {
+        std::string detail_query = "INSERT INTO order_details (order_id, music_item_id, quantity, price) VALUES (" +
+            std::to_string(order_id) + ", " +
+            std::to_string(detail.music_id) + ", " +
+            std::to_string(detail.quantity) + ", " +
+            std::to_string(detail.price) + ")";
+
+        if (!_db->execute(detail_query)) {
+            std::cout << "Failed to insert order detail. Rolling back.\n";
+            _db->execute("ROLLBACK");
+            return false;
+        }
+
+        std::string stock_query = "UPDATE music_items SET quantity = quantity - " +
+            std::to_string(detail.quantity) +
+            " WHERE id = " + std::to_string(detail.music_id) +
+            " AND quantity >= " + std::to_string(detail.quantity);
+        if (!_db->execute(stock_query)) {
+            std::cout << "Failed to update stock. Rolling back.\n";
+            _db->execute("ROLLBACK");
+            return false;
+        }
+
+        if (_db->getAffectedRows() == 0) {
+            std::cout << "Not enough stock. Rolling back.\n";
+            _db->execute("ROLLBACK");
+            return false;
+        }
+    }
+
+    res = _db->query("SELECT order_date FROM orders WHERE id = " + std::to_string(order_id));
+    if (res) {
+        row = mysql_fetch_row(res);
+        order.setOrderDate(row[0]);
+        mysql_free_result(res);
+    }
+    else {
+        std::cout << "Failed to retrieve order date.\n";
+        _db->execute("ROLLBACK");
+        return false;
+    }
+
+    order.setId(order_id);
+
+    if (!_db->execute("COMMIT")) {
+        std::cout << "Failed to commit transaction.\n";
+        _db->execute("ROLLBACK");
+        return false;
+    }
+
+    return true;
 }
+
 
 std::vector<Order> OrderManager::getAllOrders() const {
     std::vector<Order> orders;
@@ -103,7 +149,6 @@ std::vector<Order> OrderManager::getOrdersByCustomerId(int customer_id) const {
     }
     mysql_free_result(res);
 
-    // Lấy chi tiết đơn hàng cho các đơn vừa lấy
     if (!orders.empty()) {
         std::string order_ids = "";
         for (size_t i = 0; i < orders.size(); ++i) {
