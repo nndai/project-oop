@@ -30,7 +30,7 @@ MenuActionFactory::MenuChoice MenuManager::mapAdminMenuChoiceToMenuAction(AdminM
 MenuActionFactory::MenuChoice MenuManager::mapUserMenuChoiceToMenuAction(UserMenuChoice choice) {
     switch (choice) {
     case UserMenuChoice::CREATE_ORDER:
-        return MenuActionFactory::MenuChoice::CREATE_ORDER;
+        return MenuActionFactory::MenuChoice::USER_CREATE_ORDER;
     case UserMenuChoice::VIEW_USER_ORDERS:
         return MenuActionFactory::MenuChoice::VIEW_USER_ORDERS;
     case UserMenuChoice::FIND_MUSIC:
@@ -58,7 +58,7 @@ void MenuManager::handleLoginMenu() {
         try {
             int choice = std::stoi(input);
 
-            if (choice == 1) {
+            if (1 == choice) {
                 // Xử lý đăng nhập
                 std::string username, password;
                 std::cout << "Username: ";
@@ -79,30 +79,30 @@ void MenuManager::handleLoginMenu() {
                     std::cout << "Invalid credentials. Try again.\n";
                 }
             }
-            else if (choice == 2) {
+            else if (2 == choice) {
                 // Xử lý đăng ký
                 std::string username, password;
                 std::cout << "Enter new username (4-16 characters): ";
                 getline(std::cin, username);
+
                 std::cout << "Enter new password (4-16 characters): ";
                 getline(std::cin, password);
-
+                
                 std::string customer_name;
                 std::cout << "Enter your name: ";
                 getline(std::cin, customer_name);
-                \
 
-
-                    try {
-                    if (_authManager->registerUser(username, password) && Customer(-1, customer_name, "Regular", 0).getId() != -1) {
+                try {
+                    if (_authManager->registerUser(username, password, customer_name)) {
                         std::cout << "User registered successfully. Please login.\n";
                     }
                 }
                 catch (const std::exception& e) {
                     std::cout << "Error: " << e.what() << "\n";
                 }
+
             }
-            else if (choice == 3) {
+            else if (3 == choice) {
                 break;
             }
             else {
@@ -194,7 +194,6 @@ void MenuManager::handleUserMenu(User user) {
             std::cout << "Invalid input. Please enter a number.\n";
             continue;
         }
-
 
         if ((int)UserMenuChoice::LOGOUT == choice) {
             break;
