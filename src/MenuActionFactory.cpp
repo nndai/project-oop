@@ -6,8 +6,8 @@ IMenuAction* MenuActionFactory::createAction(MenuChoice menu_choice, MusicStore*
     }
 
     switch (menu_choice) {
-    case MenuChoice::CREATE_ORDER:
-        return new CreateOrderAction(store);
+    case MenuChoice::USER_CREATE_ORDER:
+        return new UserCreateOrderAction(store);
     case MenuChoice::FIND_MUSIC:
         return new FindItemAction(store);
     case MenuChoice::SOLD_ITEMS:

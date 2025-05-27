@@ -2,7 +2,7 @@
 #define MENU_ACTION_FACTORY_H_
 
 #include "IMenuAction.h"
-#include "CreateOrderAction.h"
+#include "UserCreateOrderAction.h"
 #include "FindItemAction.h"
 #include "SoldItemsAction.h"
 #include "ItemInStockAction.h"
@@ -32,7 +32,7 @@ public:
      * @brief Các lựa chọn menu có sẵn trong ứng dụng.
      */
     enum class MenuChoice {
-        CREATE_ORDER = 1,     ///< Tạo đơn hàng mới
+        USER_CREATE_ORDER = 1,     ///< Tạo đơn hàng mới
         FIND_MUSIC,          ///< Tìm kiếm mặt hàng âm nhạc
         SOLD_ITEMS,          ///< Hiển thị mặt hàng đã bán
         ITEM_IN_STOCK,       ///< Hiển thị mặt hàng có sẵn trong kho
