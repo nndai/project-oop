@@ -7,6 +7,7 @@
 #include <optional>
 #include <string>
 #include <iostream>
+#include <vector>
 
 /**
  * @file AuthManager.h
@@ -47,10 +48,11 @@ public:
      * @brief Đăng ký người dùng mới
      * @param username Tên đăng nhập (4-16 ký tự)
      * @param password Mật khẩu (4-16 ký tự)
+     * @param name Tên người dùng
      * @return true nếu đăng ký thành công
      * @throw std::invalid_argument nếu username/password không hợp lệ
      */
-    bool registerUser(const std::string& username, const std::string& password);
+    bool registerUser(const std::string& username, const std::string& password, const std::string& name);
 };
 
 #endif

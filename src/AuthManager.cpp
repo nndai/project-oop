@@ -2,33 +2,37 @@
 
 AuthManager::AuthManager(Database* db) : _db(db) {}
 
+
 bool AuthManager::usernameExists(const std::string& username) {
-    std::string query = "SELECT username FROM users WHERE username = ?";
-    MYSQL_STMT* stmt = _db->prepareStatement(query);
+    std::string query = "SELECT 1 FROM users WHERE username = '" + username + "'";
 
-    _db->bindParam(stmt, 1, username);
-    bool exists = _db->executeStatement(stmt);
+    MYSQL_RES* res = _db->query(query);
+    if (!res) return false;
 
-    mysql_stmt_close(stmt);
+    bool exists = (mysql_num_rows(res) > 0);
+    mysql_free_result(res);
     return exists;
 }
+
+
 std::optional<User> AuthManager::login(const std::string& username, const std::string& password) {
-    std::string query = "SELECT username, password, salt, role FROM users WHERE username = '" + username + "'";
+    std::string query = "SELECT username, password, salt, role, customer_id FROM users WHERE username = '" + username + "'";
     MYSQL_RES* res = _db->query(query);
 
     if (res) {
         MYSQL_ROW row = mysql_fetch_row(res);
         if (row && Hasher::verify(password, row[2], row[1])) {
             std::string role = row[3];
+            int customer_id = std::stoi(row[4]);
             mysql_free_result(res);
-            return User(username, password, role);
+            return User(username, password, role, customer_id);
         }
         mysql_free_result(res);
     }
     return std::nullopt;
 }
 
-bool AuthManager::registerUser(const std::string& username, const std::string& password) {
+bool AuthManager::registerUser(const std::string& username, const std::string& password, const std::string& name) {
     // Validate input
     if (username.length() < 4 || username.length() > 16) {
         throw std::invalid_argument("Username must be 4-16 characters");
@@ -36,12 +40,20 @@ bool AuthManager::registerUser(const std::string& username, const std::string& p
     if (password.length() < 4 || password.length() > 16) {
         throw std::invalid_argument("Password must be 4-16 characters");
     }
+    if (usernameExists(username)) {
+        throw std::invalid_argument("Username already exists");
+    }
+    if (name.empty()) {
+        throw std::invalid_argument("Name cannot be empty");
+    }
 
     std::string salt = Hasher::generateSalt();
     std::string hashedPassword = Hasher::hashWithSalt(password, salt);
 
-    std::string query = "INSERT INTO users (username, password, salt, role) VALUES ('" +
-        username + "', '" + hashedPassword + "', '" + salt + "', 'User')";
+    std::vector<std::string> params = { username, hashedPassword, salt, name };
+    if (!_db->callProcedure("CreateUserAccount", params)) {
+        throw std::runtime_error("Failed to register user");
+    }
 
-    return _db->execute(query);
+    return true;
 }
