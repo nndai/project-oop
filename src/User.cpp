@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <regex>
 
-User::User(const std::string& username, const std::string& password, const std::string& role)
+User::User(const std::string& username, const std::string& password, const std::string& role, int customer_id)
     : _username(username) {
 
     if (username.length() < 4 || username.length() > 16) {
@@ -26,6 +26,11 @@ User::User(const std::string& username, const std::string& password, const std::
     else {
         throw std::invalid_argument("Invalid role");
     }
+
+    if (customer_id < 0) {
+        throw std::invalid_argument("Customer ID must be a non-negative integer.");
+    }
+    _customer_id = customer_id;
 }
 
 std::string User::getUsername() const {
@@ -33,14 +38,14 @@ std::string User::getUsername() const {
 }
 
 int User::getCustomerId() const {
-    return customer_id;
+    return _customer_id;
 }
 
 void User::setCustomerId(int id) {
     if (id < 0) {
         throw std::invalid_argument("Customer ID must be a non-negative integer.");
     }
-    customer_id = id;
+    _customer_id = id;
 }
 
 std::string User::getRole() const {

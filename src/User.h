@@ -27,7 +27,7 @@ private:
     std::string _hashedPassword;///< Mật khẩu đã được hash.
     std::string _salt;          ///< Salt dùng để mã hóa mật khẩu.
     UserType _role;             ///< Vai trò của người dùng.
-    int customer_id;            ///< ID của khách hàng liên kết với người dùng.
+    int _customer_id;            ///< ID của khách hàng liên kết với người dùng.
 
 public:
     /**
@@ -37,7 +37,7 @@ public:
      * @param role Chuỗi biểu diễn vai trò ("Admin" hoặc "User").
      * @throw std::invalid_argument nếu dữ liệu không hợp lệ.
      */
-    User(const std::string& username, const std::string& password, const std::string& role);
+    User(const std::string& username, const std::string& password, const std::string& role, int customer_id);
 
     /**
      * @brief Đặt ID khách hàng liên kết với người dùng.
