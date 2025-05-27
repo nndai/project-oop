@@ -79,3 +79,42 @@ bool Database::executeStatement(MYSQL_STMT* stmt) const {
 unsigned long Database::getAffectedRows() const {
     return mysql_affected_rows(conn);
 }
+
+bool Database::callProcedure(const std::string& procName, const std::vector<std::string>& params) const {
+    std::string query = "CALL " + procName + "(";
+    for (size_t i = 0; i < params.size(); ++i) {
+        query += "?";
+        if (i < params.size() - 1) query += ",";
+    }
+    query += ")";
+
+    MYSQL_STMT* stmt = prepareStatement(query);
+
+
+    std::vector<MYSQL_BIND> binds(params.size());
+    std::vector<unsigned long> lengths(params.size());
+
+    for (size_t i = 0; i < params.size(); ++i) {
+        memset(&binds[i], 0, sizeof(MYSQL_BIND));
+        binds[i].buffer_type = MYSQL_TYPE_STRING;
+        binds[i].buffer = (void*)params[i].c_str();
+        lengths[i] = params[i].length();
+        binds[i].buffer_length = lengths[i];
+        binds[i].length = &lengths[i];
+    }
+
+    if (mysql_stmt_bind_param(stmt, binds.data()) != 0) {
+        std::cerr << "Bind param error: " << mysql_stmt_error(stmt) << "\n";
+        mysql_stmt_close(stmt);
+        return false;
+    }
+
+    if (mysql_stmt_execute(stmt) != 0) {
+        std::cerr << "Procedure execute error: " << mysql_stmt_error(stmt) << "\n";
+        mysql_stmt_close(stmt);
+        return false;
+    }
+
+    mysql_stmt_close(stmt);
+    return true;
+}

@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <memory>
+#include <vector>
 
 /**
  * @file Database.h
@@ -84,5 +85,13 @@ public:
      * @return Số lượng bản ghi bị ảnh hưởng
      */
     unsigned long getAffectedRows() const;
+
+    /**
+     * @brief Gọi stored procedure với các tham số
+     * @param procName Tên stored procedure
+     * @param params Danh sách tham số
+     * @return true nếu gọi thành công
+     */
+    bool callProcedure(const std::string& procName, const std::vector<std::string>& params) const;
 };
 #endif
