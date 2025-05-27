@@ -10,8 +10,16 @@ void AdminCreateOrderAction::execute() {
         return;
     }
 
-    std::string str;
+    std::vector<Customer> customers = _customer_manager->getAllCustomers();
+    if (customers.empty()) {
+        std::cout << "No customers found.\n";
+    }
+    else {
+        std::cout << "Customers:\n";
+        TableUI::print(customers);
+    }
 
+    std::string str;
     int customer_id = -1;
     while (true) {
         std::cout << "Enter Customer ID (or 0 to create a new customer): ";
@@ -31,7 +39,8 @@ void AdminCreateOrderAction::execute() {
         }
     }
 
-    if (customer_id == 0) {
+    bool is_new_customer = false;
+    if (0 == customer_id) {
         std::string customer_name, customer_type;
         int customer_points = 0;
         std::cout << "Enter Customer Name: ";
@@ -58,6 +67,7 @@ void AdminCreateOrderAction::execute() {
             return;
         }
         std::cout << "New customer created with ID: " << customer_id << "\n";
+        is_new_customer = true;
     }
     else {
         auto customer = _customer_manager->findCustomerById(customer_id);
@@ -73,6 +83,15 @@ void AdminCreateOrderAction::execute() {
 
     std::vector<Order::OrderDetail> order_details;
     double total_price = 0.0;
+
+    std::vector<MusicItem> items_in_stock = _store->getItemsInStock();
+    if (items_in_stock.empty()) {
+        std::cout << "No items available in stock. Cannot create order.\n";
+        if (is_new_customer) {
+            _customer_manager->removeCustomer(customer_id);
+        }
+        return;
+    }
 
     while (true) {
         int item_id, quantity;
@@ -92,13 +111,20 @@ void AdminCreateOrderAction::execute() {
 
         if (item_id == 0) break;
 
-        auto item = _store->findItemById(item_id);
-        if (!item.has_value() || item->getQuantity() <= 0) {
-            std::cout << "Invalid item ID or item is out of stock.\n";
+        auto item_it = std::find_if(items_in_stock.begin(), items_in_stock.end(),
+            [item_id](const MusicItem& item) { return item.getId() == item_id; });
+        if (item_it == items_in_stock.end()) {
+            std::cout << "Item with ID " << item_id << " not found in stock.\n";
             continue;
         }
 
-        
+        MusicItem* item = &(*item_it);
+
+        if (item->getQuantity() <= 0) {
+            std::cout << "Item " << item->getName() << " is out of stock.\n";
+            continue;
+        }
+
         while (true) {
             std::cout << "Enter Quantity: ";
             std::getline(std::cin, str);
@@ -117,17 +143,31 @@ void AdminCreateOrderAction::execute() {
         }
 
         item->setQuantity(item->getQuantity() - quantity);
-        _store->updateItem(*item);
 
         double item_total = quantity * item->getPrice();
-        order_details.push_back({ item_id, item->getName(), quantity, item->getPrice() });
-        total_price += item_total;
 
-        std::cout << "Added " << quantity << " x " << item->getName() << " to the order. Subtotal: $" << item_total << "\n";
+        auto existing_detail_it = std::find_if(order_details.begin(), order_details.end(),
+            [item_id](const Order::OrderDetail& detail) { return detail.music_id == item_id; });
+
+        if (existing_detail_it != order_details.end()) {
+            existing_detail_it->quantity += quantity;
+            std::cout << "Updated existing item in order: " << item->getName() << ". New quantity: " << existing_detail_it->quantity << "\n";
+        }
+        else {
+            Order::OrderDetail detail = { item->getId(), item->getName(), quantity, item->getPrice() };
+            order_details.push_back(detail);
+
+            total_price += item_total;
+            std::cout << "Added " << quantity << " x " << item->getName() << " to the order. Subtotal: $" << item_total << "\n";
+        }
+        std::cout << "Current Total Price: $" << total_price << "\n";
     }
 
     if (order_details.empty()) {
         std::cout << "No items selected. Order cancelled.\n";
+        if (is_new_customer) {
+            _customer_manager->removeCustomer(customer_id);
+        }
         return;
     }
 
@@ -136,7 +176,14 @@ void AdminCreateOrderAction::execute() {
         new_order.addOrderDetail(detail.music_id, detail.music_name, detail.quantity, detail.price);
     }
 
-    _order_manager->createOrder(new_order);
+    if (!_order_manager->createOrder(new_order)) {
+        std::cout << "Failed to create order.\n";
+        if (is_new_customer) {
+            _customer_manager->removeCustomer(customer_id);
+        }
+        return;
+    }
+
     std::cout << "Order created successfully! Total Price: $" << total_price << "\n";
     std::string invoice_filename = "invoice_" + std::to_string(new_order.getId()) + ".txt";
     if (ExportInvoice::exportInvoiceToFile(new_order, _customer_manager->findCustomerById(customer_id).value(), invoice_filename)) {
