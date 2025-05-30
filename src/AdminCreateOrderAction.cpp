@@ -62,7 +62,7 @@ void AdminCreateOrderAction::execute() {
 
         Customer new_customer(-1, customer_name, customer_type, customer_points);
         customer_id = _customer_manager->addCustomer(new_customer);
-        if (customer_id == -1) {
+        if (-1 == customer_id) {
             std::cout << "Failed to create a new customer.\n";
             return;
         }

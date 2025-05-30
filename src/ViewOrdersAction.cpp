@@ -1,16 +1,16 @@
 #include "ViewOrdersAction.h"
 
-ViewOrdersAction::ViewOrdersAction(OrderManager* orderManager)
-    : _orderManager(orderManager) {
+ViewOrdersAction::ViewOrdersAction(OrderManager* order_manager)
+    : _order_manager(order_manager) {
 }
 
 void ViewOrdersAction::execute() {
-    if (!_orderManager) {
+    if (!_order_manager) {
         std::cout << "Order manager is not available.\n";
         return;
     }
 
-    std::vector<Order> orders = _orderManager->getAllOrders();
+    std::vector<Order> orders = _order_manager->getAllOrders();
     if (orders.empty()) {
         std::cout << "No orders available.\n";
         return;

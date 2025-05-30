@@ -1,8 +1,6 @@
 #include "Customer.h"
 #include <stdexcept>
 
-
-
 Customer::Customer(int id, const std::string& name, const std::string& type, int points)
     : _id(id), _name(name), _points(points) {
     setType(type);
@@ -24,6 +22,10 @@ std::string Customer::getType() const {
     }
 }
 
+Customer::CustomerType Customer::getTypeEnum() const {
+    return _type;
+}
+
 int Customer::getPoints() const {
     return _points;
 }
@@ -37,15 +39,19 @@ void Customer::setName(const std::string& name) {
 }
 
 void Customer::setType(const std::string& type) {
-    if (type == "Regular") {
+    if ("Regular" == type) {
         _type = Customer::CustomerType::REGULAR;
     }
-    else if (type == "VIP") {
+    else if ("VIP" == type) {
         _type = Customer::CustomerType::VIP;
     }
     else {
         throw std::invalid_argument("Invalid customer type");
     }
+}
+
+void Customer::setType(CustomerType type) {
+    _type = type;
 }
 
 void Customer::setPoints(int points) {

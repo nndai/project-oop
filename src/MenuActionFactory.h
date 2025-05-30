@@ -4,7 +4,6 @@
 #include "IMenuAction.h"
 #include "UserCreateOrderAction.h"
 #include "FindItemAction.h"
-#include "SoldItemsAction.h"
 #include "ItemInStockAction.h"
 #include "DisplayAllItemsAction.h"
 #include "AddItemAction.h"
@@ -34,7 +33,6 @@ public:
     enum class MenuChoice {
         USER_CREATE_ORDER = 1,     ///< Tạo đơn hàng mới
         FIND_MUSIC,          ///< Tìm kiếm mặt hàng âm nhạc
-        SOLD_ITEMS,          ///< Hiển thị mặt hàng đã bán
         ITEM_IN_STOCK,       ///< Hiển thị mặt hàng có sẵn trong kho
         SHOW_ALL_ITEMS,      ///< Hiển thị tất cả mặt hàng
         ADD_NEW_ITEM,        ///< Thêm mặt hàng mới
@@ -51,12 +49,11 @@ public:
      * @brief Phương thức tạo đối tượng hành động tương ứng với lựa chọn menu của người dùng.
      * @param menu_choice Lựa chọn menu của người dùng.
      * @param store Con trỏ đến đối tượng MusicStore.
-     * @param customerManager Con trỏ đến đối tượng CustomerManager.
-     * @param orderManager Con trỏ đến đối tượng OrderManager.
+     * @param customer_manager Con trỏ đến đối tượng CustomerManager.
+     * @param order_manager Con trỏ đến đối tượng OrderManager.
      * @return Con trỏ đến đối tượng IMenuAction tương ứng với lựa chọn menu.
      */
-    static IMenuAction* createAction(MenuChoice menu_choice, MusicStore* store, CustomerManager* customerManager, OrderManager* orderManager, User* user);
-
+    static IMenuAction* createAction(MenuChoice menu_choice, MusicStore* store, CustomerManager* customer_manager, OrderManager* order_manager, User* user);
 };
 
 #endif

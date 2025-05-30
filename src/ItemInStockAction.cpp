@@ -1,7 +1,6 @@
 #include "ItemInStockAction.h"
 #include <iostream>
 
-
 ItemInStockAction::ItemInStockAction(MusicStore* store)
     : _store(store) {
 }
@@ -12,12 +11,12 @@ void ItemInStockAction::execute() {
         return;
     }
 
-    std::vector<MusicItem> inStockItems = _store->getItemsInStock();
+    std::vector<MusicItem> in_stock_items = _store->getItemsInStock();
 
-    if (inStockItems.empty()) {
+    if (in_stock_items.empty()) {
         std::cout << "No items in stock.\n";
         return;
     }
     std::cout << "Items in stock:\n";
-    TableUI::print(inStockItems);
+    TableUI::print(in_stock_items);
 }

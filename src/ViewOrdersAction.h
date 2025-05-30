@@ -17,14 +17,14 @@
   */
 class ViewOrdersAction : public IMenuAction {
 private:
-    OrderManager* _orderManager; ///< Con trỏ đến OrderManager để truy xuất dữ liệu đơn hàng.
+    OrderManager* _order_manager; ///< Con trỏ đến OrderManager để truy xuất dữ liệu đơn hàng.
 
 public:
     /**
      * @brief Constructor khởi tạo ViewOrdersAction với OrderManager đã cho.
-     * @param orderManager Con trỏ đến đối tượng OrderManager.
+     * @param order_manager Con trỏ đến đối tượng OrderManager.
      */
-    explicit ViewOrdersAction(OrderManager* orderManager);
+    explicit ViewOrdersAction(OrderManager* order_manager);
 
     /**
      * @brief Thực thi hành động hiển thị danh sách đơn hàng.

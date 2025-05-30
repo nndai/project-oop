@@ -30,7 +30,7 @@ void CreateOrderActionBase::processCreateOrder(int customer_id) {
             continue;
         }
 
-        if (item_id == 0) break;
+        if (0 == item_id) break;
 
         auto item_it = std::find_if(items_in_stock.begin(), items_in_stock.end(),
             [item_id](const MusicItem& item) { return item.getId() == item_id; });
@@ -41,7 +41,7 @@ void CreateOrderActionBase::processCreateOrder(int customer_id) {
 
         MusicItem* item = &(*item_it);
 
-        if (item->getQuantity() <= 0) {
+        if (0 >= item->getQuantity()) {
             std::cout << "Item " << item->getName() << " is out of stock.\n";
             continue;
         }

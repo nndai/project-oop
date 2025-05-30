@@ -14,26 +14,23 @@ void TableUI::print(const std::vector<std::vector<std::string>>& tuples) {
 
     const auto& headers = tuples[0];
     int cols = headers.size();
-    std::vector<int> colWidths(cols);
-
+    std::vector<int> col_widths(cols);
 
     for (int i = 0; i < cols; ++i) {
-        colWidths[i] = lengthWithoutAccent(headers[i]);
+        col_widths[i] = lengthWithoutAccent(headers[i]);
     }
-
 
     for (int r = 1; r < tuples.size(); ++r) {
         const auto& row = tuples[r];
         for (int i = 0; i < cols && i < row.size(); ++i) {
-            colWidths[i] = std::max(colWidths[i], lengthWithoutAccent(row[i]));
+            col_widths[i] = std::max(col_widths[i], lengthWithoutAccent(row[i]));
         }
     }
-
 
     auto printSeparator = [&]() {
         std::cout << "+";
         for (int i = 0; i < cols; ++i) {
-            std::cout << std::string(colWidths[i] + 2, '-') << "+";
+            std::cout << std::string(col_widths[i] + 2, '-') << "+";
         }
         std::cout << "\n";
         };
@@ -42,7 +39,7 @@ void TableUI::print(const std::vector<std::vector<std::string>>& tuples) {
         std::cout << "|";
         for (int i = 0; i < cols; ++i) {
             std::string cell = (i < row.size()) ? row[i] : "";
-            int padding = colWidths[i] - lengthWithoutAccent(cell);
+            int padding = col_widths[i] - lengthWithoutAccent(cell);
             int left = center ? padding / 2 : 0;
             int right = center ? (padding - left) : padding;
             std::cout << " " << std::string(left, ' ') << cell << std::string(right, ' ') << " |";
@@ -64,25 +61,25 @@ void TableUI::print(std::ofstream& fout,const std::vector<std::vector<std::strin
 
     const auto& headers = tuples[0];
     int cols = headers.size();
-    std::vector<int> colWidths(cols);
+    std::vector<int> col_widths(cols);
 
 
     for (int i = 0; i < cols; ++i) {
-        colWidths[i] = lengthWithoutAccent(headers[i]);
+        col_widths[i] = lengthWithoutAccent(headers[i]);
     }
 
 
     for (int r = 1; r < tuples.size(); ++r) {
         const auto& row = tuples[r];
         for (int i = 0; i < cols && i < row.size(); ++i) {
-            colWidths[i] = std::max(colWidths[i], lengthWithoutAccent(row[i]));
+            col_widths[i] = std::max(col_widths[i], lengthWithoutAccent(row[i]));
         }
     }
 
     auto printSeparator = [&]() {
         fout << "+";
         for (int i = 0; i < cols; ++i) {
-            fout << std::string(colWidths[i] + 2, '-') << "+";
+            fout << std::string(col_widths[i] + 2, '-') << "+";
         }
         fout << "\n";
         };
@@ -91,7 +88,7 @@ void TableUI::print(std::ofstream& fout,const std::vector<std::vector<std::strin
         fout << "|";
         for (int i = 0; i < cols; ++i) {
             std::string cell = (i < row.size()) ? row[i] : "";
-            int padding = colWidths[i] - lengthWithoutAccent(cell);
+            int padding = col_widths[i] - lengthWithoutAccent(cell);
             int left = center ? padding / 2 : 0;
             int right = center ? (padding - left) : padding;
             fout << " " << std::string(left, ' ') << cell << std::string(right, ' ') << " |";

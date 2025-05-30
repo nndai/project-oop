@@ -18,14 +18,14 @@
   */
 class ManageCustomersAction : public IMenuAction {
 private:
-    CustomerManager* _customerManager; ///< Con trỏ đến đối tượng CustomerManager, dùng để quản lý thông tin khách hàng.
+    CustomerManager* _customer_manager; ///< Con trỏ đến đối tượng CustomerManager, dùng để quản lý thông tin khách hàng.
 
 public:
     /**
      * @brief Constructor khởi tạo hành động quản lý khách hàng với đối tượng CustomerManager cụ thể.
-     * @param customerManager Con trỏ đến đối tượng CustomerManager.
+     * @param customer_manager Con trỏ đến đối tượng CustomerManager.
      */
-    explicit ManageCustomersAction(CustomerManager* customerManager);
+    explicit ManageCustomersAction(CustomerManager* customer_manager);
 
     /**
      * @brief Ghi đè phương thức execute để thực hiện việc quản lý khách hàng.

@@ -81,7 +81,6 @@ bool OrderManager::createOrder(Order& order) {
     return true;
 }
 
-
 std::vector<Order> OrderManager::getAllOrders() const {
     std::vector<Order> orders;
 

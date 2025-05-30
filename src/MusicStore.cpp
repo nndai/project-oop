@@ -4,7 +4,6 @@
 
 MusicStore::MusicStore(Database* db) : _db(db) {}
 
-
 void MusicStore::addItem(const MusicItem& item) {
     std::string query = "INSERT INTO music_items (category, type, name, artist, price, quantity) VALUES ('" +
         item.getCategory() + "', '" + item.getType() + "', '" + item.getName() + "', '" +
@@ -38,7 +37,7 @@ bool MusicStore::updateItem(const MusicItem& item) {
         ", quantity = " + std::to_string(item.getQuantity()) +
         " WHERE id = " + std::to_string(item.getId());
     if (_db->execute(query)) {
-        //std::cout << "Item updated successfully in the database.\n";
+        std::cout << "Item updated successfully in the database.\n";
         return true;
     }
     else {
@@ -76,7 +75,6 @@ std::vector<MusicItem> MusicStore::findItemsByName(const std::string& name) cons
     }
     return results;
 }
-
 
 std::vector<MusicItem> MusicStore::findItemsByArtist(const std::string& artist) const {
     std::vector<MusicItem> results;

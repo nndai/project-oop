@@ -1,7 +1,7 @@
 #include "MenuManager.h"
 
-MenuManager::MenuManager(AuthManager* authManager, MusicStore* musicStore, CustomerManager* customerManager, OrderManager* orderManager)
-    : _authManager(authManager), _musicStore(musicStore), _customerManager(customerManager), _orderManager(orderManager) {
+MenuManager::MenuManager(AuthManager* auth_manager, MusicStore* music_store, CustomerManager* customer_manager, OrderManager* order_manager)
+    : _auth_manager(auth_manager), _music_store(music_store), _customer_manager(customer_manager), _order_manager(order_manager) {
 }
 
 MenuActionFactory::MenuChoice MenuManager::mapAdminMenuChoiceToMenuAction(AdminMenuChoice choice) {
@@ -66,7 +66,7 @@ void MenuManager::handleLoginMenu() {
                 std::cout << "Password: ";
                 getline(std::cin, password);
 
-                auto user = _authManager->login(username, password);
+                auto user = _auth_manager->login(username, password);
                 if (user) {
                     if (user->getRole() == "Admin") {
                         handleAdminMenu(*user);
@@ -93,7 +93,7 @@ void MenuManager::handleLoginMenu() {
                 getline(std::cin, customer_name);
 
                 try {
-                    if (_authManager->registerUser(username, password, customer_name)) {
+                    if (_auth_manager->registerUser(username, password, customer_name)) {
                         std::cout << "User registered successfully. Please login.\n";
                     }
                 }
@@ -153,7 +153,7 @@ void MenuManager::handleAdminMenu(User user) {
         try {
             auto action = MenuActionFactory::createAction(
                 mapAdminMenuChoiceToMenuAction(static_cast<AdminMenuChoice>(choice)),
-                _musicStore, _customerManager, _orderManager, &user
+                _music_store, _customer_manager, _order_manager, &user
             );
             if (action) {
                 action->execute();
@@ -202,7 +202,7 @@ void MenuManager::handleUserMenu(User user) {
         try {
             auto action = MenuActionFactory::createAction(
                 mapUserMenuChoiceToMenuAction((UserMenuChoice)choice),
-                _musicStore, _customerManager, _orderManager, &user
+                _music_store, _customer_manager, _order_manager, &user
             );
             if (action) {
                 action->execute();

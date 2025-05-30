@@ -11,6 +11,11 @@
  * @brief Định nghĩa lớp AdminCreateOrderAction cho phép quản trị viên tạo đơn hàng mới.
  */
 
+/**
+ * @class AdminCreateOrderAction
+ * @brief Lớp đại diện cho hành động tạo đơn hàng mới, kế thừa từ CreateOrderActionBase.
+ *        Cung cấp các phương thức để quản trị viên có thể tạo đơn hàng cho khách hàng đã có hoặc tạo khách hàng mới.
+ */
 class AdminCreateOrderAction : public CreateOrderActionBase {
 public:
     /**
