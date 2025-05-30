@@ -12,16 +12,16 @@
 
 int main() {
 
-    Database db;
-    if (!db.connect("localhost", "root", "123456", "music_store_db")) {
+    Database* db = Database::getInstance();
+    if (!db->connect("localhost", "root", "123456", "music_store_db")) {
         std::cout << "Database connection failed. Exiting...\n";
         return 1;
     }
     
-    MusicStore store(&db);
-    CustomerManager customerManager(&db);
-    OrderManager orderManager(&db);
-    AuthManager authManager(&db);
+    MusicStore store(db);
+    CustomerManager customerManager(db);
+    OrderManager orderManager(db);
+    AuthManager authManager(db);
     MenuManager menuManager(&authManager, &store, &customerManager, &orderManager);
 
     menuManager.handleLoginMenu();
