@@ -12,6 +12,13 @@ Database::~Database() {
     }
 }
 
+std::unique_ptr<Database> Database::_instance = nullptr;
+
+Database* Database::getInstance() {
+    if (!_instance) _instance = std::unique_ptr<Database>(new Database());
+    return _instance.get();
+}
+
 bool Database::connect(const std::string& host, const std::string& user,
     const std::string& password, const std::string& dbname) {
     if (!mysql_real_connect(conn, host.c_str(), user.c_str(), password.c_str(),

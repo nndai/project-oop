@@ -20,11 +20,24 @@ class Database {
 private:
     MYSQL* conn; ///< Con trỏ kết nối MySQL
 
+    static std::unique_ptr<Database> _instance; ///< Con trỏ tĩnh duy nhất của Database (Singleton)
+
+    // Ngăn chặn việc tạo bản sao hoặc gán đối tượng Database
+    // Để đảm bảo Database là singleton, không cho phép tạo bản sao hoặc gán
+    Database(const Database&) = delete;
+    Database& operator=(const Database&) = delete;
+
+    /**
+    * @brief Constructor khởi tạo kết nối MySQL
+    */
+    Database();
+
 public:
     /**
-     * @brief Constructor khởi tạo kết nối MySQL
+     * @brief Lấy instance duy nhất của Database (Singleton)
+     * @return Con trỏ đến đối tượng Database
      */
-    Database();
+    static Database* getInstance();
 
     /**
      * @brief Destructor đóng kết nối MySQL
