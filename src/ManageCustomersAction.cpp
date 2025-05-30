@@ -1,11 +1,11 @@
 #include "ManageCustomersAction.h"
 
-ManageCustomersAction::ManageCustomersAction(CustomerManager* customerManager)
-    : _customerManager(customerManager) {
+ManageCustomersAction::ManageCustomersAction(CustomerManager* customer_manager)
+    : _customer_manager(customer_manager) {
 }
 
 void ManageCustomersAction::execute() {
-    if (!_customerManager) {
+    if (!_customer_manager) {
         std::cout << "Customer manager is not available.\n";
         return;
     }
@@ -39,21 +39,21 @@ void ManageCustomersAction::execute() {
         std::cout << "Enter points: ";
         std::cin >> points;
         Customer customer(-1, name, type, points);
-        _customerManager->addCustomer(customer);
+        _customer_manager->addCustomer(customer);
         break;
     }
     case 2: {
         int id;
         std::cout << "Enter customer ID to remove: ";
         std::cin >> id;
-        _customerManager->removeCustomer(id);
+        _customer_manager->removeCustomer(id);
         break;
     }
     case 3: {
         int id;
         std::cout << "Enter customer ID to update: ";
         std::cin >> id;
-        auto customer = _customerManager->findCustomerById(id);
+        auto customer = _customer_manager->findCustomerById(id);
         if (customer.has_value()) {
             std::string name, type;
             int points;
@@ -66,7 +66,7 @@ void ManageCustomersAction::execute() {
             customer->setName(name);
             customer->setType(type);
             customer->setPoints(points);
-            _customerManager->updateCustomer(*customer);
+            _customer_manager->updateCustomer(*customer);
         }
         else {
             std::cout << "Customer not found.\n";
@@ -74,7 +74,7 @@ void ManageCustomersAction::execute() {
         break;
     }
     case 4: {
-        std::vector<Customer> customers = _customerManager->getAllCustomers();
+        std::vector<Customer> customers = _customer_manager->getAllCustomers();
         if (customers.empty()) {
             std::cout << "No customers found.\n";
         }

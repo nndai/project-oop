@@ -2,7 +2,6 @@
 
 AuthManager::AuthManager(Database* db) : _db(db) {}
 
-
 bool AuthManager::usernameExists(const std::string& username) {
     std::string query = "SELECT 1 FROM users WHERE username = '" + username + "'";
 
@@ -13,7 +12,6 @@ bool AuthManager::usernameExists(const std::string& username) {
     mysql_free_result(res);
     return exists;
 }
-
 
 std::optional<User> AuthManager::login(const std::string& username, const std::string& password) {
     std::string query = "SELECT username, password, salt, role, customer_id FROM users WHERE username = '" + username + "'";
@@ -33,7 +31,6 @@ std::optional<User> AuthManager::login(const std::string& username, const std::s
 }
 
 bool AuthManager::registerUser(const std::string& username, const std::string& password, const std::string& name) {
-    // Validate input
     if (username.length() < 4 || username.length() > 16) {
         throw std::invalid_argument("Username must be 4-16 characters");
     }

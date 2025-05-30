@@ -15,12 +15,12 @@ User::User(const std::string& username, const std::string& password, const std::
     }
 
     _salt = Hasher::generateSalt();
-    _hashedPassword = Hasher::hashWithSalt(password, _salt);
+    _hashed_password = Hasher::hashWithSalt(password, _salt);
 
-    if (role == "Admin") {
+    if ("Admin" == role) {
         _role = UserType::ADMIN;
     }
-    else if (role == "User") {
+    else if ("User" == role) {
         _role = UserType::USER;
     }
     else {
@@ -56,5 +56,5 @@ bool User::checkPassword(const std::string& password) const {
     if (_salt.empty()) {
         return true;
     }
-    return _hashedPassword == Hasher::hashWithSalt(password, _salt);
+    return _hashed_password == Hasher::hashWithSalt(password, _salt);
 }

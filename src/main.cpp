@@ -2,7 +2,6 @@
 #include <memory>
 #include <limits>
 #include <conio.h>
-
 #include "Database.h"
 #include "MusicStore.h"
 #include "IMenuAction.h"
@@ -19,12 +18,12 @@ int main() {
     }
     
     MusicStore store(db);
-    CustomerManager customerManager(db);
-    OrderManager orderManager(db);
-    AuthManager authManager(db);
-    MenuManager menuManager(&authManager, &store, &customerManager, &orderManager);
+    CustomerManager customer_manager(db);
+    OrderManager order_manager(db);
+    AuthManager auth_manager(db);
+    MenuManager menu_manager(&auth_manager, &store, &customer_manager, &order_manager);
 
-    menuManager.handleLoginMenu();
+    menu_manager.handleLoginMenu();
 
     return 0;
 }

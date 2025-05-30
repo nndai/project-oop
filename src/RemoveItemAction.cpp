@@ -7,7 +7,6 @@ RemoveItemAction::RemoveItemAction(MusicStore* store)
     : _store(store) {
 }
 
-
 void RemoveItemAction::execute() {
     if (!_store) {
         std::cout << "Music store is not available.\n";

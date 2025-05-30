@@ -9,6 +9,12 @@
  * @file Hasher.h
  * @brief Lớp xử lý băm mật khẩu sử dụng thuật toán SHA-256 tự triển khai
  */
+
+/**
+ * @class Hasher
+ * @brief Lớp cung cấp các phương thức để băm mật khẩu với salt và xác thực mật khẩu.
+ *        Sử dụng thuật toán SHA-256 để tăng cường bảo mật.
+ */
 class Hasher {
 public:
     /**

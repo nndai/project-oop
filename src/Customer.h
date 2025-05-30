@@ -64,6 +64,12 @@ public:
     std::string getType() const;
 
     /**
+     * @brief Lấy loại khách hàng dưới dạng enum.
+     * @return Loại khách hàng (REGULAR hoặc VIP)
+     */
+    CustomerType getTypeEnum() const;
+
+    /**
      * @brief Lấy số điểm tích lũy của khách hàng.
      * @return Số điểm tích lũy
      */
@@ -83,7 +89,14 @@ public:
 
     /**
      * @brief Thiết lập loại khách hàng mới từ chuỗi.
-     * @param type Chuỗi biểu thị loại khách hàng ("REGULAR" hoặc "VIP")
+     * @param type Chuỗi biểu thị loại khách hàng ("Regular" hoặc "VIP")
+     */
+    void setType(CustomerType type);
+
+    /**
+     * @brief Thiết lập loại khách hàng mới từ chuỗi.
+     * @param type Chuỗi biểu thị loại khách hàng ("Regular" hoặc "VIP")
+     * @throw std::invalid_argument nếu loại không hợp lệ
      */
     void setType(const std::string& type);
 

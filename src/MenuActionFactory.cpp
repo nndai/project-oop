@@ -10,8 +10,6 @@ IMenuAction* MenuActionFactory::createAction(MenuChoice menu_choice, MusicStore*
         return new UserCreateOrderAction(store, customer_manager, order_manager, user);
     case MenuChoice::FIND_MUSIC:
         return new FindItemAction(store);
-    case MenuChoice::SOLD_ITEMS:
-        return new SoldItemsAction(store);
     case MenuChoice::ITEM_IN_STOCK:
         return new ItemInStockAction(store);
     case MenuChoice::SHOW_ALL_ITEMS:

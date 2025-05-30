@@ -7,7 +7,6 @@ FindItemAction::FindItemAction(MusicStore* store)
     : _store(store) {
 }
 
-
 void FindItemAction::execute() {
     if (!_store) {
         std::cout << "Music store is not available.\n";

@@ -21,10 +21,10 @@
   */
 class MenuManager {
 private:
-    AuthManager* _authManager; ///< Con trỏ đến đối tượng AuthManager, dùng để xử lý xác thực người dùng.
-    MusicStore* _musicStore; ///< Con trỏ đến đối tượng MusicStore, dùng để quản lý mặt hàng trong cửa hàng.
-    CustomerManager* _customerManager; ///< Con trỏ đến đối tượng CustomerManager, dùng để quản lý thông tin khách hàng.
-    OrderManager* _orderManager; ///< Con trỏ đến đối tượng OrderManager, dùng để quản lý đơn hàng.
+    AuthManager* _auth_manager; ///< Con trỏ đến đối tượng AuthManager, dùng để xử lý xác thực người dùng.
+    MusicStore* _music_store; ///< Con trỏ đến đối tượng MusicStore, dùng để quản lý mặt hàng trong cửa hàng.
+    CustomerManager* _customer_manager; ///< Con trỏ đến đối tượng CustomerManager, dùng để quản lý thông tin khách hàng.
+    OrderManager* _order_manager; ///< Con trỏ đến đối tượng OrderManager, dùng để quản lý đơn hàng.
 
 public:
     /**
@@ -58,11 +58,11 @@ public:
     /**
      * @brief Constructor khởi tạo MenuManager với các đối tượng cần thiết.
      * @param authManager Con trỏ đến đối tượng AuthManager.
-     * @param musicStore Con trỏ đến đối tượng MusicStore.
-     * @param customerManager Con trỏ đến đối tượng CustomerManager.
-     * @param orderManager Con trỏ đến đối tượng OrderManager.
+     * @param music_store Con trỏ đến đối tượng MusicStore.
+     * @param customer_manager Con trỏ đến đối tượng CustomerManager.
+     * @param order_manager Con trỏ đến đối tượng OrderManager.
      */
-    MenuManager(AuthManager* authManager, MusicStore* musicStore, CustomerManager* customerManager, OrderManager* orderManager);
+    MenuManager(AuthManager* auth_manager, MusicStore* music_store, CustomerManager* customer_manager, OrderManager* order_manager);
 
     /**
      * @brief Phương thức ánh xạ lựa chọn menu của admin sang hành động tương ứng.

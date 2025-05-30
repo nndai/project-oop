@@ -8,18 +8,23 @@ EditItemAction::EditItemAction(MusicStore* store)
 }
 
 void EditItemAction::execute() {
-    if (_store == nullptr) {
+    if (!_store) {
         std::cout << "Music store is not available.\n";
         return;
     }
 
     int id;
     std::cout << "Enter ID of item to edit: ";
-    std::cin >> id;
-
-    if (std::cin.fail()) {
-        std::cin.clear();
-        std::cin.ignore(100, '\n');
+    std::string input;
+    std::getline(std::cin, input);
+    try {
+        id = std::stoi(input);
+        if (0 >= id) {
+            std::cout << "ID cannot be negative. Please enter a valid ID.\n";
+            return;
+        }
+    }
+    catch (...) {
         std::cout << "Invalid input.\n";
         return;
     }
@@ -30,11 +35,7 @@ void EditItemAction::execute() {
         return;
     }
 
-    std::cin.ignore(100, '\n');
-
     std::cout << "Leave input empty to keep the current value.\n";
-
-    std::string input;
 
     std::cout << "Current Category: " << item->getCategory() << "\nNew Category: ";
     std::getline(std::cin, input);

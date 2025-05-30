@@ -7,6 +7,16 @@
 #include <string>
 #include <fstream>
 
+/**
+ * @file ExportInvoice.h
+ * @brief Định nghĩa lớp ExportInvoice để xuất hóa đơn cho đơn hàng và khách hàng.
+ */
+
+/**
+ * @class ExportInvoice
+ * @brief Lớp chịu trách nhiệm xuất hóa đơn cho đơn hàng và khách hàng.
+ *       Cung cấp phương thức để xuất thông tin đơn hàng và khách hàng ra file.
+ */
 class ExportInvoice {
 public:
     /**

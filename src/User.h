@@ -24,7 +24,7 @@ private:
     };
 
     std::string _username;       ///< Tên đăng nhập của người dùng.
-    std::string _hashedPassword;///< Mật khẩu đã được hash.
+    std::string _hashed_password;///< Mật khẩu đã được hash.
     std::string _salt;          ///< Salt dùng để mã hóa mật khẩu.
     UserType _role;             ///< Vai trò của người dùng.
     int _customer_id;            ///< ID của khách hàng liên kết với người dùng.
