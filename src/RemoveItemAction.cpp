@@ -13,6 +13,9 @@ void RemoveItemAction::execute() {
         return;
     }
 
+    DisplayAllItemsAction displayAction(_store);
+    displayAction.execute();
+
     int id;
     std::cout << "Enter ID of item to remove: ";
     std::string str;
