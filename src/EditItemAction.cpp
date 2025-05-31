@@ -13,6 +13,9 @@ void EditItemAction::execute() {
         return;
     }
 
+    DisplayAllItemsAction displayAction(_store);
+    displayAction.execute();
+
     int id;
     std::cout << "Enter ID of item to edit: ";
     std::string input;
