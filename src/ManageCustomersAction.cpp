@@ -44,6 +44,7 @@ void ManageCustomersAction::execute() {
     }
     case 2: {
         int id;
+        printAllCustomers();
         std::cout << "Enter customer ID to remove: ";
         std::cin >> id;
         _customer_manager->removeCustomer(id);
@@ -51,6 +52,7 @@ void ManageCustomersAction::execute() {
     }
     case 3: {
         int id;
+        printAllCustomers();
         std::cout << "Enter customer ID to update: ";
         std::cin >> id;
         auto customer = _customer_manager->findCustomerById(id);
