@@ -27,11 +27,10 @@
         - Tìm kiếm sản phẩm:
             - Tìm theo tên
             - Tìm theo ca sĩ
-        - Xem tất cả sản phẩm
         - Xem các sản phẩm còn hàng
         - Đăng xuất
 - Tạo tài khoản
     - Nhập username
-    - Nhập tên KH
     - Nhập mật khẩu
+    - Nhập tên KH
 - Thoát
