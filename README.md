@@ -32,8 +32,9 @@ Chia đều điểm cho các thành viên
 ## Cách Thức Đánh Giá
 ### 1. Teamwork
 - Nhóm có 2 thành viên, phân công rõ ràng.
-- Sử dụng Git riêng của từng người, chia thành nhiều nhánh nhỏ.
-- [Lượng commit]()
+- Sử dụng git riêng của từng người, chia thành nhiều nhánh theo `feature branch workflow`
+- [Insights github](https://drive.google.com/file/d/1ygYbFPedFhnDDZEm23T7JO8O0Ii5JFWP/view?usp=sharing)
+
 ### 2. UI/UX
 - Các chức năng thêm và cải tiến:
   - Chức năng tạo tài khoản và đăng nhập
@@ -166,5 +167,4 @@ Chia đều điểm cho các thành viên
     ```
 - Chạy chương trình như đã hướng dẫn ở bước 4.
 
-## Video demo chương trình
-[Video demo chương trình](https://www.youtube.com/watch?v=example)
+## [Video demo chương trình](https://youtu.be/lKffoqGTMdk)

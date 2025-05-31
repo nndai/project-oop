@@ -55,6 +55,7 @@ void ManageCustomersAction::execute() {
         printAllCustomers();
         std::cout << "Enter customer ID to update: ";
         std::cin >> id;
+        std::cin.ignore();
         auto customer = _customer_manager->findCustomerById(id);
         if (customer.has_value()) {
             std::string name, type;

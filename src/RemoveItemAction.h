@@ -3,6 +3,7 @@
 
 #include "IMenuAction.h"
 #include "MusicStore.h"
+#include "DisplayAllItemsAction.h"
 
 /**
  * @file RemoveItemAction.h
