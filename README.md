@@ -1,5 +1,4 @@
-# Music Store Management System
-
+# Project 2025 - Music Store Managment System
 
 ## Thành viên nhóm
 - Nguyễn Ngọc Đại - 23120226
@@ -11,6 +10,7 @@
 - Xây dựng các class hành động (`...Action`)
 - Thiết kế Database
 - Giao diện console (`TableUI`)
+- Quay video demo chương trình
 
 ### Thành viên 2: Nguyễn Hà Đạt
 - Thiết kế lớp `Customer`, `CustomerManager`, `User`, `Order`, `OrderManager`
@@ -136,19 +136,22 @@ Chia đều điểm cho các thành viên
 - Chạy lần lượt các file `music_store_db.sql` và `data_music_store_db.sql`
 
 ### 4. Cấu hình file .env và chạy chương trình được biên dịch sẵn
-- Đảm bảo file `.env` chứa thông tin kết nối:
+- Đảm bảo file `.env` trong `config` chứa thông tin kết nối:
   ```
   DB_HOST=localhost
   DB_USER=root
   DB_PASS= <your_password>
-  DB_NAME=music_store
+  DB_NAME=music_store_db
   ```
 - Chạy chương trình đã biên dịch sẵn:
   - Mở terminal tại thư mục project
   - Chạy lệnh: `out\program.exe`
+- Chạy chương trình trong `release`
+  - Mở terminal tại thư mục `release`
+  - Chạy lệnh: `program.exe`
 
 > **Lưu ý:** Nếu gặp lỗi liên quan đến các file có đuôi `.dll`, hãy vào thư mục cài đặt MySQL (ví dụ: `C:\Program Files\MySQL\MySQL Server 9.3\lib`) và copy các file `.dll` cần thiết vào thư mục chứa file thực thi của chương trình.
-> Nếu chương trình bị dừng và không báo lỗi gì, hãy thử chạy lại chương trình bằng cách ấn đúp chuột vào file `out\program.exe` trong thư mục `out` để hiển thị lỗi.
+> Nếu chương trình bị dừng và không báo lỗi gì, hãy thử chạy lại chương trình bằng cách ấn đúp chuột vào file `program.exe` trong thư mục `out` để hiển thị lỗi.
 
 ### 5. Biên dịch chương trình từ mã nguồn
 - Dùng Visual Studio Code:
@@ -157,7 +160,7 @@ Chia đều điểm cho các thành viên
     "C:/Program Files/MySQL/MySQL Server 9.3/include",
     "C:/Program Files/MySQL/MySQL Server 9.3/lib"
     ```
-  - Build chương trình bằng tông hợp phím `Ctrl + Shift + B`
+  - Build chương trình bằng tổ hợp phím `Ctrl + Shift + B`
 
 - Dùng cmd:
   - Mở cmd và chuyển đến thư mục chứa mã nguồn
