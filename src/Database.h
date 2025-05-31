@@ -58,7 +58,6 @@ public:
      * @brief Thực thi truy vấn SQL và trả về kết quả
      * @param query Câu lệnh SQL
      * @return MYSQL_RES* Kết quả truy vấn (cần giải phóng bằng mysql_free_result)
-     * @deprecated Nên sử dụng prepared statement thay thế
      */
     MYSQL_RES* query(const std::string& query) const;
 
@@ -66,7 +65,6 @@ public:
      * @brief Thực thi truy vấn SQL không trả về kết quả
      * @param query Câu lệnh SQL
      * @return true nếu thực thi thành công
-     * @deprecated Nên sử dụng prepared statement thay thế
      */
     bool execute(const std::string& query) const;
 

@@ -1,0 +1,19 @@
+digraph "Hasher::hashWithSalt"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="Hasher::hashWithSalt",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Băm mật khẩu với thuật toán SHA-256 tùy chỉnh."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="User::checkPassword",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_user.html#a9d69b7eccc909bb3744cb93822197fd9",tooltip="Kiểm tra xem mật khẩu nhập vào có đúng không."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="AuthManager::registerUser",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_auth_manager.html#a84c57ed6f92626da5efd62730398642b",tooltip="Đăng ký người dùng mới."];
+  Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="User::User",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_user.html#af93acd836a7f1e7b98c3c978db5feecd",tooltip="Constructor khởi tạo người dùng với tên đăng nhập, mật khẩu và vai trò."];
+  Node1 -> Node5 [id="edge4_Node000001_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="Hasher::verify",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hasher.html#a56c146a76df6d706552dbda24a4351cc",tooltip="Xác thực mật khẩu."];
+  Node5 -> Node6 [id="edge5_Node000005_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="AuthManager::login",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_auth_manager.html#a84acfd1ef4e87d4e4415b28ef1226ac1",tooltip="Đăng nhập người dùng."];
+}

@@ -1,0 +1,13 @@
+digraph "ViewOrdersAction::printOrders"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [id="Node000001",label="ViewOrdersAction::printOrders",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="In ra danh sách đơn hàng của một khách hàng cụ thể."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="ManageCustomersAction\l::execute",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_manage_customers_action.html#ae13d71ec451cf01bc6d8d7b81ff45225",tooltip="Ghi đè phương thức execute để thực hiện việc quản lý khách hàng. Phương thức này sẽ hiển thị menu quả..."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="ViewUserOrdersAction\l::execute",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_view_user_orders_action.html#a1c720d8710cc285b04132a6b8b1d3ad1",tooltip="Thực thi hành động hiển thị danh sách đơn hàng của người dùng. Ghi đè phương thức execute từ giao diệ..."];
+}

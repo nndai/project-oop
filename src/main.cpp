@@ -53,7 +53,7 @@ int main() {
         std::cout << "Database connection failed. Exiting...\n";
         return 1;
     }
-    
+
     MusicStore store(db);
     CustomerManager customer_manager(db);
     OrderManager order_manager(db);

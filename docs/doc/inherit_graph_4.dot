@@ -1,0 +1,9 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node0 [id="Node000000",label="ExportInvoice",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_export_invoice.html",tooltip="Lớp chịu trách nhiệm xuất hóa đơn cho đơn hàng và khách hàng. Cung cấp phương thức để xuất thông tin ..."];
+}
