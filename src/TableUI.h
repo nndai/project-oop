@@ -71,6 +71,11 @@ public:
 	 * @param customers Danh sách các khách hàng, mỗi khách hàng là một đối tượng Customer.
 	 */
 	static void print(const std::vector<Customer>& customers);
+
+	/**
+	 * @brief In ra thông tin của một đơn hàng.
+	 */
+	static void print(const Order& order);
 };
 
 #endif

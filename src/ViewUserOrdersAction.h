@@ -4,6 +4,7 @@
 #include "IMenuAction.h"
 #include "OrderManager.h"
 #include "TableUI.h"
+#include "ViewOrdersAction.h"
 #include "User.h"
 #include <iostream>
 
@@ -17,10 +18,10 @@
  * @brief Lớp đại diện cho hành động xem đơn hàng của người dùng, triển khai từ IMenuAction.
  *       Cung cấp phương thức để hiển thị tất cả các đơn hàng của người dùng hiện tại.
  */
-class ViewUserOrdersAction : public IMenuAction {
+class ViewUserOrdersAction : public ViewOrdersAction {
 private:
-    OrderManager* _order_manager; ///< Con trỏ đến OrderManager để truy xuất dữ liệu đơn hàng.
     User* _user; ///< Con trỏ đến User hiện tại, người dùng đang đăng nhập và muốn xem đơn hàng của mình.
+    
 public:
     /**
      * @brief Constructor khởi tạo ViewUserOrdersAction với OrderManager và User đã cho.

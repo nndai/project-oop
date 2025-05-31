@@ -1,12 +1,12 @@
 #include "ManageCustomersAction.h"
 
-ManageCustomersAction::ManageCustomersAction(CustomerManager* customer_manager)
-    : _customer_manager(customer_manager) {
+ManageCustomersAction::ManageCustomersAction(CustomerManager* customer_manager, OrderManager* order_manager)
+    : _customer_manager(customer_manager), _order_manager(order_manager) {
 }
 
 void ManageCustomersAction::execute() {
-    if (!_customer_manager) {
-        std::cout << "Customer manager is not available.\n";
+    if (!_customer_manager || !_order_manager) {
+        std::cout << "Customer manager or order manager is not available.\n";
         return;
     }
 
@@ -15,6 +15,7 @@ void ManageCustomersAction::execute() {
     std::cout << "2. Remove Customer\n";
     std::cout << "3. Update Customer\n";
     std::cout << "4. View All Customers\n";
+    std::cout << "5. View Order History of a Customer\n";
     std::cout << "Enter your choice: ";
 
     std::string str;
@@ -26,7 +27,6 @@ void ManageCustomersAction::execute() {
         std::cout << "Invalid input. Please enter a number.\n";
         return;
     }
-
 
     switch (choice) {
     case 1: {
@@ -74,17 +74,30 @@ void ManageCustomersAction::execute() {
         break;
     }
     case 4: {
-        std::vector<Customer> customers = _customer_manager->getAllCustomers();
-        if (customers.empty()) {
-            std::cout << "No customers found.\n";
-        }
-        else {
-            std::cout << "Customers:\n";
-            TableUI::print(customers);
-        }
+        printAllCustomers();
+        break;
+    }
+    case 5: {
+        printAllCustomers();
+        int customer_id;
+        std::cout << "Enter customer ID to view order history: ";
+        std::cin >> customer_id;
+        ViewOrdersAction view_orders_action(_order_manager);
+        view_orders_action.printOrders(customer_id);
         break;
     }
     default:
         std::cout << "Invalid choice.\n";
+    }
+}
+
+void ManageCustomersAction::printAllCustomers() {
+    std::vector<Customer> customers = _customer_manager->getAllCustomers();
+    if (customers.empty()) {
+        std::cout << "No customers found.\n";
+    }
+    else {
+        std::cout << "Customers:\n";
+        TableUI::print(customers);
     }
 }

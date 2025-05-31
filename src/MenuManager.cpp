@@ -45,6 +45,7 @@ MenuActionFactory::MenuChoice MenuManager::mapUserMenuChoiceToMenuAction(UserMen
 void MenuManager::handleLoginMenu() {
     while (true) {
         system("cls");
+        std::cout << "Music Store Management System\n";
         std::cout << "=============================\n";
         std::cout << "1. Login\n";
         std::cout << "2. Register\n";
@@ -121,6 +122,8 @@ void MenuManager::handleLoginMenu() {
 void MenuManager::handleAdminMenu(User user) {
     while (true) {
         system("cls");
+        std::cout << "Music Store Management System - Admin Menu\n";
+        std::cout << "Admin: " << user.getUsername() << "\n";
         std::cout << "=============================\n";
         std::cout << "Admin Menu:\n";
         std::cout << (int)AdminMenuChoice::CREATE_ORDER << ". Create Order\n";
@@ -173,6 +176,8 @@ void MenuManager::handleAdminMenu(User user) {
 void MenuManager::handleUserMenu(User user) {
     while (true) {
         system("cls");
+        std::cout << "Music Store Management System - User Menu\n";
+        std::cout << "User: " << user.getUsername() << "\n";
         std::cout << "=============================\n";
         std::cout << "User Menu:\n";
         std::cout << (int)UserMenuChoice::CREATE_ORDER << ". Create Order\n";

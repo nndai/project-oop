@@ -25,5 +25,7 @@ int main() {
 
     menu_manager.handleLoginMenu();
 
+    std::cout << "Thank you for using the Music Store Management System!\n";
+    system("pause");
     return 0;
 }

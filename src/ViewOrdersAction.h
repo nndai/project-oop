@@ -16,7 +16,7 @@
   * @brief Lớp đại diện cho hành động xem tất cả các đơn hàng, triển khai từ IMenuAction.
   */
 class ViewOrdersAction : public IMenuAction {
-private:
+protected:
     OrderManager* _order_manager; ///< Con trỏ đến OrderManager để truy xuất dữ liệu đơn hàng.
 
 public:
@@ -30,7 +30,13 @@ public:
      * @brief Thực thi hành động hiển thị danh sách đơn hàng.
      * Ghi đè phương thức execute từ giao diện IMenuAction.
      */
-    void execute() override;
+    virtual void execute() override;
+
+    /**
+     * @brief In ra danh sách đơn hàng của một khách hàng cụ thể.
+     * @param customer_id ID của khách hàng mà đơn hàng sẽ được in ra.
+     */
+    void printOrders(int customer_id);
 };
 
 #endif

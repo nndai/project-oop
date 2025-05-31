@@ -23,7 +23,7 @@ IMenuAction* MenuActionFactory::createAction(MenuChoice menu_choice, MusicStore*
     case MenuChoice::VIEW_ORDERS:
         return new ViewOrdersAction(order_manager);
     case MenuChoice::MANAGE_CUSTOMERS:
-        return new ManageCustomersAction(customer_manager);
+        return new ManageCustomersAction(customer_manager, order_manager);
     case MenuChoice::ADMIN_CREATE_ORDER:
         return new AdminCreateOrderAction(store, customer_manager, order_manager);
     case MenuChoice::VIEW_USER_ORDERS:
