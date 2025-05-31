@@ -1,9 +1,0 @@
-digraph "Graphical Class Hierarchy"
-{
- // LATEX_PDF_SIZE
-  bgcolor="transparent";
-  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
-  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
-  rankdir="LR";
-  Node0 [id="Node000000",label="User",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_user.html",tooltip="Lớp đại diện cho người dùng, lưu thông tin tên đăng nhập, mật khẩu đã hash và phân quyền."];
-}
