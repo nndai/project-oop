@@ -124,12 +124,18 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a108609ca3cfccb2b3a4513783dea7415" id="r_a108609ca3cfccb2b3a4513783dea7415"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a108609ca3cfccb2b3a4513783dea7415">Order</a> (int id, int customerId, const std::string &amp;orderDate, double totalPrice)</td></tr>
-<tr class="memdesc:a108609ca3cfccb2b3a4513783dea7415"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor để tạo một đơn hàng mới.  <br /></td></tr>
-<tr class="separator:a108609ca3cfccb2b3a4513783dea7415"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a009869417dae3e4a26f5ac7e24ba5337" id="r_a009869417dae3e4a26f5ac7e24ba5337"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a009869417dae3e4a26f5ac7e24ba5337">addOrderDetail</a> (int musicItemId, int quantity, double price)</td></tr>
-<tr class="memdesc:a009869417dae3e4a26f5ac7e24ba5337"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thêm chi tiết mặt hàng vào đơn hàng.  <br /></td></tr>
-<tr class="separator:a009869417dae3e4a26f5ac7e24ba5337"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4212492e3b7c7acc7cdc9aec0c63b518" id="r_a4212492e3b7c7acc7cdc9aec0c63b518"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4212492e3b7c7acc7cdc9aec0c63b518">Order</a> (int id, int customer_id, const std::string &amp;order_date, double total_price)</td></tr>
+<tr class="memdesc:a4212492e3b7c7acc7cdc9aec0c63b518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor để tạo một đơn hàng mới.  <br /></td></tr>
+<tr class="separator:a4212492e3b7c7acc7cdc9aec0c63b518"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6c13c04396994b15a8e28c76b0f3f63" id="r_ac6c13c04396994b15a8e28c76b0f3f63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6c13c04396994b15a8e28c76b0f3f63">addOrderDetail</a> (int music_id, std::string music_name, int quantity, double price)</td></tr>
+<tr class="memdesc:ac6c13c04396994b15a8e28c76b0f3f63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thêm chi tiết mặt hàng vào đơn hàng.  <br /></td></tr>
+<tr class="separator:ac6c13c04396994b15a8e28c76b0f3f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2e6861304117b7f0170af983ec4ad14" id="r_ac2e6861304117b7f0170af983ec4ad14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2e6861304117b7f0170af983ec4ad14">setId</a> (int id)</td></tr>
+<tr class="memdesc:ac2e6861304117b7f0170af983ec4ad14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cập nhật mã đơn hàng.  <br /></td></tr>
+<tr class="separator:ac2e6861304117b7f0170af983ec4ad14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5411a2019d155896577af42c263c5c0d" id="r_a5411a2019d155896577af42c263c5c0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5411a2019d155896577af42c263c5c0d">setOrderDate</a> (const std::string &amp;order_date)</td></tr>
+<tr class="memdesc:a5411a2019d155896577af42c263c5c0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cập nhật ngày đặt hàng.  <br /></td></tr>
+<tr class="separator:a5411a2019d155896577af42c263c5c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9506e43ee697e335b3e0e3ad04f4d8fa" id="r_a9506e43ee697e335b3e0e3ad04f4d8fa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9506e43ee697e335b3e0e3ad04f4d8fa">getId</a> () const</td></tr>
 <tr class="memdesc:a9506e43ee697e335b3e0e3ad04f4d8fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lấy mã đơn hàng.  <br /></td></tr>
 <tr class="separator:a9506e43ee697e335b3e0e3ad04f4d8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,9 +151,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a20886fa81e96972d80f6ffe209ee4f1f" id="r_a20886fa81e96972d80f6ffe209ee4f1f"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="struct_order_1_1_order_detail.html">OrderDetail</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20886fa81e96972d80f6ffe209ee4f1f">getOrderDetails</a> () const</td></tr>
 <tr class="memdesc:a20886fa81e96972d80f6ffe209ee4f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lấy danh sách chi tiết đơn hàng.  <br /></td></tr>
 <tr class="separator:a20886fa81e96972d80f6ffe209ee4f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13fdac3f0abd4c80e1ecfd014cda06ed" id="r_a13fdac3f0abd4c80e1ecfd014cda06ed"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13fdac3f0abd4c80e1ecfd014cda06ed">getTuple</a> ()</td></tr>
-<tr class="memdesc:a13fdac3f0abd4c80e1ecfd014cda06ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trả về thông tin đơn hàng dưới dạng danh sách chuỗi (dùng cho xuất dữ liệu).  <br /></td></tr>
-<tr class="separator:a13fdac3f0abd4c80e1ecfd014cda06ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a572fed88c503b36e7fcf90f4373f83" id="r_a9a572fed88c503b36e7fcf90f4373f83"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a572fed88c503b36e7fcf90f4373f83">getTuple</a> () const</td></tr>
+<tr class="memdesc:a9a572fed88c503b36e7fcf90f4373f83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trả về thông tin đơn hàng dưới dạng danh sách chuỗi (dùng cho xuất dữ liệu).  <br /></td></tr>
+<tr class="separator:a9a572fed88c503b36e7fcf90f4373f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -158,8 +164,8 @@ Static Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Lớp <a class="el" href="class_order.html" title="Lớp Order đại diện cho một đơn hàng, bao gồm chi tiết các mặt hàng âm nhạc được đặt.">Order</a> đại diện cho một đơn hàng, bao gồm chi tiết các mặt hàng âm nhạc được đặt. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a108609ca3cfccb2b3a4513783dea7415" name="a108609ca3cfccb2b3a4513783dea7415"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a108609ca3cfccb2b3a4513783dea7415">&#9670;&#160;</a></span>Order()</h2>
+<a id="a4212492e3b7c7acc7cdc9aec0c63b518" name="a4212492e3b7c7acc7cdc9aec0c63b518"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4212492e3b7c7acc7cdc9aec0c63b518">&#9670;&#160;</a></span>Order()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,17 +178,17 @@ Static Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>customerId</em></span>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>customer_id</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>orderDate</em></span>, </td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>order_date</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>totalPrice</em></span>&#160;)</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>total_price</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -191,9 +197,9 @@ Static Public Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>Mã đơn hàng </td></tr>
-    <tr><td class="paramname">customerId</td><td>Mã khách hàng </td></tr>
-    <tr><td class="paramname">orderDate</td><td>Ngày đặt hàng (định dạng chuỗi) </td></tr>
-    <tr><td class="paramname">totalPrice</td><td>Tổng giá trị đơn hàng </td></tr>
+    <tr><td class="paramname">customer_id</td><td>Mã khách hàng </td></tr>
+    <tr><td class="paramname">order_date</td><td>Ngày đặt hàng (định dạng chuỗi) </td></tr>
+    <tr><td class="paramname">total_price</td><td>Tổng giá trị đơn hàng </td></tr>
   </table>
   </dd>
 </dl>
@@ -201,8 +207,8 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a009869417dae3e4a26f5ac7e24ba5337" name="a009869417dae3e4a26f5ac7e24ba5337"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a009869417dae3e4a26f5ac7e24ba5337">&#9670;&#160;</a></span>addOrderDetail()</h2>
+<a id="ac6c13c04396994b15a8e28c76b0f3f63" name="ac6c13c04396994b15a8e28c76b0f3f63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6c13c04396994b15a8e28c76b0f3f63">&#9670;&#160;</a></span>addOrderDetail()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,7 +216,12 @@ Static Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">void Order::addOrderDetail </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>musicItemId</em></span>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>music_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>music_name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -228,12 +239,18 @@ Static Public Attributes</h2></td></tr>
 <p>Thêm chi tiết mặt hàng vào đơn hàng. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">musicItemId</td><td>Mã mặt hàng âm nhạc </td></tr>
+    <tr><td class="paramname">music_id</td><td>Mã mặt hàng âm nhạc </td></tr>
+    <tr><td class="paramname">music_name</td><td>Tên mặt hàng âm nhạc </td></tr>
     <tr><td class="paramname">quantity</td><td>Số lượng mua </td></tr>
     <tr><td class="paramname">price</td><td>Giá mỗi đơn vị </td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><!-- SVG 0 --></div>
+</div>
 
 </div>
 </div>
@@ -257,7 +274,7 @@ Static Public Attributes</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><!-- SVG 0 --></div>
+<div class="center"><!-- SVG 1 --></div>
 </div>
 
 </div>
@@ -279,6 +296,11 @@ Here is the caller graph for this function:</div>
 
 <p>Lấy mã đơn hàng. </p>
 <dl class="section return"><dt>Returns</dt><dd>Mã đơn hàng </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><!-- SVG 2 --></div>
+</div>
 
 </div>
 </div>
@@ -299,6 +321,11 @@ Here is the caller graph for this function:</div>
 
 <p>Lấy ngày đặt hàng. </p>
 <dl class="section return"><dt>Returns</dt><dd>Chuỗi ngày đặt hàng </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><!-- SVG 3 --></div>
+</div>
 
 </div>
 </div>
@@ -322,7 +349,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><!-- SVG 1 --></div>
+<div class="center"><!-- SVG 4 --></div>
 </div>
 
 </div>
@@ -347,8 +374,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a13fdac3f0abd4c80e1ecfd014cda06ed" name="a13fdac3f0abd4c80e1ecfd014cda06ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13fdac3f0abd4c80e1ecfd014cda06ed">&#9670;&#160;</a></span>getTuple()</h2>
+<a id="a9a572fed88c503b36e7fcf90f4373f83" name="a9a572fed88c503b36e7fcf90f4373f83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a572fed88c503b36e7fcf90f4373f83">&#9670;&#160;</a></span>getTuple()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -357,13 +384,73 @@ Here is the caller graph for this function:</div>
           <td class="memname">std::vector&lt; std::string &gt; Order::getTuple </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Trả về thông tin đơn hàng dưới dạng danh sách chuỗi (dùng cho xuất dữ liệu). </p>
 <dl class="section return"><dt>Returns</dt><dd>Vector chứa chuỗi thông tin: <a class="el" href="class_order.html" title="Lớp Order đại diện cho một đơn hàng, bao gồm chi tiết các mặt hàng âm nhạc được đặt.">Order</a> ID, customer ID, total price, date </dd></dl>
+
+</div>
+</div>
+<a id="ac2e6861304117b7f0170af983ec4ad14" name="ac2e6861304117b7f0170af983ec4ad14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2e6861304117b7f0170af983ec4ad14">&#9670;&#160;</a></span>setId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Order::setId </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cập nhật mã đơn hàng. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Mã đơn hàng mới </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><!-- SVG 5 --></div>
+</div>
+
+</div>
+</div>
+<a id="a5411a2019d155896577af42c263c5c0d" name="a5411a2019d155896577af42c263c5c0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5411a2019d155896577af42c263c5c0d">&#9670;&#160;</a></span>setOrderDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Order::setOrderDate </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>order_date</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cập nhật ngày đặt hàng. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">order_date</td><td>Ngày đặt hàng mới (định dạng chuỗi) </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><!-- SVG 6 --></div>
+</div>
 
 </div>
 </div>
@@ -393,8 +480,8 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="_order_8h_source.html">Order.h</a></li>
-<li>src/<a class="el" href="_order_8cpp.html">Order.cpp</a></li>
+<li>D:/project-oop/src/<a class="el" href="_order_8h_source.html">Order.h</a></li>
+<li>D:/project-oop/src/<a class="el" href="_order_8cpp.html">Order.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

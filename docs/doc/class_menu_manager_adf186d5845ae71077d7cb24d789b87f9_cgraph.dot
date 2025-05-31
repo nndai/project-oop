@@ -7,14 +7,17 @@ digraph "MenuManager::handleLoginMenu"
   rankdir="LR";
   Node1 [id="Node000001",label="MenuManager::handleLoginMenu",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Phương thức xử lý menu đăng nhập, bao gồm xác thực người dùng và chuyển đến menu tương ứng."];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="MenuManager::handleAdminMenu",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_menu_manager.html#ab9eb817a98ce99de3f9ec9085c7b5047",tooltip="Phương thức xử lý menu của admin, hiển thị các lựa chọn và thực hiện hành động tương ứng."];
+  Node2 [id="Node000002",label="MenuManager::handleAdminMenu",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_menu_manager.html#a7218c16f7845afadeee623eac7b3e61f",tooltip="Phương thức xử lý menu của admin, hiển thị các lựa chọn và thực hiện hành động tương ứng."];
   Node2 -> Node3 [id="edge2_Node000002_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="MenuActionFactory::\lcreateAction",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_menu_action_factory.html#a32ddbcab8fb1420b882b545589238006",tooltip="Phương thức tạo đối tượng hành động tương ứng với lựa chọn menu của người dùng."];
+  Node3 [id="Node000003",label="MenuActionFactory::\lcreateAction",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_menu_action_factory.html#aa7c127742c73d963ecb0c955cf736112",tooltip="Phương thức tạo đối tượng hành động tương ứng với lựa chọn menu của người dùng."];
   Node2 -> Node4 [id="edge3_Node000002_Node000004",color="steelblue1",style="solid",tooltip=" "];
-  Node4 [id="Node000004",label="MenuManager::mapAdminMenu\lChoiceToMenuAction",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_menu_manager.html#a7e623aa73ee0e46b9e81a05f4c9e09b2",tooltip="Phương thức ánh xạ lựa chọn menu của admin sang hành động tương ứng."];
-  Node1 -> Node5 [id="edge4_Node000001_Node000005",color="steelblue1",style="solid",tooltip=" "];
-  Node5 [id="Node000005",label="MenuManager::handleUserMenu",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_menu_manager.html#aaeac36b924ef1421613aaa4ae1053e75",tooltip="Phương thức xử lý menu của người dùng, hiển thị các lựa chọn và thực hiện hành động tương ứng."];
-  Node5 -> Node3 [id="edge5_Node000005_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node5 -> Node6 [id="edge6_Node000005_Node000006",color="steelblue1",style="solid",tooltip=" "];
-  Node6 [id="Node000006",label="MenuManager::mapUserMenu\lChoiceToMenuAction",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_menu_manager.html#a8510d774e6baac60c985bbd8185aa1f3",tooltip="Phương thức ánh xạ lựa chọn menu của người dùng sang hành động tương ứng."];
+  Node4 [id="Node000004",label="User::getUsername",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_user.html#a7079d6aefd9d1b930d837039c1b3e7df",tooltip="Lấy tên đăng nhập."];
+  Node2 -> Node5 [id="edge4_Node000002_Node000005",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="MenuManager::mapAdminMenu\lChoiceToMenuAction",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_menu_manager.html#a7e623aa73ee0e46b9e81a05f4c9e09b2",tooltip="Phương thức ánh xạ lựa chọn menu của admin sang hành động tương ứng."];
+  Node1 -> Node6 [id="edge5_Node000001_Node000006",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="MenuManager::handleUserMenu",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_menu_manager.html#a789a3e07e55faa6ce7104c9d11f2b2e4",tooltip="Phương thức xử lý menu của người dùng, hiển thị các lựa chọn và thực hiện hành động tương ứng."];
+  Node6 -> Node3 [id="edge6_Node000006_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node6 -> Node4 [id="edge7_Node000006_Node000004",color="steelblue1",style="solid",tooltip=" "];
+  Node6 -> Node7 [id="edge8_Node000006_Node000007",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="MenuManager::mapUserMenu\lChoiceToMenuAction",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_menu_manager.html#a8510d774e6baac60c985bbd8185aa1f3",tooltip="Phương thức ánh xạ lựa chọn menu của người dùng sang hành động tương ứng."];
 }

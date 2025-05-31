@@ -13,14 +13,15 @@ var class_menu_manager =
     ] ],
     [ "UserMenuChoice", "class_menu_manager.html#aef8a1257675d92e49269e7b8efb25b1e", [
       [ "CREATE_ORDER", "class_menu_manager.html#aef8a1257675d92e49269e7b8efb25b1eae456aba853f626bc94e8178e69256534", null ],
+      [ "VIEW_USER_ORDERS", "class_menu_manager.html#aef8a1257675d92e49269e7b8efb25b1ea2c281d5fa3a4688613b21cb3e8054f0d", null ],
       [ "FIND_MUSIC", "class_menu_manager.html#aef8a1257675d92e49269e7b8efb25b1ea99c7ee3ceed2de43cba6be95060dfa64", null ],
       [ "VIEW_ITEMS_IN_STOCK", "class_menu_manager.html#aef8a1257675d92e49269e7b8efb25b1ea0acd98225b7fc18c4c9680beda93d90b", null ],
       [ "LOGOUT", "class_menu_manager.html#aef8a1257675d92e49269e7b8efb25b1ea6b4ea69e17243db95f7b46c384d40370", null ]
     ] ],
-    [ "MenuManager", "class_menu_manager.html#acb71f6e58a24a60610d92f2237de66c8", null ],
-    [ "handleAdminMenu", "class_menu_manager.html#ab9eb817a98ce99de3f9ec9085c7b5047", null ],
+    [ "MenuManager", "class_menu_manager.html#ab7ed286379fcf5cf2d83af4b9e7d50c7", null ],
+    [ "handleAdminMenu", "class_menu_manager.html#a7218c16f7845afadeee623eac7b3e61f", null ],
     [ "handleLoginMenu", "class_menu_manager.html#adf186d5845ae71077d7cb24d789b87f9", null ],
-    [ "handleUserMenu", "class_menu_manager.html#aaeac36b924ef1421613aaa4ae1053e75", null ],
+    [ "handleUserMenu", "class_menu_manager.html#a789a3e07e55faa6ce7104c9d11f2b2e4", null ],
     [ "mapAdminMenuChoiceToMenuAction", "class_menu_manager.html#a7e623aa73ee0e46b9e81a05f4c9e09b2", null ],
     [ "mapUserMenuChoiceToMenuAction", "class_menu_manager.html#a8510d774e6baac60c985bbd8185aa1f3", null ]
 ];

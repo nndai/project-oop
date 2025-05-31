@@ -1,22 +1,9 @@
 var searchData=
 [
-  ['getallcustomers_0',['getAllCustomers',['../class_customer_manager.html#aa66c737b51c070c5a8eda9d9671b3fe4',1,'CustomerManager']]],
-  ['getallitems_1',['getAllItems',['../class_music_store.html#a14153c71fd0df9ecf07693aec0e5a96d',1,'MusicStore']]],
-  ['getallorders_2',['getAllOrders',['../class_order_manager.html#ade23935ce27f7d1855b13c94b80489af',1,'OrderManager']]],
-  ['getartist_3',['getArtist',['../class_music_item.html#a0ca958fe365f07b1a924110973d4b1af',1,'MusicItem']]],
-  ['getcategory_4',['getCategory',['../class_music_item.html#ac1f754e24719c277c38c803d1eb30cd0',1,'MusicItem']]],
-  ['getcustomerid_5',['getCustomerId',['../class_order.html#aa9bd4e95d7c5b0c5228df91790a97647',1,'Order']]],
-  ['getid_6',['getId',['../class_customer.html#acdbe83bbd49996e9a3b62820433b6f5d',1,'Customer::getId()'],['../class_music_item.html#a59799c7e2c7725a5252912ae18e5e58f',1,'MusicItem::getId()'],['../class_order.html#a9506e43ee697e335b3e0e3ad04f4d8fa',1,'Order::getId()']]],
-  ['getitemsinstock_7',['getItemsInStock',['../class_music_store.html#aaf1c9ba5b2901ce7377d2e320d99e9b8',1,'MusicStore']]],
-  ['getname_8',['getName',['../class_customer.html#a54d175538cebde1559e82c644eba9f64',1,'Customer::getName()'],['../class_music_item.html#a2f3e586256888008e156f3db37a3fa32',1,'MusicItem::getName()']]],
-  ['getorderdate_9',['getOrderDate',['../class_order.html#a7308a302f6938344a624fb42883ee98b',1,'Order']]],
-  ['getorderdetails_10',['getOrderDetails',['../class_order.html#a20886fa81e96972d80f6ffe209ee4f1f',1,'Order']]],
-  ['getpoints_11',['getPoints',['../class_customer.html#a1cd4e11dac1304836eb79ff9443ed100',1,'Customer']]],
-  ['getprice_12',['getPrice',['../class_music_item.html#a16fb766d7b0d7bb2d613ef84c3a63c9a',1,'MusicItem']]],
-  ['getquantity_13',['getQuantity',['../class_music_item.html#aa5f940163343f9e05dd2eb730e0c04e8',1,'MusicItem']]],
-  ['getrole_14',['getRole',['../class_user.html#a374cbe023e5cc08bdec6d7d009c4cfe4',1,'User']]],
-  ['gettotalprice_15',['getTotalPrice',['../class_order.html#a4b3275b6e1f897c73e81f713ea36768f',1,'Order']]],
-  ['gettuple_16',['getTuple',['../class_customer.html#a16465f154a1c120d3fbbd1edb2b9a5eb',1,'Customer::getTuple()'],['../class_music_item.html#a965e0a034356724455102d7bd3cb7774',1,'MusicItem::getTuple()'],['../class_order.html#a13fdac3f0abd4c80e1ecfd014cda06ed',1,'Order::getTuple()']]],
-  ['gettype_17',['getType',['../class_customer.html#a4f77d0ffacbb1fe82f93fb45e0eba480',1,'Customer::getType()'],['../class_music_item.html#a3beacfa97b185f010bd1eaa3ef9394dd',1,'MusicItem::getType()']]],
-  ['getusername_18',['getUsername',['../class_user.html#a7079d6aefd9d1b930d837039c1b3e7df',1,'User']]]
+  ['findcustomerbyid_0',['findCustomerById',['../class_customer_manager.html#a0e4e9e95351ba60995e31fa6c7e4bcd2',1,'CustomerManager']]],
+  ['findcustomerbyusername_1',['findCustomerByUserName',['../class_customer_manager.html#ab29cc718b201e08d2198e8176693d81c',1,'CustomerManager']]],
+  ['finditemaction_2',['FindItemAction',['../class_find_item_action.html#aa1d99304d504d9bc3dbc882541d2dbdf',1,'FindItemAction']]],
+  ['finditembyid_3',['findItemById',['../class_music_store.html#a4c1591f36468be80c3a7e0aef3dd43b1',1,'MusicStore']]],
+  ['finditemsbyartist_4',['findItemsByArtist',['../class_music_store.html#a4df55b99b24df60f90fcb6332b14abdb',1,'MusicStore']]],
+  ['finditemsbyname_5',['findItemsByName',['../class_music_store.html#ae54bdb064b1c442f4b8df2c11c873ee7',1,'MusicStore']]]
 ];

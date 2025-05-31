@@ -1,14 +1,17 @@
 var annotated_dup =
 [
     [ "AddItemAction", "class_add_item_action.html", "class_add_item_action" ],
+    [ "AdminCreateOrderAction", "class_admin_create_order_action.html", "class_admin_create_order_action" ],
     [ "AuthManager", "class_auth_manager.html", "class_auth_manager" ],
-    [ "CreateOrderAction", "class_create_order_action.html", "class_create_order_action" ],
+    [ "CreateOrderActionBase", "class_create_order_action_base.html", "class_create_order_action_base" ],
     [ "Customer", "class_customer.html", "class_customer" ],
     [ "CustomerManager", "class_customer_manager.html", "class_customer_manager" ],
     [ "Database", "class_database.html", "class_database" ],
     [ "DisplayAllItemsAction", "class_display_all_items_action.html", "class_display_all_items_action" ],
     [ "EditItemAction", "class_edit_item_action.html", "class_edit_item_action" ],
+    [ "ExportInvoice", "class_export_invoice.html", null ],
     [ "FindItemAction", "class_find_item_action.html", "class_find_item_action" ],
+    [ "Hasher", "class_hasher.html", null ],
     [ "IMenuAction", "class_i_menu_action.html", "class_i_menu_action" ],
     [ "ItemInStockAction", "class_item_in_stock_action.html", "class_item_in_stock_action" ],
     [ "ManageCustomersAction", "class_manage_customers_action.html", "class_manage_customers_action" ],
@@ -19,8 +22,9 @@ var annotated_dup =
     [ "Order", "class_order.html", "class_order" ],
     [ "OrderManager", "class_order_manager.html", "class_order_manager" ],
     [ "RemoveItemAction", "class_remove_item_action.html", "class_remove_item_action" ],
-    [ "SoldItemsAction", "class_sold_items_action.html", "class_sold_items_action" ],
     [ "TableUI", "class_table_u_i.html", null ],
     [ "User", "class_user.html", "class_user" ],
-    [ "ViewOrdersAction", "class_view_orders_action.html", "class_view_orders_action" ]
+    [ "UserCreateOrderAction", "class_user_create_order_action.html", "class_user_create_order_action" ],
+    [ "ViewOrdersAction", "class_view_orders_action.html", "class_view_orders_action" ],
+    [ "ViewUserOrdersAction", "class_view_user_orders_action.html", "class_view_user_orders_action" ]
 ];

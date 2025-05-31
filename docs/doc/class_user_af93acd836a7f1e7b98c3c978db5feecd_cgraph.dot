@@ -1,0 +1,13 @@
+digraph "User::User"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="LR";
+  Node1 [id="Node000001",label="User::User",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Constructor khởi tạo người dùng với tên đăng nhập, mật khẩu và vai trò."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="Hasher::generateSalt",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hasher.html#a6816ae366f985a83de0a0f9d9e728f92",tooltip="Tạo salt ngẫu nhiên."];
+  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="Hasher::hashWithSalt",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_hasher.html#a5726bf416c887088e25fadab2aab5b20",tooltip="Băm mật khẩu với thuật toán SHA-256 tùy chỉnh."];
+}

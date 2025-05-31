@@ -5,5 +5,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="MusicItem",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_music_item.html",tooltip="Lớp đại diện cho một mặt hàng âm nhạc, bao gồm các thuộc tính như ID, thể loại, loại,..."];
+  Node0 [id="Node000000",label="MenuActionFactory",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_menu_action_factory.html",tooltip="Lớp cung cấp phương thức tạo đối tượng hành động dựa trên lựa chọn menu của người dùng."];
 }

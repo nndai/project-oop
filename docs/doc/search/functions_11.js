@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['_7edatabase_0',['~Database',['../class_database.html#a84d399a2ad58d69daab9b05330e1316d',1,'Database']]],
-  ['_7eimenuaction_1',['~IMenuAction',['../class_i_menu_action.html#ad61fa8cb83375ce2e77c2f80db4dbf70',1,'IMenuAction']]]
+  ['verify_0',['verify',['../class_hasher.html#a56c146a76df6d706552dbda24a4351cc',1,'Hasher']]],
+  ['viewordersaction_1',['ViewOrdersAction',['../class_view_orders_action.html#a4d1175d1ee67761a788fcb3f4628805a',1,'ViewOrdersAction']]],
+  ['viewuserordersaction_2',['ViewUserOrdersAction',['../class_view_user_orders_action.html#aed58dbe9431cb7ced290bd1961275b2c',1,'ViewUserOrdersAction']]]
 ];

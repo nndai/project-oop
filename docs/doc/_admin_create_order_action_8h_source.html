@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Music Store Project: src/AdminCreateOrderAction.h Source File</title>
+<title>Music Store Project: D:/project-oop/src/AdminCreateOrderAction.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -105,31 +105,32 @@ $(function(){initNavTree('_admin_create_order_action_8h_source.html',''); initRe
   <div class="headertitle"><div class="title">AdminCreateOrderAction.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_admin_create_order_action_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef ADD_ITEM_ACTION_H_</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define ADD_ITEM_ACTION_H_</span></div>
+<a href="_admin_create_order_action_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef ADMIN_CREATE_ORDER_ACTION_H_</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define ADMIN_CREATE_ORDER_ACTION_H_</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_i_menu_action_8h.html">IMenuAction.h</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_music_store_8h.html">MusicStore.h</a>&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">class </span><a class="code hl_class" href="class_add_item_action.html">AddItemAction</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_i_menu_action.html">IMenuAction</a> {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    MusicStore* _store;  </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_create_order_action_base_8h.html">CreateOrderActionBase.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;limits&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span></div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_admin_create_order_action.html">   19</a></span><span class="keyword">class </span><a class="code hl_function" href="class_admin_create_order_action.html#abb9199f71b614d18c223fdabb9c5a08b">AdminCreateOrderAction</a> : <span class="keyword">public</span> <a class="code hl_function" href="class_create_order_action_base.html#a35fe435e20b7600a591ab08d1cb0971d">CreateOrderActionBase</a> {</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_add_item_action.html#a6ef1dddcf7271018fe1505134b1c41fc">   25</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="class_add_item_action.html#a6ef1dddcf7271018fe1505134b1c41fc">AddItemAction</a>(<a class="code hl_class" href="class_music_store.html">MusicStore</a>* store);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_add_item_action.html#a9a09e4012abaed578beb9602b2b5643e">   30</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_add_item_action.html#a9a09e4012abaed578beb9602b2b5643e">execute</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="a_i_menu_action_8h_html"><div class="ttname"><a href="_i_menu_action_8h.html">IMenuAction.h</a></div><div class="ttdoc">Định nghĩa giao diện IMenuAction cho các hành động trong menu của ứng dụng cửa hàng âm nhạc.</div></div>
-<div class="ttc" id="a_music_store_8h_html"><div class="ttname"><a href="_music_store_8h.html">MusicStore.h</a></div><div class="ttdoc">Định nghĩa lớp MusicStore để quản lý các mặt hàng âm nhạc trong cửa hàng.</div></div>
-<div class="ttc" id="aclass_add_item_action_html"><div class="ttname"><a href="class_add_item_action.html">AddItemAction</a></div><div class="ttdoc">Lớp thực thi hành động thêm một mục âm nhạc vào cửa hàng, tuân theo giao diện IMenuAction.</div><div class="ttdef"><b>Definition</b> AddItemAction.h:16</div></div>
-<div class="ttc" id="aclass_add_item_action_html_a6ef1dddcf7271018fe1505134b1c41fc"><div class="ttname"><a href="class_add_item_action.html#a6ef1dddcf7271018fe1505134b1c41fc">AddItemAction::AddItemAction</a></div><div class="ttdeci">AddItemAction(MusicStore *store)</div><div class="ttdoc">Constructor khởi tạo với tham chiếu đến đối tượng MusicStore.</div></div>
-<div class="ttc" id="aclass_add_item_action_html_a9a09e4012abaed578beb9602b2b5643e"><div class="ttname"><a href="class_add_item_action.html#a9a09e4012abaed578beb9602b2b5643e">AddItemAction::execute</a></div><div class="ttdeci">void execute() override</div><div class="ttdoc">Ghi đè phương thức execute từ IMenuAction để thực hiện hành động thêm mặt hàng.</div></div>
-<div class="ttc" id="aclass_i_menu_action_html"><div class="ttname"><a href="class_i_menu_action.html">IMenuAction</a></div><div class="ttdoc">Giao diện định nghĩa hành động cần thực hiện khi người dùng tương tác với menu. Các lớp kế thừa cần t...</div><div class="ttdef"><b>Definition</b> IMenuAction.h:14</div></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_function" href="class_admin_create_order_action.html#abb9199f71b614d18c223fdabb9c5a08b">AdminCreateOrderAction</a>(<a class="code hl_class" href="class_music_store.html">MusicStore</a>* store, <a class="code hl_class" href="class_customer_manager.html">CustomerManager</a>* customer_manager, <a class="code hl_class" href="class_order_manager.html">OrderManager</a>* order_manager);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_admin_create_order_action.html#a18315096a71acac2ca2f042ca71b7c12">execute</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
+</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_create_order_action_base_8h_html"><div class="ttname"><a href="_create_order_action_base_8h.html">CreateOrderActionBase.h</a></div><div class="ttdoc">Định nghĩa lớp cơ sở cho hành động tạo đơn hàng, dùng chung cho cả quản trị viên và người dùng.</div></div>
+<div class="ttc" id="aclass_admin_create_order_action_html_a18315096a71acac2ca2f042ca71b7c12"><div class="ttname"><a href="class_admin_create_order_action.html#a18315096a71acac2ca2f042ca71b7c12">AdminCreateOrderAction::execute</a></div><div class="ttdeci">void execute() override</div><div class="ttdoc">Thực thi hành động tạo đơn hàng mới. Ghi đè phương thức execute từ giao diện IMenuAction.</div><div class="ttdef"><b>Definition</b> AdminCreateOrderAction.cpp:7</div></div>
+<div class="ttc" id="aclass_admin_create_order_action_html_abb9199f71b614d18c223fdabb9c5a08b"><div class="ttname"><a href="class_admin_create_order_action.html#abb9199f71b614d18c223fdabb9c5a08b">AdminCreateOrderAction::AdminCreateOrderAction</a></div><div class="ttdeci">AdminCreateOrderAction(MusicStore *store, CustomerManager *customer_manager, OrderManager *order_manager)</div><div class="ttdoc">Constructor khởi tạo AdminCreateOrderAction với các đối tượng cần thiết.</div><div class="ttdef"><b>Definition</b> AdminCreateOrderAction.cpp:3</div></div>
+<div class="ttc" id="aclass_create_order_action_base_html_a35fe435e20b7600a591ab08d1cb0971d"><div class="ttname"><a href="class_create_order_action_base.html#a35fe435e20b7600a591ab08d1cb0971d">CreateOrderActionBase::CreateOrderActionBase</a></div><div class="ttdeci">CreateOrderActionBase(MusicStore *store, CustomerManager *customer_manager, OrderManager *order_manager)</div><div class="ttdoc">Constructor khởi tạo CreateOrderActionBase với các đối tượng cần thiết.</div><div class="ttdef"><b>Definition</b> CreateOrderActionBase.h:42</div></div>
+<div class="ttc" id="aclass_customer_manager_html"><div class="ttname"><a href="class_customer_manager.html">CustomerManager</a></div><div class="ttdoc">Lớp chịu trách nhiệm quản lý các thao tác liên quan đến khách hàng, bao gồm thêm, xóa,...</div><div class="ttdef"><b>Definition</b> CustomerManager.h:19</div></div>
 <div class="ttc" id="aclass_music_store_html"><div class="ttname"><a href="class_music_store.html">MusicStore</a></div><div class="ttdoc">Lớp đại diện cho cửa hàng âm nhạc, cung cấp các thao tác thêm, xóa, cập nhật và truy vấn mặt hàng.</div><div class="ttdef"><b>Definition</b> MusicStore.h:20</div></div>
+<div class="ttc" id="aclass_order_manager_html"><div class="ttname"><a href="class_order_manager.html">OrderManager</a></div><div class="ttdoc">Lớp đại diện cho trình quản lý đơn hàng, cho phép tạo và truy xuất các đơn hàng từ cơ sở dữ liệu.</div><div class="ttdef"><b>Definition</b> OrderManager.h:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

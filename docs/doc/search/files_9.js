@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['solditemsaction_2ecpp_0',['SoldItemsAction.cpp',['../_sold_items_action_8cpp.html',1,'']]],
-  ['solditemsaction_2eh_1',['SoldItemsAction.h',['../_sold_items_action_8h.html',1,'']]]
+  ['removeitemaction_2ecpp_0',['RemoveItemAction.cpp',['../_remove_item_action_8cpp.html',1,'']]],
+  ['removeitemaction_2eh_1',['RemoveItemAction.h',['../_remove_item_action_8h.html',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['solditemsaction_0',['SoldItemsAction',['../class_sold_items_action.html',1,'']]]
+  ['removeitemaction_0',['RemoveItemAction',['../class_remove_item_action.html',1,'']]]
 ];

@@ -7,4 +7,6 @@ digraph "ViewOrdersAction"
   Node1 [id="Node000001",label="ViewOrdersAction",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Lớp đại diện cho hành động xem tất cả các đơn hàng, triển khai từ IMenuAction."];
   Node2 -> Node1 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="IMenuAction",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_i_menu_action.html",tooltip="Giao diện định nghĩa hành động cần thực hiện khi người dùng tương tác với menu. Các lớp kế thừa cần t..."];
+  Node3 -> Node1 [id="edge2_Node000001_Node000003",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" _order_manager",fontcolor="grey" ];
+  Node3 [id="Node000003",label="OrderManager",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$class_order_manager.html",tooltip="Lớp đại diện cho trình quản lý đơn hàng, cho phép tạo và truy xuất các đơn hàng từ cơ sở dữ liệu."];
 }

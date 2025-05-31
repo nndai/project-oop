@@ -118,19 +118,19 @@ $(function(){initNavTree('class_menu_action_factory.html',''); initResizable(tru
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:af537e2144cf12e478a76a8927f7bc9b7" id="r_af537e2144cf12e478a76a8927f7bc9b7"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7">MenuChoice</a> { <br />
-&#160;&#160;<a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7ae456aba853f626bc94e8178e69256534">CREATE_ORDER</a> = 1
+&#160;&#160;<a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7a7827f76112809d0d8a1a0dc1cec2b125">USER_CREATE_ORDER</a> = 1
 , <a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7a99c7ee3ceed2de43cba6be95060dfa64">FIND_MUSIC</a>
-, <a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7a83115d5102f24cfa1627d9e8cd77bb7f">SOLD_ITEMS</a>
 , <a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7a3455b386fda9c56b1e15b09020cf0c45">ITEM_IN_STOCK</a>
+, <a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7a55b34cd0ff49e5bf9dc67d2453c9b6cf">SHOW_ALL_ITEMS</a>
 , <br />
-&#160;&#160;<a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7a55b34cd0ff49e5bf9dc67d2453c9b6cf">SHOW_ALL_ITEMS</a>
-, <a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7a98f893fedb29553c6c9c09c62bb4afdd">ADD_NEW_ITEM</a>
+&#160;&#160;<a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7a98f893fedb29553c6c9c09c62bb4afdd">ADD_NEW_ITEM</a>
 , <a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7aebabdeaf451109a01e643440327010f8">EDIT_ITEM</a>
 , <a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7aeb4a15354cb9ad2a22879038f77c5d8b">REMOVE_ITEM</a>
+, <a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7ad63b0c4c8193fa9f986840e346c74f9f">VIEW_ORDERS</a>
 , <br />
-&#160;&#160;<a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7ad63b0c4c8193fa9f986840e346c74f9f">VIEW_ORDERS</a>
-, <a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7af684d147bf9412cacb3dbbbe01323a45">MANAGE_CUSTOMERS</a>
+&#160;&#160;<a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7af684d147bf9412cacb3dbbbe01323a45">MANAGE_CUSTOMERS</a>
 , <a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7a95c85fa8d0799c49cb76a4955ea2188d">ADMIN_CREATE_ORDER</a>
+, <a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7a2c281d5fa3a4688613b21cb3e8054f0d">VIEW_USER_ORDERS</a>
 , <a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7aa42b2fb0e720a080e79a92f4ca97d927">EXIT</a>
 <br />
  }</td></tr>
@@ -139,9 +139,9 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a32ddbcab8fb1420b882b545589238006" id="r_a32ddbcab8fb1420b882b545589238006"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_i_menu_action.html">IMenuAction</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32ddbcab8fb1420b882b545589238006">createAction</a> (<a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7">MenuChoice</a> menu_choice, <a class="el" href="class_music_store.html">MusicStore</a> *store, <a class="el" href="class_customer_manager.html">CustomerManager</a> *customerManager, <a class="el" href="class_order_manager.html">OrderManager</a> *orderManager)</td></tr>
-<tr class="memdesc:a32ddbcab8fb1420b882b545589238006"><td class="mdescLeft">&#160;</td><td class="mdescRight">Phương thức tạo đối tượng hành động tương ứng với lựa chọn menu của người dùng.  <br /></td></tr>
-<tr class="separator:a32ddbcab8fb1420b882b545589238006"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7c127742c73d963ecb0c955cf736112" id="r_aa7c127742c73d963ecb0c955cf736112"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_i_menu_action.html">IMenuAction</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7c127742c73d963ecb0c955cf736112">createAction</a> (<a class="el" href="#af537e2144cf12e478a76a8927f7bc9b7">MenuChoice</a> menu_choice, <a class="el" href="class_music_store.html">MusicStore</a> *store, <a class="el" href="class_customer_manager.html">CustomerManager</a> *customer_manager, <a class="el" href="class_order_manager.html">OrderManager</a> *order_manager, <a class="el" href="class_user.html">User</a> *user)</td></tr>
+<tr class="memdesc:aa7c127742c73d963ecb0c955cf736112"><td class="mdescLeft">&#160;</td><td class="mdescRight">Phương thức tạo đối tượng hành động tương ứng với lựa chọn menu của người dùng.  <br /></td></tr>
+<tr class="separator:aa7c127742c73d963ecb0c955cf736112"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Lớp cung cấp phương thức tạo đối tượng hành động dựa trên lựa chọn menu của người dùng. </p>
@@ -168,11 +168,9 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Các lựa chọn menu có sẵn trong ứng dụng. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af537e2144cf12e478a76a8927f7bc9b7ae456aba853f626bc94e8178e69256534" name="af537e2144cf12e478a76a8927f7bc9b7ae456aba853f626bc94e8178e69256534"></a>CREATE_ORDER&#160;</td><td class="fielddoc"><p>Tạo đơn hàng mới. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af537e2144cf12e478a76a8927f7bc9b7a7827f76112809d0d8a1a0dc1cec2b125" name="af537e2144cf12e478a76a8927f7bc9b7a7827f76112809d0d8a1a0dc1cec2b125"></a>USER_CREATE_ORDER&#160;</td><td class="fielddoc"><p>Tạo đơn hàng mới. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="af537e2144cf12e478a76a8927f7bc9b7a99c7ee3ceed2de43cba6be95060dfa64" name="af537e2144cf12e478a76a8927f7bc9b7a99c7ee3ceed2de43cba6be95060dfa64"></a>FIND_MUSIC&#160;</td><td class="fielddoc"><p>Tìm kiếm mặt hàng âm nhạc. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="af537e2144cf12e478a76a8927f7bc9b7a83115d5102f24cfa1627d9e8cd77bb7f" name="af537e2144cf12e478a76a8927f7bc9b7a83115d5102f24cfa1627d9e8cd77bb7f"></a>SOLD_ITEMS&#160;</td><td class="fielddoc"><p>Hiển thị mặt hàng đã bán. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="af537e2144cf12e478a76a8927f7bc9b7a3455b386fda9c56b1e15b09020cf0c45" name="af537e2144cf12e478a76a8927f7bc9b7a3455b386fda9c56b1e15b09020cf0c45"></a>ITEM_IN_STOCK&#160;</td><td class="fielddoc"><p>Hiển thị mặt hàng có sẵn trong kho. </p>
 </td></tr>
@@ -190,6 +188,8 @@ Static Public Member Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="af537e2144cf12e478a76a8927f7bc9b7a95c85fa8d0799c49cb76a4955ea2188d" name="af537e2144cf12e478a76a8927f7bc9b7a95c85fa8d0799c49cb76a4955ea2188d"></a>ADMIN_CREATE_ORDER&#160;</td><td class="fielddoc"><p>Quản lý đơn hàng của admin. </p>
 </td></tr>
+<tr><td class="fieldname"><a id="af537e2144cf12e478a76a8927f7bc9b7a2c281d5fa3a4688613b21cb3e8054f0d" name="af537e2144cf12e478a76a8927f7bc9b7a2c281d5fa3a4688613b21cb3e8054f0d"></a>VIEW_USER_ORDERS&#160;</td><td class="fielddoc"><p>Xem các đơn hàng của các khách hàng đã mua. </p>
+</td></tr>
 <tr><td class="fieldname"><a id="af537e2144cf12e478a76a8927f7bc9b7aa42b2fb0e720a080e79a92f4ca97d927" name="af537e2144cf12e478a76a8927f7bc9b7aa42b2fb0e720a080e79a92f4ca97d927"></a>EXIT&#160;</td><td class="fielddoc"><p>Thoát ứng dụng. </p>
 </td></tr>
 </table>
@@ -197,8 +197,8 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a32ddbcab8fb1420b882b545589238006" name="a32ddbcab8fb1420b882b545589238006"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32ddbcab8fb1420b882b545589238006">&#9670;&#160;</a></span>createAction()</h2>
+<a id="aa7c127742c73d963ecb0c955cf736112" name="aa7c127742c73d963ecb0c955cf736112"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7c127742c73d963ecb0c955cf736112">&#9670;&#160;</a></span>createAction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -219,12 +219,17 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_customer_manager.html">CustomerManager</a> *</td>          <td class="paramname"><span class="paramname"><em>customerManager</em></span>, </td>
+          <td class="paramtype"><a class="el" href="class_customer_manager.html">CustomerManager</a> *</td>          <td class="paramname"><span class="paramname"><em>customer_manager</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_order_manager.html">OrderManager</a> *</td>          <td class="paramname"><span class="paramname"><em>orderManager</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="class_order_manager.html">OrderManager</a> *</td>          <td class="paramname"><span class="paramname"><em>order_manager</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_user.html">User</a> *</td>          <td class="paramname"><span class="paramname"><em>user</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -239,8 +244,8 @@ Static Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">menu_choice</td><td>Lựa chọn menu của người dùng. </td></tr>
     <tr><td class="paramname">store</td><td>Con trỏ đến đối tượng <a class="el" href="class_music_store.html" title="Lớp đại diện cho cửa hàng âm nhạc, cung cấp các thao tác thêm, xóa, cập nhật và truy vấn mặt hàng.">MusicStore</a>. </td></tr>
-    <tr><td class="paramname">customerManager</td><td>Con trỏ đến đối tượng <a class="el" href="class_customer_manager.html" title="Lớp chịu trách nhiệm quản lý các thao tác liên quan đến khách hàng, bao gồm thêm, xóa,...">CustomerManager</a>. </td></tr>
-    <tr><td class="paramname">orderManager</td><td>Con trỏ đến đối tượng <a class="el" href="class_order_manager.html" title="Lớp đại diện cho trình quản lý đơn hàng, cho phép tạo và truy xuất các đơn hàng từ cơ sở dữ liệu.">OrderManager</a>. </td></tr>
+    <tr><td class="paramname">customer_manager</td><td>Con trỏ đến đối tượng <a class="el" href="class_customer_manager.html" title="Lớp chịu trách nhiệm quản lý các thao tác liên quan đến khách hàng, bao gồm thêm, xóa,...">CustomerManager</a>. </td></tr>
+    <tr><td class="paramname">order_manager</td><td>Con trỏ đến đối tượng <a class="el" href="class_order_manager.html" title="Lớp đại diện cho trình quản lý đơn hàng, cho phép tạo và truy xuất các đơn hàng từ cơ sở dữ liệu.">OrderManager</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -254,8 +259,8 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="_menu_action_factory_8h_source.html">MenuActionFactory.h</a></li>
-<li>src/<a class="el" href="_menu_action_factory_8cpp.html">MenuActionFactory.cpp</a></li>
+<li>D:/project-oop/src/<a class="el" href="_menu_action_factory_8h_source.html">MenuActionFactory.h</a></li>
+<li>D:/project-oop/src/<a class="el" href="_menu_action_factory_8cpp.html">MenuActionFactory.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

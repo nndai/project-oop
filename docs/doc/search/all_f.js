@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['tableui_0',['TableUI',['../class_table_u_i.html',1,'']]],
-  ['tableui_2ecpp_1',['TableUI.cpp',['../_table_u_i_8cpp.html',1,'']]],
-  ['tableui_2eh_2',['TableUI.h',['../_table_u_i_8h.html',1,'']]]
+  ['quantity_0',['quantity',['../struct_order_1_1_order_detail.html#ae6f4ddc2b0830ab1365a0e30d7269ff2',1,'Order::OrderDetail']]],
+  ['query_1',['query',['../class_database.html#aed416f2a94616a6e1f8d22ac75530d24',1,'Database']]]
 ];

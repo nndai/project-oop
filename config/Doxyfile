@@ -2,10 +2,10 @@
 PROJECT_NAME           = "Music Store Project"
 
 # Đầu ra cho tài liệu HTML
-OUTPUT_DIRECTORY       = docs/doc
+OUTPUT_DIRECTORY       = ../docs/doc
 
 # Thư mục chứa mã nguồn, "." nghĩa là thư mục hiện tại
-INPUT                  = ./src
+INPUT                  = ../src
 
 # Định dạng mã nguồn là C++
 FILE_PATTERNS          = *.cpp \

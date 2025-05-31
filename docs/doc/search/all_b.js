@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['price_0',['price',['../struct_order_1_1_order_detail.html#a468c3c76e0834054c57e1c11ebd568e9',1,'Order::OrderDetail']]],
-  ['print_1',['print',['../class_table_u_i.html#a7780bfa2c06d1e17fbe58cc8e7081c84',1,'TableUI']]]
+  ['list_0',['Deprecated List',['../deprecated.html',1,'']]],
+  ['login_1',['login',['../class_auth_manager.html#a84acfd1ef4e87d4e4415b28ef1226ac1',1,'AuthManager']]],
+  ['logout_2',['LOGOUT',['../class_menu_manager.html#a063aa7b7e903da4bd4200faea0c4cecda6b4ea69e17243db95f7b46c384d40370',1,'MenuManager::LOGOUT'],['../class_menu_manager.html#aef8a1257675d92e49269e7b8efb25b1ea6b4ea69e17243db95f7b46c384d40370',1,'MenuManager::LOGOUT']]]
 ];

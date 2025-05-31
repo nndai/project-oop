@@ -7,7 +7,5 @@ digraph "MusicItem::display"
   rankdir="LR";
   Node1 [id="Node000001",label="MusicItem::display",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Hiển thị thông tin của mặt hàng dưới dạng bảng."];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",color="steelblue1",style="solid",tooltip=" "];
-  Node2 [id="Node000002",label="MusicItem::getTuple",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_music_item.html#a965e0a034356724455102d7bd3cb7774",tooltip="Lấy một vector chứa các giá trị của các thuộc tính của mặt hàng, dùng để hiển thị trong bảng."];
-  Node1 -> Node3 [id="edge2_Node000001_Node000003",color="steelblue1",style="solid",tooltip=" "];
-  Node3 [id="Node000003",label="TableUI::print",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_table_u_i.html#a7780bfa2c06d1e17fbe58cc8e7081c84",tooltip="In ra bảng từ một danh sách các hàng (tuples), mỗi hàng là một vector chuỗi."];
+  Node2 [id="Node000002",label="TableUI::print",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_table_u_i.html#a7780bfa2c06d1e17fbe58cc8e7081c84",tooltip="In ra bảng từ một danh sách các hàng (tuples), mỗi hàng là một vector chuỗi."];
 }

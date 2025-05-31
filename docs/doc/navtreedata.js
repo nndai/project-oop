@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "Music Store Project", "index.html", [
+    [ "Deprecated List", "deprecated.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -40,7 +41,8 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ]
+        [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", null ]
       ] ]
     ] ]
   ] ]
@@ -48,7 +50,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_add_item_action_8cpp.html"
+"_add_item_action_8cpp.html",
+"class_view_orders_action.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

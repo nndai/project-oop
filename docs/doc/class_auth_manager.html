@@ -117,14 +117,14 @@ $(function(){initNavTree('class_auth_manager.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abe80b21dd34c487443a70a19c8823b4b" id="r_abe80b21dd34c487443a70a19c8823b4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe80b21dd34c487443a70a19c8823b4b">AuthManager</a> (<a class="el" href="class_database.html">Database</a> *db)</td></tr>
-<tr class="memdesc:abe80b21dd34c487443a70a19c8823b4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor khởi tạo <a class="el" href="class_auth_manager.html" title="Lớp quản lý xác thực người dùng và đăng ký tài khoản mới.">AuthManager</a> với cơ sở dữ liệu.  <br /></td></tr>
+<tr class="memdesc:abe80b21dd34c487443a70a19c8823b4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor khởi tạo <a class="el" href="class_auth_manager.html" title="Lớp quản lý xác thực người dùng và đăng ký tài khoản mới.">AuthManager</a>.  <br /></td></tr>
 <tr class="separator:abe80b21dd34c487443a70a19c8823b4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84acfd1ef4e87d4e4415b28ef1226ac1" id="r_a84acfd1ef4e87d4e4415b28ef1226ac1"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="class_user.html">User</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84acfd1ef4e87d4e4415b28ef1226ac1">login</a> (const std::string &amp;username, const std::string &amp;password)</td></tr>
-<tr class="memdesc:a84acfd1ef4e87d4e4415b28ef1226ac1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thực hiện đăng nhập người dùng với tên đăng nhập và mật khẩu.  <br /></td></tr>
+<tr class="memdesc:a84acfd1ef4e87d4e4415b28ef1226ac1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Đăng nhập người dùng.  <br /></td></tr>
 <tr class="separator:a84acfd1ef4e87d4e4415b28ef1226ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dbc70af7e9f327fb79c6281436a0b5d" id="r_a9dbc70af7e9f327fb79c6281436a0b5d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9dbc70af7e9f327fb79c6281436a0b5d">registerUser</a> (const std::string &amp;username, const std::string &amp;password)</td></tr>
-<tr class="memdesc:a9dbc70af7e9f327fb79c6281436a0b5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Đăng ký người dùng mới.  <br /></td></tr>
-<tr class="separator:a9dbc70af7e9f327fb79c6281436a0b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84c57ed6f92626da5efd62730398642b" id="r_a84c57ed6f92626da5efd62730398642b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84c57ed6f92626da5efd62730398642b">registerUser</a> (const std::string &amp;username, const std::string &amp;password, const std::string &amp;name)</td></tr>
+<tr class="memdesc:a84c57ed6f92626da5efd62730398642b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Đăng ký người dùng mới.  <br /></td></tr>
+<tr class="separator:a84c57ed6f92626da5efd62730398642b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Lớp quản lý xác thực người dùng và đăng ký tài khoản mới. </p>
@@ -152,10 +152,10 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor khởi tạo <a class="el" href="class_auth_manager.html" title="Lớp quản lý xác thực người dùng và đăng ký tài khoản mới.">AuthManager</a> với cơ sở dữ liệu. </p>
+<p>Constructor khởi tạo <a class="el" href="class_auth_manager.html" title="Lớp quản lý xác thực người dùng và đăng ký tài khoản mới.">AuthManager</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">db</td><td>Con trỏ đến đối tượng <a class="el" href="class_database.html" title="Lớp bao bọc các thao tác kết nối và truy vấn cơ bản với cơ sở dữ liệu MySQL.">Database</a> chứa thông tin người dùng. </td></tr>
+    <tr><td class="paramname">db</td><td>Con trỏ đến đối tượng <a class="el" href="class_database.html" title="Lớp bao bọc các thao tác kết nối và truy vấn MySQL với hỗ trợ prepared statements.">Database</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -182,20 +182,25 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Thực hiện đăng nhập người dùng với tên đăng nhập và mật khẩu. </p>
+<p>Đăng nhập người dùng. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">username</td><td>Tên đăng nhập. </td></tr>
-    <tr><td class="paramname">password</td><td>Mật khẩu. </td></tr>
+    <tr><td class="paramname">username</td><td>Tên đăng nhập </td></tr>
+    <tr><td class="paramname">password</td><td>Mật khẩu </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::optional&lt;User&gt;: Trả về đối tượng <a class="el" href="class_user.html" title="Lớp đại diện cho người dùng, bao gồm tên đăng nhập, mật khẩu và vai trò (quản trị viên hoặc người dùn...">User</a> nếu đăng nhập thành công, ngược lại trả về std::nullopt. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::optional&lt;User&gt; chứa thông tin user nếu đăng nhập thành công </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><!-- SVG 0 --></div>
+</div>
 
 </div>
 </div>
-<a id="a9dbc70af7e9f327fb79c6281436a0b5d" name="a9dbc70af7e9f327fb79c6281436a0b5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dbc70af7e9f327fb79c6281436a0b5d">&#9670;&#160;</a></span>registerUser()</h2>
+<a id="a84c57ed6f92626da5efd62730398642b" name="a84c57ed6f92626da5efd62730398642b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84c57ed6f92626da5efd62730398642b">&#9670;&#160;</a></span>registerUser()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -208,7 +213,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>password</em></span>&#160;)</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>password</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -216,18 +226,30 @@ Public Member Functions</h2></td></tr>
 <p>Đăng ký người dùng mới. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">username</td><td>Tên đăng nhập mong muốn. </td></tr>
-    <tr><td class="paramname">password</td><td>Mật khẩu cho tài khoản mới. </td></tr>
+    <tr><td class="paramname">username</td><td>Tên đăng nhập (4-16 ký tự) </td></tr>
+    <tr><td class="paramname">password</td><td>Mật khẩu (4-16 ký tự) </td></tr>
+    <tr><td class="paramname">name</td><td>Tên người dùng </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true nếu đăng ký thành công, false nếu tên đăng nhập đã tồn tại hoặc lỗi khác. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true nếu đăng ký thành công </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>nếu username/password không hợp lệ </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><!-- SVG 1 --></div>
+</div>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="_auth_manager_8h_source.html">AuthManager.h</a></li>
-<li>src/<a class="el" href="_auth_manager_8cpp.html">AuthManager.cpp</a></li>
+<li>D:/project-oop/src/<a class="el" href="_auth_manager_8h_source.html">AuthManager.h</a></li>
+<li>D:/project-oop/src/<a class="el" href="_auth_manager_8cpp.html">AuthManager.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

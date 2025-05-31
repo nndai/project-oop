@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['order_0',['Order',['../class_order.html',1,'']]],
-  ['orderdetail_1',['OrderDetail',['../struct_order_1_1_order_detail.html',1,'Order']]],
-  ['ordermanager_2',['OrderManager',['../class_order_manager.html',1,'']]]
+  ['managecustomersaction_0',['ManageCustomersAction',['../class_manage_customers_action.html',1,'']]],
+  ['menuactionfactory_1',['MenuActionFactory',['../class_menu_action_factory.html',1,'']]],
+  ['menumanager_2',['MenuManager',['../class_menu_manager.html',1,'']]],
+  ['musicitem_3',['MusicItem',['../class_music_item.html',1,'']]],
+  ['musicstore_4',['MusicStore',['../class_music_store.html',1,'']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Music Store Project: src/User.h Source File</title>
+<title>Music Store Project: D:/project-oop/src/User.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -112,34 +112,48 @@ $(function(){initNavTree('_user_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span></div>
 <div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_user.html">   15</a></span><span class="keyword">class </span><a class="code hl_function" href="class_user.html#a66dddb18433e622ec54ef412b8954a8a">User</a> {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="class_user.html">   15</a></span><span class="keyword">class </span><a class="code hl_function" href="class_user.html#af93acd836a7f1e7b98c3c978db5feecd">User</a> {</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">enum class</span> UserType {</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        ADMIN = 1, </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        USER,      </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        USER       </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    };</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    std::string _username; </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    std::string _password; </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    UserType _role;        </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_function" href="class_user.html#a66dddb18433e622ec54ef412b8954a8a">User</a>(<span class="keyword">const</span> std::string&amp; username, <span class="keyword">const</span> std::string&amp; password, <span class="keyword">const</span> std::string&amp; role);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    std::string <a class="code hl_function" href="class_user.html#a7079d6aefd9d1b930d837039c1b3e7df">getUsername</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    std::string <a class="code hl_function" href="class_user.html#a374cbe023e5cc08bdec6d7d009c4cfe4">getRole</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_user.html#a9d69b7eccc909bb3744cb93822197fd9">checkPassword</a>(<span class="keyword">const</span> std::string&amp; password) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>};</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    std::string _username;       </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    std::string _hashed_password;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    std::string _salt;          </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    UserType _role;             </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">int</span> _customer_id;            </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <a class="code hl_function" href="class_user.html#af93acd836a7f1e7b98c3c978db5feecd">User</a>(<span class="keyword">const</span> std::string&amp; username, <span class="keyword">const</span> std::string&amp; password, <span class="keyword">const</span> std::string&amp; role, <span class="keywordtype">int</span> customer_id);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_user.html#a8db68f60bd1e3d5f1260f17709efc532">setCustomerId</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_user.html#a791a1d962592262d05677c00214176ee">getCustomerId</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    std::string <a class="code hl_function" href="class_user.html#a7079d6aefd9d1b930d837039c1b3e7df">getUsername</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    std::string <a class="code hl_function" href="class_user.html#a374cbe023e5cc08bdec6d7d009c4cfe4">getRole</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_user.html#a9d69b7eccc909bb3744cb93822197fd9">checkPassword</a>(<span class="keyword">const</span> std::string&amp; password) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="class_user.html#a41612a2b6f50c42eb2ac1752167259cb">   77</a></span>    std::string <a class="code hl_function" href="class_user.html#a41612a2b6f50c42eb2ac1752167259cb">getHashedPassword</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="class_user.html#a5c274c6e049a3f8740475da60d97ac08">   83</a></span>    std::string <a class="code hl_function" href="class_user.html#a5c274c6e049a3f8740475da60d97ac08">getSalt</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>};</div>
 </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclass_user_html_a374cbe023e5cc08bdec6d7d009c4cfe4"><div class="ttname"><a href="class_user.html#a374cbe023e5cc08bdec6d7d009c4cfe4">User::getRole</a></div><div class="ttdeci">std::string getRole() const</div><div class="ttdoc">Lấy vai trò của người dùng dưới dạng chuỗi.</div><div class="ttdef"><b>Definition</b> User.cpp:21</div></div>
-<div class="ttc" id="aclass_user_html_a66dddb18433e622ec54ef412b8954a8a"><div class="ttname"><a href="class_user.html#a66dddb18433e622ec54ef412b8954a8a">User::User</a></div><div class="ttdeci">User(const std::string &amp;username, const std::string &amp;password, const std::string &amp;role)</div><div class="ttdoc">Constructor khởi tạo người dùng với tên đăng nhập, mật khẩu và vai trò.</div><div class="ttdef"><b>Definition</b> User.cpp:4</div></div>
-<div class="ttc" id="aclass_user_html_a7079d6aefd9d1b930d837039c1b3e7df"><div class="ttname"><a href="class_user.html#a7079d6aefd9d1b930d837039c1b3e7df">User::getUsername</a></div><div class="ttdeci">std::string getUsername() const</div><div class="ttdoc">Lấy tên đăng nhập của người dùng.</div><div class="ttdef"><b>Definition</b> User.cpp:17</div></div>
-<div class="ttc" id="aclass_user_html_a9d69b7eccc909bb3744cb93822197fd9"><div class="ttname"><a href="class_user.html#a9d69b7eccc909bb3744cb93822197fd9">User::checkPassword</a></div><div class="ttdeci">bool checkPassword(const std::string &amp;password) const</div><div class="ttdoc">Kiểm tra xem mật khẩu đầu vào có trùng với mật khẩu người dùng không.</div><div class="ttdef"><b>Definition</b> User.cpp:25</div></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_user_html_a374cbe023e5cc08bdec6d7d009c4cfe4"><div class="ttname"><a href="class_user.html#a374cbe023e5cc08bdec6d7d009c4cfe4">User::getRole</a></div><div class="ttdeci">std::string getRole() const</div><div class="ttdoc">Lấy vai trò người dùng dưới dạng chuỗi.</div><div class="ttdef"><b>Definition</b> User.cpp:51</div></div>
+<div class="ttc" id="aclass_user_html_a41612a2b6f50c42eb2ac1752167259cb"><div class="ttname"><a href="class_user.html#a41612a2b6f50c42eb2ac1752167259cb">User::getHashedPassword</a></div><div class="ttdeci">std::string getHashedPassword() const</div><div class="ttdoc">Lấy mật khẩu đã được hash.</div></div>
+<div class="ttc" id="aclass_user_html_a5c274c6e049a3f8740475da60d97ac08"><div class="ttname"><a href="class_user.html#a5c274c6e049a3f8740475da60d97ac08">User::getSalt</a></div><div class="ttdeci">std::string getSalt() const</div><div class="ttdoc">Lấy salt dùng để mã hóa mật khẩu.</div></div>
+<div class="ttc" id="aclass_user_html_a7079d6aefd9d1b930d837039c1b3e7df"><div class="ttname"><a href="class_user.html#a7079d6aefd9d1b930d837039c1b3e7df">User::getUsername</a></div><div class="ttdeci">std::string getUsername() const</div><div class="ttdoc">Lấy tên đăng nhập.</div><div class="ttdef"><b>Definition</b> User.cpp:36</div></div>
+<div class="ttc" id="aclass_user_html_a791a1d962592262d05677c00214176ee"><div class="ttname"><a href="class_user.html#a791a1d962592262d05677c00214176ee">User::getCustomerId</a></div><div class="ttdeci">int getCustomerId() const</div><div class="ttdoc">Lấy ID khách hàng liên kết với người dùng.</div><div class="ttdef"><b>Definition</b> User.cpp:40</div></div>
+<div class="ttc" id="aclass_user_html_a8db68f60bd1e3d5f1260f17709efc532"><div class="ttname"><a href="class_user.html#a8db68f60bd1e3d5f1260f17709efc532">User::setCustomerId</a></div><div class="ttdeci">void setCustomerId(int id)</div><div class="ttdoc">Đặt ID khách hàng liên kết với người dùng.</div><div class="ttdef"><b>Definition</b> User.cpp:44</div></div>
+<div class="ttc" id="aclass_user_html_a9d69b7eccc909bb3744cb93822197fd9"><div class="ttname"><a href="class_user.html#a9d69b7eccc909bb3744cb93822197fd9">User::checkPassword</a></div><div class="ttdeci">bool checkPassword(const std::string &amp;password) const</div><div class="ttdoc">Kiểm tra xem mật khẩu nhập vào có đúng không.</div><div class="ttdef"><b>Definition</b> User.cpp:55</div></div>
+<div class="ttc" id="aclass_user_html_af93acd836a7f1e7b98c3c978db5feecd"><div class="ttname"><a href="class_user.html#af93acd836a7f1e7b98c3c978db5feecd">User::User</a></div><div class="ttdeci">User(const std::string &amp;username, const std::string &amp;password, const std::string &amp;role, int customer_id)</div><div class="ttdoc">Constructor khởi tạo người dùng với tên đăng nhập, mật khẩu và vai trò.</div><div class="ttdef"><b>Definition</b> User.cpp:6</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

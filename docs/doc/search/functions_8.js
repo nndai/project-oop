@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['login_0',['login',['../class_auth_manager.html#a84acfd1ef4e87d4e4415b28ef1226ac1',1,'AuthManager']]]
+  ['iteminstockaction_0',['ItemInStockAction',['../class_item_in_stock_action.html#a252f94f03241c6ce05fa73d295ab20f7',1,'ItemInStockAction']]]
 ];

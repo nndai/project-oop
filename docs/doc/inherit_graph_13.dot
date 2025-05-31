@@ -5,5 +5,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="User",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_user.html",tooltip="Lớp đại diện cho người dùng, bao gồm tên đăng nhập, mật khẩu và vai trò (quản trị viên hoặc người dùn..."];
+  Node0 [id="Node000000",label="OrderManager",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$class_order_manager.html",tooltip="Lớp đại diện cho trình quản lý đơn hàng, cho phép tạo và truy xuất các đơn hàng từ cơ sở dữ liệu."];
 }

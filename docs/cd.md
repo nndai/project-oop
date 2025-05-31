@@ -41,6 +41,50 @@ classDiagram
         +getAllItems(): vector~MusicItem~&
     }
 
+    class Customer {
+        -int _id
+        -string _name
+        -string _phone
+        -string _address
+        +getId() int
+        +getName() string
+        +getPhone() string
+        +getAddress() string
+        +setId(int)
+        +setName(string)
+        +setPhone(string)
+        +setAddress(string)
+    }
+
+    class User {
+        -string _username
+        -string _hashedPassword
+        -string _salt
+        -string _role
+        -int _customerId
+        +User(username, password, role, customer_id)
+        +getCustomerId() int
+        +setCustomerId(int)
+        +getUsername() string
+        +getRole() string
+        +checkPassword(string) bool
+        +getHashedPassword() string
+        +getSalt() string
+    }
+
+    class Order {
+        -int _id
+        -int _customerId
+        -string _orderDate
+        -vector~MusicItem~ _items
+        +setId(int)
+        +setOrderDate(string)
+        +getId() int
+        +getCustomerId() int
+        +getOrderDate() string
+        +getItems() vector~MusicItem~
+    }
+
     class Database {
         -MYSQL* _conn
         +connect(host, user, pass, db): bool
@@ -49,48 +93,69 @@ classDiagram
         +getConnection(): MYSQL*
     }
 
+    class AuthManager {
+        +login(username, password): optional~User~
+        +registerUser(username, password, name): bool
+    }
+
+    class Hasher {
+        +generateSalt(length): string
+        +hashPassword(password, salt, iterations): string
+        +verifyPassword(password, salt, hash, iterations): bool
+    }
+
+    class TableUI {
+        +print(vector~MusicItem~)
+        +print(MusicItem)
+        +print(vector~Order~)
+        +print(vector~Customer~)
+        +print(ofstream, vector~vector~string~~)
+    }
+
+    class ExportInvoice {
+        +exportInvoiceToFile(Order, Customer, string): bool
+    }
+
+    class CustomerManager {
+        +addCustomer(Customer)
+        +findCustomerById(int): Customer*
+        +findCustomerByName(string): vector~Customer~
+        +getAllCustomers(): vector~Customer~
+    }
+
     class IMenuAction {
         <<interface>>
         +execute()
     }
 
     class AddItemAction {
-        -MusicStore* _store
         +execute()
     }
-
     class RemoveItemAction {
-        -MusicStore* _store
         +execute()
     }
-
     class FindItemAction {
-        -MusicStore* _store
         +execute()
     }
-
     class DisplayAllItemsAction {
-        -MusicStore* _store
         +execute()
     }
-
     class EditItemAction {
-        -MusicStore* _store
         +execute()
     }
-
-    class CreateOrderAction {
-        -MusicStore* _store
-        +execute()
-    }
-
     class ItemInStockAction {
-        -MusicStore* _store
         +execute()
     }
-
     class SoldItemsAction {
-        -MusicStore* _store
+        +execute()
+    }
+    class AdminCreateOrderAction {
+        +execute()
+    }
+    class UserCreateOrderAction {
+        +execute()
+    }
+    class CreateOrderActionBase {
         +execute()
     }
 
@@ -100,12 +165,18 @@ classDiagram
 
     %% Relationships
     MusicStore "1" --> "*" MusicItem
+    Order "1" --> "*" MusicItem
+    Order "*" --> "1" Customer
+    User "*" --> "1" Customer
     IMenuAction <|-- AddItemAction
     IMenuAction <|-- RemoveItemAction
     IMenuAction <|-- FindItemAction
     IMenuAction <|-- DisplayAllItemsAction
     IMenuAction <|-- EditItemAction
-    IMenuAction <|-- CreateOrderAction
     IMenuAction <|-- ItemInStockAction
     IMenuAction <|-- SoldItemsAction
+    IMenuAction <|-- AdminCreateOrderAction
+    IMenuAction <|-- UserCreateOrderAction
+    AdminCreateOrderAction --|> CreateOrderActionBase
+    UserCreateOrderAction --|> CreateOrderActionBase
 ```

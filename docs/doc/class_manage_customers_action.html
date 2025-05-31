@@ -126,12 +126,15 @@ Collaboration diagram for ManageCustomersAction:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a30002317c4851fe3df8e982de209005c" id="r_a30002317c4851fe3df8e982de209005c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30002317c4851fe3df8e982de209005c">ManageCustomersAction</a> (<a class="el" href="class_customer_manager.html">CustomerManager</a> *customerManager)</td></tr>
-<tr class="memdesc:a30002317c4851fe3df8e982de209005c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor khởi tạo hành động quản lý khách hàng với đối tượng <a class="el" href="class_customer_manager.html" title="Lớp chịu trách nhiệm quản lý các thao tác liên quan đến khách hàng, bao gồm thêm, xóa,...">CustomerManager</a> cụ thể.  <br /></td></tr>
-<tr class="separator:a30002317c4851fe3df8e982de209005c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a125f22e1b8f756027af92c0e0ee11405" id="r_a125f22e1b8f756027af92c0e0ee11405"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a125f22e1b8f756027af92c0e0ee11405">ManageCustomersAction</a> (<a class="el" href="class_customer_manager.html">CustomerManager</a> *customer_manager, <a class="el" href="class_order_manager.html">OrderManager</a> *order_manager)</td></tr>
+<tr class="memdesc:a125f22e1b8f756027af92c0e0ee11405"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor khởi tạo hành động quản lý khách hàng với đối tượng <a class="el" href="class_customer_manager.html" title="Lớp chịu trách nhiệm quản lý các thao tác liên quan đến khách hàng, bao gồm thêm, xóa,...">CustomerManager</a> cụ thể.  <br /></td></tr>
+<tr class="separator:a125f22e1b8f756027af92c0e0ee11405"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae13d71ec451cf01bc6d8d7b81ff45225" id="r_ae13d71ec451cf01bc6d8d7b81ff45225"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae13d71ec451cf01bc6d8d7b81ff45225">execute</a> () override</td></tr>
 <tr class="memdesc:ae13d71ec451cf01bc6d8d7b81ff45225"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ghi đè phương thức execute để thực hiện việc quản lý khách hàng. Phương thức này sẽ hiển thị menu quản lý khách hàng và xử lý các thao tác tương ứng.  <br /></td></tr>
 <tr class="separator:ae13d71ec451cf01bc6d8d7b81ff45225"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10f7ffed8ce9eabffe0e728bc67a07ae" id="r_a10f7ffed8ce9eabffe0e728bc67a07ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10f7ffed8ce9eabffe0e728bc67a07ae">printAllCustomers</a> ()</td></tr>
+<tr class="memdesc:a10f7ffed8ce9eabffe0e728bc67a07ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">In ra danh sách tất cả khách hàng trong hệ thống. Phương thức này sẽ lấy danh sách khách hàng từ <a class="el" href="class_customer_manager.html" title="Lớp chịu trách nhiệm quản lý các thao tác liên quan đến khách hàng, bao gồm thêm, xóa,...">CustomerManager</a> và hiển thị chúng.  <br /></td></tr>
+<tr class="separator:a10f7ffed8ce9eabffe0e728bc67a07ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_menu_action"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_i_menu_action')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_menu_action.html">IMenuAction</a></td></tr>
 <tr class="memitem:ad61fa8cb83375ce2e77c2f80db4dbf70 inherit pub_methods_class_i_menu_action" id="r_ad61fa8cb83375ce2e77c2f80db4dbf70"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_menu_action.html#ad61fa8cb83375ce2e77c2f80db4dbf70">~IMenuAction</a> ()=default</td></tr>
 <tr class="memdesc:ad61fa8cb83375ce2e77c2f80db4dbf70 inherit pub_methods_class_i_menu_action"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor để đảm bảo hủy đối tượng đúng cách khi thông qua con trỏ hoặc tham chiếu cơ sở.  <br /></td></tr>
@@ -140,8 +143,8 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Lớp thực hiện hành động quản lý khách hàng, bao gồm thêm, xóa, cập nhật và hiển thị danh sách khách hàng. Triển khai giao diện <a class="el" href="class_i_menu_action.html" title="Giao diện định nghĩa hành động cần thực hiện khi người dùng tương tác với menu. Các lớp kế thừa cần t...">IMenuAction</a>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a30002317c4851fe3df8e982de209005c" name="a30002317c4851fe3df8e982de209005c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30002317c4851fe3df8e982de209005c">&#9670;&#160;</a></span>ManageCustomersAction()</h2>
+<a id="a125f22e1b8f756027af92c0e0ee11405" name="a125f22e1b8f756027af92c0e0ee11405"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a125f22e1b8f756027af92c0e0ee11405">&#9670;&#160;</a></span>ManageCustomersAction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,8 +155,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">ManageCustomersAction::ManageCustomersAction </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_customer_manager.html">CustomerManager</a> *</td>          <td class="paramname"><span class="paramname"><em>customerManager</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_customer_manager.html">CustomerManager</a> *</td>          <td class="paramname"><span class="paramname"><em>customer_manager</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="class_order_manager.html">OrderManager</a> *</td>          <td class="paramname"><span class="paramname"><em>order_manager</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -166,7 +173,8 @@ Public Member Functions</h2></td></tr>
 <p>Constructor khởi tạo hành động quản lý khách hàng với đối tượng <a class="el" href="class_customer_manager.html" title="Lớp chịu trách nhiệm quản lý các thao tác liên quan đến khách hàng, bao gồm thêm, xóa,...">CustomerManager</a> cụ thể. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">customerManager</td><td>Con trỏ đến đối tượng <a class="el" href="class_customer_manager.html" title="Lớp chịu trách nhiệm quản lý các thao tác liên quan đến khách hàng, bao gồm thêm, xóa,...">CustomerManager</a>. </td></tr>
+    <tr><td class="paramname">customer_manager</td><td>Con trỏ đến đối tượng <a class="el" href="class_customer_manager.html" title="Lớp chịu trách nhiệm quản lý các thao tác liên quan đến khách hàng, bao gồm thêm, xóa,...">CustomerManager</a>. </td></tr>
+    <tr><td class="paramname">order_manager</td><td>Con trỏ đến đối tượng <a class="el" href="class_order_manager.html" title="Lớp đại diện cho trình quản lý đơn hàng, cho phép tạo và truy xuất các đơn hàng từ cơ sở dữ liệu.">OrderManager</a> để quản lý đơn hàng liên quan đến khách hàng. </td></tr>
   </table>
   </dd>
 </dl>
@@ -208,9 +216,38 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a id="a10f7ffed8ce9eabffe0e728bc67a07ae" name="a10f7ffed8ce9eabffe0e728bc67a07ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10f7ffed8ce9eabffe0e728bc67a07ae">&#9670;&#160;</a></span>printAllCustomers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ManageCustomersAction::printAllCustomers </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>In ra danh sách tất cả khách hàng trong hệ thống. Phương thức này sẽ lấy danh sách khách hàng từ <a class="el" href="class_customer_manager.html" title="Lớp chịu trách nhiệm quản lý các thao tác liên quan đến khách hàng, bao gồm thêm, xóa,...">CustomerManager</a> và hiển thị chúng. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><!-- SVG 3 --></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><!-- SVG 4 --></div>
+</div>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/<a class="el" href="_manage_customers_action_8h_source.html">ManageCustomersAction.h</a></li>
-<li>src/<a class="el" href="_manage_customers_action_8cpp.html">ManageCustomersAction.cpp</a></li>
+<li>D:/project-oop/src/<a class="el" href="_manage_customers_action_8h_source.html">ManageCustomersAction.h</a></li>
+<li>D:/project-oop/src/<a class="el" href="_manage_customers_action_8cpp.html">ManageCustomersAction.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
