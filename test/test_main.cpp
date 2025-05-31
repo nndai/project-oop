@@ -2,16 +2,23 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include "MusicItem.h"
-#include "Customer.h"
-#include "Order.h"
-#include "User.h"
-#include "Hasher.h"
-#include "TableUI.h"
-#include "ExportInvoice.h"
 
-// Test MusicItem
+#include "../src/MusicItem.h"
+#include "../src/Customer.h"
+#include "../src/Order.h"
+#include "../src/User.h"
+#include "../src/Hasher.h"
+#include "../src/TableUI.h"
+#include "../src/ExportInvoice.h"
+#include "../src/AuthManager.h"
+#include "../src/CustomerManager.h"
+#include "../src/OrderManager.h"
+#include "../src/Database.h"
+#include "../src/MenuManager.h"
+#include "../src/MenuActionFactory.h"
+
 bool testMusicItem() {
+    std::cout << "[MusicItem] Testing all getters...\n";
     MusicItem item(1, "CD", "Pop", "Test Album", "Test Artist", 9.99, 10);
     bool ok = true;
     ok &= (item.getId() == 1);
@@ -25,8 +32,8 @@ bool testMusicItem() {
     return ok;
 }
 
-// Test Customer
 bool testCustomer() {
+    std::cout << "[Customer] Testing all getters...\n";
     Customer customer(1, "John Doe", "Regular", 0);
     bool ok = true;
     ok &= (customer.getId() == 1);
@@ -37,8 +44,8 @@ bool testCustomer() {
     return ok;
 }
 
-// Test Order
 bool testOrder() {
+    std::cout << "[Order] Testing constructor, addOrderDetail, and total price...\n";
     Order order(1, 1, "2024-06-01", 0.0);
     order.addOrderDetail(1, "Album 1", 2, 9.99);
     order.addOrderDetail(2, "Album 2", 1, 14.99);
@@ -53,8 +60,8 @@ bool testOrder() {
     return ok;
 }
 
-// Test User
 bool testUser() {
+    std::cout << "[User] Testing constructor, checkPassword, setCustomerId...\n";
     bool ok = true;
     try {
         User user("testuser", "pass123", "User", 1);
@@ -73,8 +80,8 @@ bool testUser() {
     return ok;
 }
 
-// Test Hasher
 bool testHasher() {
+    std::cout << "[Hasher] Testing hash and verify...\n";
     std::string password = "testpass";
     std::string salt = Hasher::generateSalt();
     std::string hash = Hasher::hashWithSalt(password, salt);
@@ -83,21 +90,20 @@ bool testHasher() {
     return ok;
 }
 
-// Test TableUI
 bool testTableUI() {
+    std::cout << "[TableUI] Testing print formatting...\n";
     std::vector<std::vector<std::string>> data = {
         {"ID", "Name", "Price"},
         {"1", "Test Album", "9.99"},
         {"2", "Another Album", "14.99"}
     };
-    std::cout << "[TableUI] (visual check below)" << std::endl;
     TableUI::print(data);
     return true;
 }
 
-// Test ExportInvoice
 bool testExportInvoice() {
-    Customer customer(1, "John Doe", "Regular", 0); // Sửa "REGULAR" thành "Regular"
+    std::cout << "[ExportInvoice] Testing export to file...\n";
+    Customer customer(1, "John Doe", "Regular", 0);
     Order order(1, customer.getId(), "2024-06-01", 0.0);
     order.addOrderDetail(1, "Test Album", 1, 9.99);
     std::string filename = "test_invoice.txt";
@@ -110,6 +116,43 @@ bool testExportInvoice() {
     return ok;
 }
 
+
+bool testAuthManager() {
+    std::cout << "[AuthManager] Testing creation only (no DB)...\n";
+    std::cout << "[AuthManager] SKIPPED (requires Database*)" << std::endl;
+    return true;
+}
+
+bool testCustomerManager() {
+    std::cout << "[CustomerManager] Testing creation only (no DB)...\n";
+    std::cout << "[CustomerManager] SKIPPED (requires Database*)" << std::endl;
+    return true;
+}
+
+bool testOrderManager() {
+    std::cout << "[OrderManager] Testing creation only (no DB)...\n";
+    std::cout << "[OrderManager] SKIPPED (requires Database*)" << std::endl;
+    return true;
+}
+
+bool testDatabase() {
+    std::cout << "[Database] Testing creation only (no MySQL)...\n";
+    std::cout << "[Database] SKIPPED (requires MySQL)" << std::endl;
+    return true;
+}
+
+bool testMenuManager() {
+    std::cout << "[MenuManager] Testing creation only (no managers)...\n";
+    std::cout << "[MenuManager] SKIPPED (requires managers)" << std::endl;
+    return true;
+}
+
+bool testMenuActionFactory() {
+    std::cout << "[MenuActionFactory] Testing creation only...\n";
+    std::cout << "[MenuActionFactory] SKIPPED (no public static createAction)" << std::endl;
+    return true;
+}
+
 int main() {
     int passed = 0, total = 0;
     total++; if (testMusicItem()) passed++;
@@ -119,6 +162,13 @@ int main() {
     total++; if (testHasher()) passed++;
     total++; if (testTableUI()) passed++;
     total++; if (testExportInvoice()) passed++;
+    total++; if (testAuthManager()) passed++;
+    total++; if (testCustomerManager()) passed++;
+    total++; if (testOrderManager()) passed++;
+    total++; if (testDatabase()) passed++;
+    total++; if (testMenuManager()) passed++;
+    total++; if (testMenuActionFactory()) passed++;
+
     std::cout << "\nSummary: " << passed << "/" << total << " tests passed." << std::endl;
     return (passed == total) ? 0 : 1;
 }

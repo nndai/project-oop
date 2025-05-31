@@ -25,7 +25,6 @@
 var NAVTREE =
 [
   [ "Music Store Project", "index.html", [
-    [ "Deprecated List", "deprecated.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

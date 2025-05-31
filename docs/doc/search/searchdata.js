@@ -6,8 +6,7 @@ var indexSectionsWithContent =
   3: "abcdefghilmopqrsuv~",
   4: "_akmpq",
   5: "acmu",
-  6: "acefilmrsuv",
-  7: "dl"
+  6: "acefilmrsuv"
 };
 
 var indexSectionNames =
@@ -18,8 +17,7 @@ var indexSectionNames =
   3: "functions",
   4: "variables",
   5: "enums",
-  6: "enumvalues",
-  7: "pages"
+  6: "enumvalues"
 };
 
 var indexSectionLabels =
@@ -30,7 +28,6 @@ var indexSectionLabels =
   3: "Functions",
   4: "Variables",
   5: "Enumerations",
-  6: "Enumerator",
-  7: "Pages"
+  6: "Enumerator"
 };
 
