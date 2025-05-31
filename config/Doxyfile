@@ -1,44 +1,29 @@
-# Tên dự án của bạn
+# Tên dự án
 PROJECT_NAME           = "Music Store Project"
 
-# Đầu ra cho tài liệu HTML
-OUTPUT_DIRECTORY       = ../docs/doc
-
-# Thư mục chứa mã nguồn, "." nghĩa là thư mục hiện tại
+# Thư mục chứa mã nguồn
 INPUT                  = ../src
 
-# Định dạng mã nguồn là C++
-FILE_PATTERNS          = *.cpp \
-                         *.h
+# Bao gồm các tệp C++ (*.cpp và *.h)
+FILE_PATTERNS          = *.cpp *.h
 
-# Cho phép Doxygen quét các thư mục con
+# Quét đệ quy các thư mục con
 RECURSIVE              = YES
 
-# Trích xuất tất cả các chú thích
+# Trích xuất tất cả (kể cả những phần không có comment)
 EXTRACT_ALL            = YES
 
 # Tạo tài liệu HTML
 GENERATE_HTML          = YES
 
-# Tắt việc tạo tài liệu LaTeX
+# Không tạo tài liệu LaTeX
 GENERATE_LATEX         = NO
 
-# Tạo một file HTML duy nhất thay vì thư mục
-HTML_DYNAMIC_SECTIONS  = NO
-HTML_FILE_EXTENSION    = .html
-HTML_OUTPUT            = .
+# Thư mục chứa kết quả đầu ra
+OUTPUT_DIRECTORY       = ../docs/doc
 
-# Tạo một file JavaScript duy nhất
-HTML_USE_JQUERY        = NO
-
-# Tắt cảnh báo về các phần không có tài liệu
+# Tắt cảnh báo về các phần chưa có tài liệu
 WARN_IF_UNDOCUMENTED   = NO
 
-# Tạo đồ họa của các lớp và quan hệ gọi
-HAVE_DOT               = YES
-CALL_GRAPH             = YES
-CALLER_GRAPH           = YES
-CLASS_DIAGRAMS         = YES
-
-# Định dạng ảnh là SVG để dễ dàng chèn vào trong HTML
-DOT_IMAGE_FORMAT       = svg
+# Bật sơ đồ lớp nếu có Graphviz
+HAVE_DOT               = NO
